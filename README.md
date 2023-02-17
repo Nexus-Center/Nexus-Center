@@ -13,5 +13,5 @@ Nexus Center é um projeto que está sendo desenvolvido durante o 2º semestre d
 
 ##
 
-Documentos do Projeto: ----
+Documentos do Projeto: https://bandteccom.sharepoint.com/:f:/s/Grupo6187/EsZlTxSeNNxBncao4l69x6kB5bferdnx5u-SCeYUEdGx6Q?e=xodenZ
 
