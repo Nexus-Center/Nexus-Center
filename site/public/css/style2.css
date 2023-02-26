@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+    background-color: #00204E;
+}
+/* CABEÇALHO */
+.cabecalho .container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+
+}
+.cabecalho h1{
+    width: 30%;
+    margin: 40px;
+}
+.cabecalho a{
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: white;
+}
+.cabecalho .selecionado{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+.cabecalho img{
+    height: 70px;
+}
+.cabecalho .container .barrnaveg{
+    width: 70%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end   ;
+
+}
+.barrnaveg li{
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 30px;
+    font-size: 25px;
+}
+.barrnaveg .botao{
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 2px solid white;
+    border-radius: 4px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.barrnaveg img{
+    height: 20px;
+    padding-right: 10px;
+
+}
+.barrnaveg .cadeadoLogin{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+/* FIM DO CABEÇALHO */
