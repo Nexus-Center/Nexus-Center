@@ -61,3 +61,73 @@ body{
     margin-bottom: 2px;
 }
 /* FIM DO CABEÇALHO */
+/* FOOTER */
+.footer{
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+
+}
+.footer {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    
+
+}
+.footer .logo{
+    width: 33.33%;
+    margin: auto;
+}
+.footer .links{
+    width: 33.33%;
+}
+.footer .links li{
+    list-style: none;
+}
+.footer .redesSociais{
+    width: 33.33%;
+}
+.footer .redesSociais li{
+    list-style: none;
+    margin: 0%;
+}
+.footer .redesSociais .conteudoRedesSoc{
+    display: flex;
+    justify-content: space-evenly;
+    
+    
+}
+.footer .redesSociais .conteudoRedesSoc img{
+height: 40px;
+}
+.footer .redesSociais .conteudoRedesSoc li{
+    
+justify-content: space-between;
+    
+}
+.footer img{
+    height: 70px;
+    align-items: center;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+.barrinha{
+    margin-top: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 90%;
+    border-radius: 5px;
+    border: 3px solid white;
+}
+.direitos{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+}
+/* FIM DO FOOTER */
