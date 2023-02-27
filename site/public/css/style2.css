@@ -23,6 +23,11 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: white;
+    
+}
+.cabecalho a:hover{
+    text-shadow: 0.03em 0.03em 0.3em white;
+    transition: 0.5s;
 }
 .cabecalho .selecionado{
     font-family: Arial, Helvetica, sans-serif;
@@ -43,6 +48,7 @@ body{
     margin-bottom: auto;
     padding: 30px;
     font-size: 25px;
+    
 }
 .barrnaveg .botao{
     padding-bottom: 6px;
@@ -78,6 +84,23 @@ body{
 .containerslogan .ladoesquerdo{
     width: 50%;
     font-size: 50px;
+}
+.containerslogan .ladoesquerdo button{
+    font-size: 20px;
+    color: white;
+    background: #00EB25;
+    border: darkblue;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 100px;
+    
+}
+.containerslogan .ladoesquerdo button:hover{
+    box-shadow: 0.03em 0.03em 0.5em #00EB25;
+    cursor: pointer;
+    transition: 0.5s;
+    
+
 }
 .containerslogan .ladodireito{
     width: 50%;
