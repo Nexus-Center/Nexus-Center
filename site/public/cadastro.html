@@ -6,18 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nexus Center | Cadastro</title>
-
-
-    <script src="./js/funcoes.js"></script>
-
-
-    <!-- <link rel="icon" href="./assets/icon/favicon2.ico"> -->
+    <script src="./js/cadastro.js"></script>
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <title>Nexus Center | Cadastro</title>
+
+    <!-- <link rel="icon" href="./assets/icon/favicon2.ico"> -->
 </head>
 
 <body>
@@ -25,7 +23,11 @@
     <!--header inicio-->
     <header>
         <div class="container">
-            <a href="./index2.html"><img class="logo" src="./assets/logo.png" alt="Logo da Nexus Center"></a>
+            <a href="./index2.html">
+                <img src="./assets/logo.png" alt="Logo da Nexus Center" srcset="./assets/logo.png 705w"
+                    sizes="(max-width:768px) 50px, 120px">
+                <!-- <img class="logo" src="./assets/logo.png" alt="Logo da Nexus Center"> -->
+            </a>
             <ul class="navbar">
                 <li>
                     <a href="./index2.html">Home</a>
@@ -40,6 +42,27 @@
                     <a class="login" href="./login.html"><img src="./assets/cadeado_login.png" alt="cadeado"> Login</a>
                 </li>
             </ul>
+
+            <div class="menu_lateral">
+
+                <div class="hamburger">
+                    <div class="line" id="line1"></div>
+                    <div class="line" id="line2"></div>
+                    <div class="line" id="line3"></div>
+                </div>
+
+                <aside class="sidebar">
+                    <nav>
+                        <ul class="menu">
+                            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+                            <li class="menu-item"><a href="#" class="menu-link">Sobre Nós</a></li>
+                            <li class="menu-item"><a href="#" class="menu-link">Serviços</a></li>
+                            <li class="menu-item"><a href="#" class="menu-link">Login</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+            </div>
+
         </div>
     </header>
     <!--header fim-->
@@ -66,7 +89,7 @@
                      -->
 
                     <span class="tipo_campo">Nome Completo</span>
-                    <input id="nome_input" type="text" placeholder= "Nome Completo">
+                    <input id="nome_input" type="text" placeholder="Nome Completo">
 
                     <span class="tipo_campo">E-mail</span>
                     <input id="email_input" type="text" placeholder="usuario@email.com">
@@ -82,14 +105,15 @@
 
                     <div class="termos">
                         <input type="checkbox" id="termos">
-                        <label for="termos">Li e aceito os <a href="">Termos de Uso e Política de Privacidade</a></label>
+                        <label for="termos">Li e aceito os <a href="">Termos de Uso e Política de
+                                Privacidade</a></label>
                     </div>
 
-                    <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                    <button class="btn_cadastrar" onclick="cadastrar()">Cadastrar</button>
 
                 </div>
             </div>
-            
+
         </div>
         <img class="fundo" src="./assets/cadastro/fundo_cadastro.png" alt="Imagem para tela de Cadastro">
     </div>
