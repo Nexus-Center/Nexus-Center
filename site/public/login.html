@@ -11,7 +11,7 @@
     <!-- Link css Login -->
     <link rel="stylesheet" href="./css/login.css">
     <!-- Link css menu-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
 
 </head>
 
@@ -28,9 +28,9 @@
             <!-- Links -->
             <div class="container-mae-links">
                 <ul class="nav-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#sobreNosHome">Sobre Nós</a></li>
-                    <li><a href="index.html">Serviços</a></li>
+                    <li><a href="link">Home</a></li>
+                    <li><a href="link">Sobre Nós</a></li>
+                    <li><a href="link">Serviços</a></li>
 
                     <!-- Botão Login (Redireciona ao Login) -->
                     <a href="link">
@@ -91,12 +91,21 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-
                         <span class="tipo_campo">Email</span>
-                        <input id="email_input" type="text" placeholder="&#xf0e0   |   usuario@email.com">
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i class="ph-envelope-simple"></i>
+                            </div>
+                            <input id="email_input" type="text" placeholder="| usuario@email.com                                            " maxlength="35">
+                        </div>
 
                         <span class="tipo_campo">Senha</span>
-                        <input id="senha_input" type="number" placeholder="&#xf023  |   **********">
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i class="ph-envelope-simple"></i>
+                            </div>
+                            <input id="email_input" type="text" placeholder="| ************                                                " maxlength="20">
+                        </div>
 
                     </div>
 
