@@ -9,9 +9,10 @@ body {
 /* header */
 
 header {
-  padding: 15px 0;
+  padding: 1% 0;
   background-color: #00204E;
 }
+
 
 .container {
   width: 80%;
@@ -81,7 +82,7 @@ header a {
 }
 
 .card h2 {
-  font-size: 30px;
+  font-size: 1.9rem;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -91,7 +92,7 @@ header a {
   margin: 0;
   padding: 0;
   width: auto;
-  font-size: 16px;
+  font-size: 0.45em;
 }
 /* 
 .banner .container span {
@@ -169,7 +170,7 @@ button {
 .fundo{
   display: flex;
   justify-content: flex-end;
-  height: 647px;
+  height: 89vh;
   /* width: 10px; */
 }
 
@@ -186,10 +187,183 @@ button {
   color:#00204E
 }
 
-.formulario button{
+.formulario .btn_cadastrar{
   background-color: #00204E;
   color:#FFFFFF;
   padding: 10px 0;
   border-radius: 10px;
   font-weight: bold;
+}
+
+/* menu hamburguer */
+.menu_lateral{
+  display: none;
+}
+
+.hamburger{
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  z-index: 5;
+  right: 2rem;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.line{
+  /* display: none; */
+  width: 100%;
+  height: .1rem;
+  padding: 1px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0.1rem 0.1rem 3px rgba(0, 0, 0, 0.788);
+  transition: transform .7s;
+}
+
+.show-menu #line1{
+  transform: rotate(45deg) translate(.4rem, .9rem);
+  background-color: white;
+  box-shadow: none;
+}
+
+.show-menu #line2{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-menu #line3{
+  transform: rotate(-45deg) translate(.3rem, -.9rem);
+  background-color: white;
+  box-shadow: none;
+}
+
+.sidebar{
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background: #00204E;
+  box-shadow: 10px 5px 15px 10px rgba(0, 0, 0, 0.582);
+  position: fixed;
+  top: 0;
+  right: -100%;
+  transition: all .8s;
+}
+
+.show-menu .sidebar{
+  right: 0;
+}
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  margin-top: 68vh;
+  margin-left: 13vh;
+  align-items: baseline;
+}
+
+.menu-item{
+  display: none;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-left: 36px;
+  font-size: 20px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.menu-link{
+  font-family:sans-serif;
+  font-size: 2rem;
+  color: rgb(245, 245, 245);
+  transition: color .7s;
+  line-height: 9vh;
+}
+
+.menu-link:hover{
+  color: white;
+  transition: color .7s;
+}
+
+/* responsividade */
+
+
+@media (max-width: 974px) {
+  .nav-list .login {
+      margin-left: 6vh;
+}
+}
+
+
+/* Responsividade 768px - Menu */
+@media (max-width: 768px) {
+
+  /* menu lateral */
+  .navbar {
+    display: none;
+  }
+
+  .menu_lateral{
+    display: block;
+  }
+
+  .line {
+      display: block;
+  }
+
+  .nav-list {
+      display: none;
+  }
+
+  .sidebar {
+      display: block;
+  }
+
+  .menu-item {
+      display: block;
+  }
+
+  /* conteudo */
+  .banner .container{
+    width: 30%;
+  }
+
+  .cabecalho h2{
+    font-size: 16px;
+  }
+
+  .banner .cabecalho p {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    font-size: 10px;
+  }
+
+  .formulario .tipo_campo {
+    font-size: 10px;
+  }
+  
+  .formulario input {
+    margin: 3px 0 13px 0;
+    border: 1px solid #000000;
+    padding: 3px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 10px;
+  }
+  
+  .termos label{
+    font-size: 8px;
+  }
+  
+  .fundo{
+    display: flex;
+    justify-content: flex-end;
+    height: 462px;
+  }
 }
