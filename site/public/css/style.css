@@ -1,0 +1,902 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;1,300&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik'; 
+    color: aliceblue;
+    background-color: #00204E;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* NAVBAR */
+a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00204E;
+    height: 12vh;
+    background-image: linear-gradient(to bottom, #437CCE38,#00204E );
+    z-index: 5;
+}
+
+.icone-logo {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 5%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin-top: 0.5vh;
+    align-items: center;
+}
+.nav-list li:hover{
+    text-shadow: 0.03em 0.03em 0.5em #50FF6B;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.container-mae-links .nav-list li {
+    letter-spacing: 1px;
+    margin-left: 36px;
+    font-size: 20px;
+    padding: 2px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-list .login {
+    margin-left: 15vh;
+}
+
+/* Botão que direciona ao login */
+.login {
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 8px 5px 8px;
+    background-color: #00204E;
+    color: #FFFFFF;
+    font-size: 20px;
+    
+    
+    
+}
+.login:hover{
+    cursor: pointer;
+    font-size: 25px;
+    transition: 0.2s;
+}
+.menu li{
+padding: 5px 8px 5px 8px;
+}
+
+.container-mae-links {
+    margin-right: 10%;
+}
+
+
+/* Navbar responsiva */
+
+.hamburger{
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 5;
+    right: 3rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+
+.line{
+    display: none;
+    width: 100%;
+    height: .1rem;
+    padding: 1px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 3px rgba(0, 0, 0, 0.788);
+    transition: transform .7s;
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(.4rem, .9rem);
+    background-color: white;
+    box-shadow: none;
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.3rem, -.9rem);
+    background-color: white;
+    box-shadow: none;
+}
+
+.sidebar{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #00204E;
+    box-shadow: 10px 5px 15px 10px rgba(0, 0, 0, 0.582);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: all .8s;
+}
+
+.show-menu .sidebar{
+    right: 0;
+}
+
+.menu{
+    margin-top: 70vh;
+    margin-left: 5.5rem;
+}
+
+.menu-item{
+    display: none;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-left: 36px;
+    font-size: 20px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.menu-link{
+    font-family:sans-serif;
+    font-size: 2rem;
+    color: rgb(245, 245, 245);
+    transition: color .7s;
+    line-height: 9vh;
+}
+
+.menu-link:hover{
+    color: white;
+    transition: color .7s;
+}
+
+
+
+
+
+
+
+
+/* 1º CONTEÚDO DA PÁGINA */
+.bannerSlogan {
+    width: 100%;
+    gap: 1rem;
+    margin:auto ;
+    padding: auto;
+    padding-top: 10rem;
+    background-color: #00204E;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(../assets/effect.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: exclusion;
+    
+}
+.containerslogan{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5%;
+    width: 80%;
+    height: 80%;
+    gap: 6rem;
+    
+    
+}
+.ladoesquerdo{
+    font-family: 'Rubik';
+    width: 50%;
+    font-size: 50px;
+    color: white;
+    padding-top: 14%;
+    
+}
+
+.ladoesquerdo button{
+    font-size: 20px;
+    color: white;
+    background: #50FF6B;
+    border: darkblue;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 2rem;
+    
+}
+.ladoesquerdo button:hover{
+    box-shadow: 0.03em 0.03em 0.5em #50FF6B;
+    cursor: pointer;
+    transition: 0.5s;
+    
+
+}
+.ladodireito{
+    width: 50%;
+    justify-content: end;
+    
+}
+/*
+.efeito{
+    background: linear-gradient(23.03deg, #A7CBFE 3.23%, rgba(217, 217, 217, 0) 85.03%);
+    border-radius: 0px 97px 0px 258px;
+    width: 100%;
+}
+ .ladodireito .efeito  img{
+    height: 500px;
+    margin-left: 100px;
+    
+} */
+.ladodireito img{
+    height: 500px;
+    margin-left: 100px;
+    
+}
+
+/* FIM DO PRIMEIRO CONTEÚDO */
+/* SEGUNDO CONTEÚDO DA PÁGINA */
+.sobreNosHome {
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
+    gap: 3rem;
+    background-image: linear-gradient(to bottom, #00204E,#D3E0FD );
+}
+
+.sobreNos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: justify;
+    gap: 1rem;
+    width: 50%;
+    padding-right: 5rem;
+}
+
+.sobreNos h1 {
+    
+    font-size: 60px;
+    color: #50FF6B;
+    text-shadow: 0.01em 0.01em 0.2em #000000;
+}
+
+.sobreNos p {
+    font-size: 25px;
+    color: #fafafa;
+    text-shadow: 0.01em 0.01em 0.4em #000;
+}
+
+
+.sobreladoesquerdo{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.sobreNosHome img {
+    height: 35rem;
+    margin-top: 90px;
+}
+/* Conteúdo do Vini adicionado para responsividade */
+/* inicio dos beneficios */
+
+.beneficios {
+    width: 100%;
+    background-color: #D3E0FD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    padding-bottom: 5rem;
+  }
+
+.beneficios h1{
+    font-size: 48px;
+    color: #1876FF;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0.04em 0.09em 0.0em #000;
+    text-align: center;
+}
+
+.containerbeneficio{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10rem;
+}
+
+.cardbeneficio{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card{
+    width: 70%;
+    padding: 1rem;
+    background-color: #7eb4ffaf;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.card:nth-child(2){
+    transform: translateX(40px);
+}
+
+.card:nth-child(3){
+    transform: translateX(80px);
+}
+
+.minicard{
+    width: 12%;
+    background-color: #1876FF;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.minicard img{
+    width: 50px;
+}
+
+.frasecard{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 85%;
+    gap: 1rem;
+}
+
+.frasecard h2{
+    font-size: 20px;
+    color: #1876FF;
+    text-transform: uppercase;
+}
+
+.frasecard p{
+    font-size: 15px;
+    color: #00204E;
+}
+
+
+.imagembeneficio{
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagembeneficio img{
+    width: 450px;
+}
+
+
+.servicos{
+    width: 100%;
+    padding: 3rem 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    background-image: linear-gradient(to bottom, #D3E0FD,#D2FFDA,#D2FFDA,#00204E );
+}
+
+.servicos h1{
+    font-size: 40px;
+    color: #0F346A;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0.04em 0.06em 0.14em #50ff6b;
+}
+
+.containerservicos{
+    width: 70%;
+    padding: 2rem 3rem;
+    background-color: #4EAE5D;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 350px;
+    border-radius: 20px;
+    gap: 5rem;
+}
+
+.cardservico{
+    background-color:#001B42;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    gap: 1.5rem;
+}
+
+.imgservico{
+    width: 50%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-40px);
+}
+
+.imgservico img{
+    width: 200px;
+}
+
+.textoservico{
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.textoservico h2{
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.textoservico p{
+    color: white;
+    font-weight: 200;
+}
+
+/* INÍCIO DA EQUIPE */
+
+/* Começo da equipe */
+
+.equipe{
+    width: 100%;
+    gap: 4rem;
+    padding: 3rem 0;
+    background-color: #00204E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.equipe h1{
+    font-size: 30px;
+    color: white;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.containerequipe{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.membro{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.membro img{
+    width: 200px;
+    box-shadow: -10px 10px 0 #0B57C4;
+}
+
+.membro-info{
+    position: absolute;
+    right: -35px;
+    background-color: #0B57C4;
+    padding: 1rem;
+    z-index: 1;
+    border-radius: 3px;
+    transition: .2s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.membro:hover .membro-info{
+    opacity: 1;
+
+}
+
+.membro-info h2{
+    color: white;
+}
+
+.icons{
+    width: 100%;
+    display: flex;
+    justify-content:space-evenly ;
+    align-items: center;
+}
+
+.icons a{
+    text-decoration: none;
+    color: white;
+}
+
+.icons i{
+    transition: .2s ease;
+}
+
+.icons i:hover{
+    transform: scale(1.1);
+}
+
+
+/* FIM DA EQUIPE */
+
+/* Fim do conteúdo do Vini */
+/* 3º CONTEÚDO */ 
+/*  
+.servicosOferecidos{
+    
+    width: 100%;
+    margin-top: 0;
+    padding-top: 3rem;
+    display: flex;
+    height: 200px;
+    background-color: white;
+    color:white;
+    justify-content: center;
+}
+.cardsServicos .tituloServ{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 25px;
+
+}
+.servicosOferecidoscinza{
+    
+    width: 100%;
+    height: 550px;
+    background-color: rgb(182, 182, 182);
+}
+.cardsServicos{
+    width: 70%;
+    height: 650px;
+    border-radius: 20px;
+    background-color: #00204E;    
+    z-index: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cardsServicos .cards{
+    
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+    
+}
+
+.cardsServicos .card{
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #00204E;
+    background-color: white;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    
+}
+.cardsServicos .card img{
+    height: 90px;
+    width: auto;
+    padding: 20px;
+}
+*/
+/* FIM DO TERCEIRO CONTEÚDO */
+/* FOOTER */
+.footer{
+    padding-top: 1rem;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    background-color: #00204E;
+
+}
+.footer {
+    
+    margin: auto;
+    display: flex;
+
+
+}
+.footer .logo{
+    width: 20%;
+    margin: auto;
+}
+.footer .links{
+    display: flex;
+    width: 33.33%;
+    flex-direction: column;
+}
+.footer .links li{
+    list-style: none;
+    padding-bottom: 0.4rem;
+}
+.footer .redesSociais{
+    width: 33.33%;
+}
+.footer .redesSociais li{
+    list-style: none;
+    margin: 0%;
+}
+.footer .redesSociais .conteudoRedesSoc{
+    display: flex;
+    justify-content: space-evenly;
+    
+    
+}
+.footer .redesSociais .conteudoRedesSoc img{
+height: 40px;
+}
+.footer .redesSociais .conteudoRedesSoc li{
+    
+justify-content: space-between;
+    
+}
+.footer img{
+    height: 70px;
+    align-items: center;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+}
+.barrinha{
+    margin-top: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 90%;
+    border-radius: 5px;
+    border: 3px solid white;
+}
+.direitos{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+}
+/* FIM DO FOOTER */
+
+/* Responsividade 974px - Quebrar expaçamento do login e links */
+
+@media (max-width: 974px) {
+    .nav-list .login {
+        margin-left: 6vh;
+        
+}
+}
+
+
+/* Responsividade 768px - Menu */
+@media (max-width: 768px) {
+    .line {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    .menu-item {
+        display: block;
+    }
+}
+/* Responsividade primeiro conteúdo */
+@media  (max-width: 768px) {
+    
+    .containerslogan{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .ladoesquerdo{
+        width: 100%;
+    }
+    .ladodireito{
+        width: 100%;
+    }
+    .containerslogan .ladodireito img{
+        display: none;
+        
+    }
+}
+/* Responsiveidade segundo conteúdo */
+@media (max-width: 768px){
+    .sobreNosHome{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .sobreNosHome img {
+        height: 20rem;
+        margin-top: 50px;
+      }
+      .sobreNos {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: justify;
+        gap: 1rem;
+        width: 75%;
+        padding-right: 0;
+      }
+      .sobreNos h1{
+        font-size: 45px;
+        color: #50FF6B;
+        text-shadow: 0.01em 0.01em 0.2em #000000;
+        text-align: center;
+      }
+}
+/* Responsividade terceiro conteúdo serviços */
+@media (max-width: 768px){
+    .cards{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cards .card{
+        width: 100%;
+        margin: auto;
+    }
+    .servicosOferecidos{
+        padding-top: 3rem;
+    }
+    .cardsServicos{
+        width: 70%;
+        height: 1327px;
+        border-radius: 20px;
+        background-color: #00204E;
+        z-index: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .servicosOferecidoscinza{
+        height: 1151px;
+    }
+}
+/* Responsividade da parte dos benefícios*/
+@media (max-width :768px){
+
+.sobreNos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: justify;
+  gap: 1rem;
+  width: 75%;
+  padding-right: 0;
+  padding-bottom: 5rem;
+}
+.minicard{
+    display: none;
+}
+.card{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.card:nth-child(3){
+    transform: translateX(0px);
+}
+.cardbeneficio{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.containerbeneficio{
+    flex-wrap: wrap;
+    gap:3rem
+}
+.imagembeneficio{
+    width: 100%;
+}
+.imagembeneficio img{
+    width: 90%;
+}
+}
+
+/*  */
+@media (max-width :768px){
+    .footer {
+        padding-top: 3rem;
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
+        color: aliceblue;
+        background-color: #00204E;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        gap: 3rem;
+      }
+      .footer .logo{
+        width: 50%;
+        margin: auto;
+    }
+}
