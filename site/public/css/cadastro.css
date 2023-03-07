@@ -367,6 +367,8 @@ button {
   .fundo{
     display: flex;
     justify-content: flex-end;
-    height: 462px;
+    height: 268px;
+    margin-top: 100px;
+    margin-right: 120px;
   }
 }
