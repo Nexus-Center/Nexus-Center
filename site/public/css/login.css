@@ -150,6 +150,7 @@ nav {
     top: 0;
     right: -100%;
     transition: all .8s;
+    z-index: 2
 }
 
 .show-menu .sidebar {
@@ -162,11 +163,9 @@ nav {
     margin-top: 68vh;
     margin-left: 13vh;
     align-items: baseline;
-    display: none;
 }
 
 .menu-item {
-    display: none;
     text-align: center;
     letter-spacing: 1px;
     margin-left: 36px;
