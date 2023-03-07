@@ -42,7 +42,7 @@ nav {
     align-items: center;
 }
 .nav-list li:hover{
-    text-shadow: 0.03em 0.03em 0.5em #0082ed;
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
     cursor: pointer;
     transition: 0.5s;
 }
