@@ -1,22 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --bg-banner: #00204E;
+}
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Rubik'; 
-    color: aliceblue;
-    background-color: #00204E;
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
-/* NAVBAR */
 a {
     color: #ffff;
     text-decoration: none;
@@ -50,7 +42,7 @@ nav {
     align-items: center;
 }
 .nav-list li:hover{
-    text-shadow: 0.03em 0.03em 0.5em #50FF6B;
+    text-shadow: 0.03em 0.03em 0.5em #0082ed;
     cursor: pointer;
     transition: 0.5s;
 }
@@ -69,20 +61,23 @@ nav {
 
 /* Botão que direciona ao login */
 .login {
-    border: 2px solid #FFFFFF;
-    border-radius: 5px;
-    padding: 5px 8px 5px 8px;
-    background-color: #00204E;
-    color: #FFFFFF;
-    font-size: 20px;
-    
-    
-    
-}
-.login:hover{
+    border-radius: 3px;
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    height: 35px;
+    width: 85px;
     cursor: pointer;
-    font-size: 25px;
-    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    transition: .2s ease;
+    font-size: 15px;
+}
+
+.login:hover{
+    transform: scale(1.1);
 }
 .menu li{
 padding: 5px 8px 5px 8px;
@@ -185,100 +180,84 @@ padding: 5px 8px 5px 8px;
 }
 
 
-
-
-
-
-
-
-/* 1º CONTEÚDO DA PÁGINA */
+/* FIM DO CABEÇALHO */
+/* Banner */
 .bannerSlogan {
     width: 100%;
-    gap: 1rem;
-    margin:auto ;
-    padding: auto;
-    padding-top: 10rem;
-    background-color: #00204E;
-    font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    background-color: var(--bg-banner);
+    padding: 8rem 0 3.5rem;
     background-image: url(../assets/effect.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: exclusion;
-    
-}
-.containerslogan{
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 5%;
-    width: 80%;
-    height: 80%;
-    gap: 6rem;
-    
-    
-}
-.ladoesquerdo{
-    font-family: 'Rubik';
-    width: 50%;
-    font-size: 50px;
-    color: white;
-    padding-top: 14%;
-    
 }
 
-.ladoesquerdo button{
+.containerslogan {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ladoesquerdo {
+    width: 50%;
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    color: white;
+}
+
+.ladodireito {
+    width: 50%;
+}
+
+
+.ladoesquerdo button {
     font-size: 20px;
     color: white;
     background: #50FF6B;
-    border: darkblue;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 2rem;
-    
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    font-family: 'Rubik';
+    transition: .2s ease;
 }
-.ladoesquerdo button:hover{
-    box-shadow: 0.03em 0.03em 0.5em #50FF6B;
-    cursor: pointer;
-    transition: 0.5s;
-    
 
+.ladoesquerdo button:hover {
+    box-shadow: 0.03em 0.03em 0.5em #00EB25;
+    cursor: pointer;
+    transform: scale(1.1);
 }
-.ladodireito{
+
+
+.containerslogan .ladodireito {
     width: 50%;
     justify-content: end;
-    
-}
-/*
-.efeito{
-    background: linear-gradient(23.03deg, #A7CBFE 3.23%, rgba(217, 217, 217, 0) 85.03%);
-    border-radius: 0px 97px 0px 258px;
-    width: 100%;
-}
- .ladodireito .efeito  img{
-    height: 500px;
-    margin-left: 100px;
-    
-} */
-.ladodireito img{
-    height: 500px;
-    margin-left: 100px;
-    
+
 }
 
-/* FIM DO PRIMEIRO CONTEÚDO */
-/* SEGUNDO CONTEÚDO DA PÁGINA */
+.containerslogan .ladodireito img {
+    height: 500px;
+    margin-left: 100px;
+}
+
+/* FIM DO BANNER */
+/* 1º CONTEÚDO DA PÁGINA */
 .sobreNosHome {
     width: 100%;
-    
+    padding: 5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    
+    background-color: #DDEBFF;
     gap: 3rem;
-    background-image: linear-gradient(to bottom, #00204E,#D3E0FD );
 }
 
 .sobreNos {
@@ -286,65 +265,60 @@ padding: 5px 8px 5px 8px;
     justify-content: center;
     flex-direction: column;
     text-align: justify;
-    gap: 1rem;
-    width: 50%;
-    padding-right: 5rem;
+    gap: 3.5rem;
+    width: 35%;
 }
 
 .sobreNos h1 {
-    
-    font-size: 60px;
+    font-size: 30px;
     color: #50FF6B;
-    text-shadow: 0.01em 0.01em 0.2em #000000;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .sobreNos p {
     font-size: 25px;
-    color: #fafafa;
-    text-shadow: 0.01em 0.01em 0.4em #000;
+    color: black;
 }
 
 
 .sobreladoesquerdo{
-    width: 50%;
+    width: 35%;
     display: flex;
     justify-content: center;
 }
 
-
 .sobreNosHome img {
-    height: 35rem;
-    margin-top: 90px;
+    height: 480px;
 }
-/* Conteúdo do Vini adicionado para responsividade */
+
 /* inicio dos beneficios */
 
-.beneficios {
+.beneficios{
     width: 100%;
     background-color: #D3E0FD;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 500px;
     gap: 3rem;
-    padding-bottom: 5rem;
-  }
+    padding: 5rem 0;
+}
 
 .beneficios h1{
-    font-size: 48px;
+    font-size: 30px;
     color: #1876FF;
     font-weight: 800;
     letter-spacing: 1px;
-    text-shadow: 0.04em 0.09em 0.0em #000;
-    text-align: center;
 }
 
 .containerbeneficio{
-    width: 90%;
+    width: 80%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10rem;
+    justify-content:space-between;
+    gap: 1rem;
 }
 
 .cardbeneficio{
@@ -360,7 +334,7 @@ padding: 5px 8px 5px 8px;
     width: 70%;
     padding: 1rem;
     background-color: #7eb4ffaf;
-    border-radius: 25px;
+    border-radius: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -383,7 +357,7 @@ padding: 5px 8px 5px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .minicard img{
@@ -424,33 +398,31 @@ padding: 5px 8px 5px 8px;
 
 .servicos{
     width: 100%;
-    padding: 7rem 0;
-    
+    padding: 3rem 0;
+    background-color: #D2FFDA;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    background-image: linear-gradient(to bottom, #D3E0FD,#D2FFDA,#D2FFDA,#00204E );
 }
 
 .servicos h1{
-    font-size: 40px;
-    color: #0F346A;
+    font-size: 30px;
+    color: #001B42;
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 1px;
-    text-shadow: 0.04em 0.06em 0.14em #50ff6b;
 }
 
 .containerservicos{
     width: 70%;
     padding: 2rem 3rem;
-    background-color: #4EAE5D;
+    background-color: #50FF6B;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 350px;
-    border-radius: 20px;
+    border-radius: 5px;
     gap: 5rem;
 }
 
@@ -460,7 +432,7 @@ padding: 5px 8px 5px 8px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 2px;
     gap: 1.5rem;
 }
 
@@ -496,8 +468,6 @@ padding: 5px 8px 5px 8px;
     color: white;
     font-weight: 200;
 }
-
-/* INÍCIO DA EQUIPE */
 
 /* Começo da equipe */
 
@@ -585,157 +555,8 @@ padding: 5px 8px 5px 8px;
 }
 
 
-/* FIM DA EQUIPE */
-
-/* Fim do conteúdo do Vini */
-/* 3º CONTEÚDO */ 
-/*  
-.servicosOferecidos{
-    
-    width: 100%;
-    margin-top: 0;
-    padding-top: 3rem;
-    display: flex;
-    height: 200px;
-    background-color: white;
-    color:white;
-    justify-content: center;
-}
-.cardsServicos .tituloServ{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 25px;
-
-}
-.servicosOferecidoscinza{
-    
-    width: 100%;
-    height: 550px;
-    background-color: rgb(182, 182, 182);
-}
-.cardsServicos{
-    width: 70%;
-    height: 650px;
-    border-radius: 20px;
-    background-color: #00204E;    
-    z-index: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.cardsServicos .cards{
-    
-    display: flex;
-    flex-direction: row;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 50px;
-    
-}
-
-.cardsServicos .card{
-    width: 33.33%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #00204E;
-    background-color: white;
-    padding: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
-    
-}
-.cardsServicos .card img{
-    height: 90px;
-    width: auto;
-    padding: 20px;
-}
-*/
-/* FIM DO TERCEIRO CONTEÚDO */
-/* FOOTER */
-.footer{
-    padding-top: 1rem;
-    position: relative;
-    font-family: Arial, Helvetica, sans-serif;
-    color: aliceblue;
-    background-color: #00204E;
-
-}
-.footer {
-    
-    margin: auto;
-    display: flex;
 
 
-}
-.footer .logo{
-    width: 20%;
-    margin: auto;
-}
-.footer .links{
-    display: flex;
-    width: 33.33%;
-    flex-direction: column;
-}
-.footer .links li{
-    list-style: none;
-    padding-bottom: 0.4rem;
-}
-.footer .redesSociais{
-    width: 33.33%;
-}
-.footer .redesSociais li{
-    list-style: none;
-    margin: 0%;
-}
-.footer .redesSociais .conteudoRedesSoc{
-    display: flex;
-    justify-content: space-evenly;
-    
-    
-}
-.footer .redesSociais .conteudoRedesSoc img{
-height: 40px;
-}
-.footer .redesSociais .conteudoRedesSoc li{
-    
-justify-content: space-between;
-    
-}
-.footer img{
-    height: 70px;
-    align-items: center;
-}
-.footer a{
-    text-decoration: none;
-    color: white;
-}
-.barrinha{
-    margin-top: 20px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    justify-content: center;
-    width: 90%;
-    border-radius: 5px;
-    border: 3px solid white;
-}
-.direitos{
-    width: 90%;
-    margin: auto;
-    display: flex;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin: auto;
-}
 /* FIM DO FOOTER */
 
 /* Responsividade 974px - Quebrar expaçamento do login e links */
