@@ -52,6 +52,19 @@ nav {
     align-items: center;
 }
 
+.seta {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 30%;
+    margin-bottom: 10%;
+    width: 28px;
+    height: 0px;
+    border: 0.5px solid #908e8e;
+    transform: rotate(90deg);
+}
+
+
+
 .nav-list {
     list-style: none;
     display: flex;
@@ -64,7 +77,6 @@ nav {
     cursor: pointer;
     transition: 0.5s;
 }
-
 
 .container-mae-links .nav-list li {
     letter-spacing: 1px;
@@ -95,10 +107,6 @@ nav {
     font-size: 15px;
 }
 
-.login:hover {
-    transform: scale(1.1);
-}
-
 .container-mae-links {
     margin-right: 10%;
 }
@@ -122,7 +130,6 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
 }
 
 
@@ -228,6 +235,11 @@ nav {
 
     .menu-item {
         display: block;
+    }
+
+    .hamburger {
+        cursor: pointer;
+
     }
 }
 
