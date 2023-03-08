@@ -31,6 +31,7 @@
                     <li><a href="link">Home</a></li>
                     <li><a href="link">Sobre Nós</a></li>
                     <li><a href="link">Serviços</a></li>
+                    <li><a href="link">Equipe</a></li>
 
                     <!-- Botão Login (Redireciona ao Login) -->
                     <a href="link">
@@ -91,34 +92,40 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-                        <span class="tipo_campo">Email</span>
-                        <div class="container-icon">
-                            <div class="icon">
-                                <i class="ph-envelope-simple"></i>
-                            </div>
-                            <input id="email_input" type="text" placeholder="| usuario@email.com                                            " maxlength="35">
-                        </div>
+                     <span class="tipo_campo">Email</span>
+                     <div class="container-icon">
+                         <div class="icon">
+                             <i><img src="./assets/Login/email.png" width="20px" height="20px"></i>
+                             <div class="seta"></div>
 
-                        <span class="tipo_campo">Senha</span>
-                        <div class="container-icon">
-                            <div class="icon">
-                                <i class="ph-envelope-simple"></i>
-                            </div>
-                            <input id="email_input" type="text" placeholder="| ************                                                " maxlength="20">
-                        </div>
+                         </div>
+                         <input id="email_input" type="text"
+                             placeholder="              usuario@email.com                                            "
+                             maxlength="35">
+                     </div>
+
+                     <span class="tipo_campo">Código da empresa</span>
+                     <div class="container-icon">
+                         <div class="icon">
+                             <i><img src="./assets/esqueceuSenha/codigo-empresa.png" width="20px" height="20px"></i>
+                            
+                             <div class="seta"></div>
+                         </div>
+                         <input id="codigo_input" type="text"
+                             placeholder="     Ex: 123                                                      "
+                             maxlength="20">
+                     </div>
+
 
                     </div>
 
                     <div class="botoes">
-                        <button class="button-cadastro" onclick="cadastrar()">Cadastre-se</button>
-                        <button class="button-login" onclick="login()">Login</button>
+                        <button class="button-cadastro">Voltar ao login</button>
+                        <button class="button-login">Redefinir senha</button>
 
                     </div>
 
-                    <div class="esqueceu-senha">
-                        <h3 class="esq-1">Esqueceu a senha?</h3>
-                        <h3 class="esq-2">Clique aqui</h3>
-                    </div>
+                    
                 </div>
             </div>
 
