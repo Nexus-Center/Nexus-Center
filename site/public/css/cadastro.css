@@ -8,9 +8,82 @@ body {
 
 /* header */
 
-header {
-  padding: 1% 0;
+a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #00204E;
+  height: 12vh;
+  background-image: linear-gradient(to bottom, #437CCE38,#00204E );
+  z-index: 5;
+}
+
+.icone-logo {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 5%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin-top: 0.5vh;
+  align-items: center;
+}
+.nav-list li:hover{
+  text-shadow: 0.03em 0.03em 0.5em #52b4de;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.container-mae-links .nav-list li {
+  letter-spacing: 1px;
+  margin-left: 36px;
+  font-size: 20px;
+  padding: 2px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-list .login {
+  margin-left: 15vh;
+}
+
+/* Botão que direciona ao login */
+.login {
+  border-radius: 3px;
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  height: 35px;
+  width: 85px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  transition: .2s ease;
+  font-size: 15px;
+}
+
+.login:hover{
+  transform: scale(1.1);
+}
+.menu li{
+padding: 5px 8px 5px 8px;
+}
+
+.container-mae-links {
+  margin-right: 10%;
 }
 
 
@@ -20,17 +93,93 @@ header {
   display: flex;
 }
 
-header .container {
+.hamburger{
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  z-index: 5;
+  right: 3rem;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 }
 
-header .logo{
-  width: 120px;
+
+
+.line{
+  display: none;
+  width: 100%;
+  height: .1rem;
+  padding: 1px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0.1rem 0.1rem 3px rgba(0, 0, 0, 0.788);
+  transition: transform .7s;
 }
 
-header a {
-  text-decoration: none;
-  color: #FFFFFF;
+.show-menu #line1{
+  transform: rotate(45deg) translate(.4rem, .9rem);
+  background-color: white;
+  box-shadow: none;
+}
+
+.show-menu #line2{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-menu #line3{
+  transform: rotate(-45deg) translate(.3rem, -.9rem);
+  background-color: white;
+  box-shadow: none;
+}
+
+.sidebar{
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #00204E;
+  box-shadow: 10px 5px 15px 10px rgba(0, 0, 0, 0.582);
+  position: fixed;
+  top: 0;
+  right: -100%;
+  transition: all .8s;
+}
+
+.show-menu .sidebar{
+  right: 0;
+}
+
+.menu{
+  margin-top: 70vh;
+  margin-left: 5.5rem;
+}
+
+.menu-item{
+  display: none;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-left: 36px;
+  font-size: 20px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.menu-link{
+  font-family:sans-serif;
+  font-size: 2rem;
+  color: rgb(245, 245, 245);
+  transition: color .7s;
+  line-height: 9vh;
+}
+
+.menu-link:hover{
+  color: white;
+  transition: color .7s;
 }
 
 
@@ -72,6 +221,7 @@ header a {
 }
 
 .tamanho-conteudo { 
+  margin-top: 100px;
   height: fit-content !important;
   justify-content: center;
 }
@@ -171,7 +321,7 @@ button {
   display: flex;
   justify-content: flex-end;
   height: 60vh;
-  margin-top: 120px;
+  margin-top: 220px;
   margin-right: 200px;
   /* height: 89vh; */
   /* width: 10px; */
@@ -209,7 +359,7 @@ button {
   position: fixed;
   z-index: 5;
   right: 2rem;
-  top: 2rem;
+  top: 2rem; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -336,6 +486,10 @@ button {
     width: 30%;
   }
 
+  .tamanho-conteudo{
+    margin-top: 70px;
+  }
+
   .cabecalho h2{
     font-size: 16px;
   }
@@ -368,7 +522,7 @@ button {
     display: flex;
     justify-content: flex-end;
     height: 268px;
-    margin-top: 100px;
+    margin-top: 150px;
     margin-right: 120px;
   }
 }
