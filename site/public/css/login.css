@@ -46,7 +46,10 @@ nav {
 .icone-logo {
     display: flex;
     align-items: flex-start;
-    margin-left: 10%;
+    margin-left: 5%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-list {
@@ -55,6 +58,11 @@ nav {
     margin-top: 0.5vh;
     text-align: center;
     align-items: center;
+}
+.nav-list li:hover{
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 
@@ -72,16 +80,23 @@ nav {
 
 /* Botão que direciona ao login */
 .login {
-    width: 15vh;
-    height: 5vh;
-    border: 1px solid #FFFFFF;
-    border-radius: 8px;
-    padding: 0.2vh;
-    background-color: #00204E;
-    color: #FFFFFF;
-    font-size: 18px;
+    border-radius: 3px;
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    height: 35px;
+    width: 85px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    font-weight: bold;
+    flex-direction: row;
+    transition: .2s ease;
+    font-size: 15px;
+}
+
+.login:hover {
+    transform: scale(1.1);
 }
 
 .container-mae-links {
