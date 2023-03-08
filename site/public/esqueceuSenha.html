@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Center</title>
+    <!-- Icone Logo -->
+    <link rel="Logo icon" href="./assets/Logo - circulo.png">
+    <!-- Link css Login -->
+    <link rel="stylesheet" href="./css/login.css">
+    <!-- Link css menu-->
+    <script src="https://unpkg.com/phosphor-icons"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+
+            <div class="icone-logo">
+                <img src="./assets/Logo.png" alt="NexusCenter" width="115vh">
+            </div>
+
+            <!-- Links -->
+            <div class="container-mae-links">
+                <ul class="nav-list">
+                    <li><a href="link">Home</a></li>
+                    <li><a href="link">Sobre Nós</a></li>
+                    <li><a href="link">Serviços</a></li>
+
+                    <!-- Botão Login (Redireciona ao Login) -->
+                    <a href="link">
+                        <button class="login">
+                            <img src="./assets/Cadeado.png" alt="Icone cadeado" style="width: 20px;">
+                            Login
+                        </button>
+                    </a>
+                </ul>
+
+
+                <!-- Responsivo -->
+
+                <div class="container">
+
+                    <div class="hamburger">
+                        <div class="line" id="line1"></div>
+                        <div class="line" id="line2"></div>
+                        <div class="line" id="line3"></div>
+                    </div>
+
+                    <aside class="sidebar">
+                        <nav>
+                            <ul class="menu">
+                                <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+                                <li class="menu-item"><a href="#" class="menu-link">Sobre Nós</a></li>
+                                <li class="menu-item"><a href="#" class="menu-link">Serviços</a></li>
+                                <li class="menu-item"><a href="#" class="menu-link">Login</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Corpo -->
+
+    <div class="container-login">
+
+        <div class="imagem-login">
+            <img src="./assets/Login/Login.png" alt="" width="500px" height="500px">
+        </div>
+
+
+        <div class="container-centralizar">
+            <div class="texto-login">
+                <h1>Esqueceu sua senha?</h1>
+                <div class="descricao-login">
+                    <h2>Não se preocupe, nossa equipe de suporte <br> entrará em contato com você!</h2>
+                    <div class="formulario">
+                    </div>
+
+                    <div class="formulario">
+
+                        <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
+                        <span class="tipo_campo">Email</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i class="ph-envelope-simple"></i>
+                            </div>
+                            <input id="email_input" type="text" placeholder="| usuario@email.com                                            " maxlength="35">
+                        </div>
+
+                        <span class="tipo_campo">Senha</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i class="ph-envelope-simple"></i>
+                            </div>
+                            <input id="email_input" type="text" placeholder="| ************                                                " maxlength="20">
+                        </div>
+
+                    </div>
+
+                    <div class="botoes">
+                        <button class="button-cadastro" onclick="cadastrar()">Cadastre-se</button>
+                        <button class="button-login" onclick="login()">Login</button>
+
+                    </div>
+
+                    <div class="esqueceu-senha">
+                        <h3 class="esq-1">Esqueceu a senha?</h3>
+                        <h3 class="esq-2">Clique aqui</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Script Java Script Menu -->
+    <script src="./js/menu.js"></script>
