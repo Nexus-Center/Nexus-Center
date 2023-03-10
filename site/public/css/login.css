@@ -127,6 +127,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    top: 2rem;
 }
 
 
