@@ -1,5 +1,5 @@
 document.querySelector(".hamburger").addEventListener("click", () =>
-    document.querySelector(".menu_lateral").classList.toggle("show-menu")
+    document.querySelector(".container").classList.toggle("show-menu")
 );
 
 function cadastrar() {

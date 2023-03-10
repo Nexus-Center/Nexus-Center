@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="./js/cadastro.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
     <title>Nexus Center | Cadastro</title>
-
+    
     <!-- <link rel="icon" href="./assets/icon/favicon2.ico"> -->
 </head>
 
 <body>
-
+    
     <!--header inicio-->
     <header>
         <nav>
@@ -47,15 +47,13 @@
 
 
                 <!-- Responsivo -->
-
                 <div class="container">
-
                     <div class="hamburger">
                         <div class="line" id="line1"></div>
                         <div class="line" id="line2"></div>
                         <div class="line" id="line3"></div>
                     </div>
-
+                    
                     <aside class="sidebar">
                         <nav>
                             <ul class="menu">
@@ -70,9 +68,9 @@
             </div>
         </nav>
     </header>
+    
     <!--header fim-->
-
-
+    
     <div class="banner ">
         <div class="container tamanho-conteudo">
             <div class="card">
@@ -81,42 +79,44 @@
                     <p>Encontre a solução ideal para o seu Call Center</p>
                 </div>
                 <div class="formulario">
-
+                    
                     <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-
+                        Para inserir mais um campo, copie uma das inputs abaixo.
+                        Assim que inserir vá para o script abaixo.
+                    -->
+                    
                     <span class="tipo_campo">Nome Completo</span>
                     <input id="nome_input" type="text" placeholder="Nome Completo">
-
+                    
                     <span class="tipo_campo">E-mail</span>
                     <input id="email_input" type="text" placeholder="usuario@email.com">
-
+                    
                     <span class="tipo_campo">Senha</span>
                     <input id="senha_input" type="password" placeholder="******">
-
+                    
                     <span class="tipo_campo">Confirmação da Senha</span>
                     <input id="confirmacao_senha_input" type="password" placeholder="******">
-
+                    
                     <span class="tipo_campo">Código da Empresa</span>
                     <input id="codigo_empresa_input" type="text" placeholder="Ex: 1234">
-
+                    
                     <div class="termos">
                         <input type="checkbox" id="termos">
                         <label for="termos">Li e aceito os <a href="">Termos de Uso e Política de
-                                Privacidade</a></label>
+                            Privacidade</a></label>
+                        </div>
+                        
+                        <button class="btn_cadastrar" onclick="cadastrar()">Cadastrar</button>
+                        
                     </div>
-
-                    <button class="btn_cadastrar" onclick="cadastrar()">Cadastrar</button>
-
-                </div>
             </div>
 
         </div>
         <img class="fundo" src="./assets/cadastro/fundo_cadastro.png" alt="Imagem para tela de Cadastro">
     </div>
-
+    
 </body>
 
 </html>
+
+<script src="./js/cadastro.js"></script>
