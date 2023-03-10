@@ -554,6 +554,80 @@ padding: 5px 8px 5px 8px;
     transform: scale(1.1);
 }
 
+/* FOOTER */
+.footergeral{
+    background-color: #00204E;
+    width: 100%;
+    font-family: "Rubik";
+    color: white;
+}
+.footer{
+    position: relative;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    color: aliceblue;
+
+}
+
+.logo{
+    width: 33.33%;
+    margin: auto;
+}
+.links{
+    width: 33.33%;
+    
+}
+
+.redesSociais{
+    width: 33.33%;
+}
+.conteudoLinks{
+    justify-content: space-between;
+    padding-top: 1rem;
+    
+    
+}
+.conteudoRedesSoc{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-right: 5rem;
+    
+}
+.conteudoRedesSoc :hover{
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+}
+.conteudoLinks li{
+    padding-bottom: 0.4rem;
+}
+.conteudoLinks :hover{
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+}
+.footer img{
+    height: 65px;
+    
+}
+
+.barrinha{
+    margin-top: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    width: 90%;
+    border: 5px solid white;
+}
+.direitos{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+}
 
 
 
