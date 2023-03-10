@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Center</title>
+    <title>Nexus Center | Esqueceu a senha</title>
     <!-- Icone Logo -->
     <link rel="Logo icon" href="./assets/Logo - circulo.png">
     <!-- Link css Login -->
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/esqueceuSenha.css">
     <!-- Link css menu-->
     <script src="https://unpkg.com/phosphor-icons"></script>
 
@@ -28,9 +28,10 @@
             <!-- Links -->
             <div class="container-mae-links">
                 <ul class="nav-list">
-                    <li><a href="link">Home</a></li>
-                    <li><a href="link">Sobre Nós</a></li>
-                    <li><a href="link">Serviços</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobreNosHome">Sobre Nós</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#equipe">Equipe</a></li>
 
                     <!-- Botão Login (Redireciona ao Login) -->
                     <a href="link">
@@ -73,14 +74,14 @@
     <div class="container-login">
 
         <div class="imagem-login">
-            <img src="./assets/Login/Login.png" alt="" width="500px" height="500px">
+            <img src="./assets/esqueceuSenha/EsqueceuSenha.png" alt="" width="500px" height="500px">
         </div>
 
 
         <div class="container-centralizar">
-            <div class="texto-login">
+            <div class="texto-esqueceu-senha">
                 <h1>Esqueceu sua senha?</h1>
-                <div class="descricao-login">
+                <div class="descricao-esqueceu-senha">
                     <h2>Não se preocupe, nossa equipe de suporte <br> entrará em contato com você!</h2>
                     <div class="formulario">
                     </div>
@@ -91,34 +92,40 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-                        <span class="tipo_campo">Email</span>
-                        <div class="container-icon">
-                            <div class="icon">
-                                <i class="ph-envelope-simple"></i>
-                            </div>
-                            <input id="email_input" type="text" placeholder="| usuario@email.com                                            " maxlength="35">
-                        </div>
+                     <span class="tipo_campo">Email</span>
+                     <div class="container-icon">
+                         <div class="icon">
+                             <i><img src="./assets/Login/email.png" width="20px" height="20px"></i>
+                             <div class="seta"></div>
 
-                        <span class="tipo_campo">Senha</span>
-                        <div class="container-icon">
-                            <div class="icon">
-                                <i class="ph-envelope-simple"></i>
-                            </div>
-                            <input id="email_input" type="text" placeholder="| ************                                                " maxlength="20">
-                        </div>
+                         </div>
+                         <input id="email_input" type="text"
+                             placeholder="              usuario@email.com                                            "
+                             maxlength="35">
+                     </div>
+
+                     <span class="tipo_campo">Código da empresa</span>
+                     <div class="container-icon">
+                         <div class="icon">
+                             <i><img src="./assets/esqueceuSenha/codigo-empresa.png" width="20px" height="20px"></i>
+                            
+                             <div class="seta"></div>
+                         </div>
+                         <input id="codigo_input" type="number"
+                             placeholder="     Ex: 123                                                      "
+                             maxlength="20">
+                     </div>
+
 
                     </div>
 
                     <div class="botoes">
-                        <button class="button-cadastro" onclick="cadastrar()">Cadastre-se</button>
-                        <button class="button-login" onclick="login()">Login</button>
+                        <button class="button-cadastro">Voltar ao login</button>
+                        <button class="button-login">Redefinir senha</button>
 
                     </div>
 
-                    <div class="esqueceu-senha">
-                        <h3 class="esq-1">Esqueceu a senha?</h3>
-                        <h3 class="esq-2">Clique aqui</h3>
-                    </div>
+                    
                 </div>
             </div>
 

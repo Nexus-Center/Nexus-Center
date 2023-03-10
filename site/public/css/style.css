@@ -4,6 +4,24 @@
     --bg-banner: #00204E;
 }
 
+body::-webkit-scrollbar {
+    width: 6px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #e7dfdf 0%, #908e8e 100%);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #00EB25;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}
+
+
 body {
     font-family: 'Rubik'; 
     overflow-x: hidden;
@@ -188,11 +206,12 @@ padding: 5px 8px 5px 8px;
     justify-content: center;
     align-items: center;
     background-color: var(--bg-banner);
-    padding: 8rem 0 3.5rem;
+    padding: 8rem 0 8rem;
     background-image: url(../assets/effect.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: exclusion;
+    
 }
 
 .containerslogan {
@@ -214,7 +233,12 @@ padding: 5px 8px 5px 8px;
 }
 
 .ladodireito {
-    width: 50%;
+    width: 100%;
+    padding-top: 2rem;
+    animation:quadro_flutuando 9.5s infinite
+    
+    
+
 }
 
 
@@ -251,7 +275,8 @@ padding: 5px 8px 5px 8px;
 /* 1º CONTEÚDO DA PÁGINA */
 .sobreNosHome {
     width: 100%;
-    padding: 5rem 0;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -286,6 +311,7 @@ padding: 5px 8px 5px 8px;
     width: 35%;
     display: flex;
     justify-content: center;
+    animation: quadro_flutuando 9.5s infinite;
 }
 
 .sobreNosHome img {
@@ -301,7 +327,7 @@ padding: 5px 8px 5px 8px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 500px;
+    
     gap: 3rem;
     padding: 5rem 0;
 }
@@ -389,6 +415,7 @@ padding: 5px 8px 5px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: quadro_flutuando 9.5s infinite;
 }
 
 .imagembeneficio img{
@@ -398,7 +425,7 @@ padding: 5px 8px 5px 8px;
 
 .servicos{
     width: 100%;
-    padding: 3rem 0;
+    padding: 8rem 0 8rem;
     background-color: #D2FFDA;
     display: flex;
     flex-direction: column;
@@ -474,7 +501,7 @@ padding: 5px 8px 5px 8px;
 .equipe{
     width: 100%;
     gap: 4rem;
-    padding: 3rem 0;
+    padding: 8rem 0 8rem;
     background-color: #00204E;
     display: flex;
     justify-content: center;
@@ -554,6 +581,80 @@ padding: 5px 8px 5px 8px;
     transform: scale(1.1);
 }
 
+/* FOOTER */
+.footergeral{
+    background-color: #00204E;
+    width: 100%;
+    font-family: "Rubik";
+    color: white;
+}
+.footer{
+    position: relative;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    color: aliceblue;
+
+}
+
+.logo{
+    width: 33.33%;
+    margin: auto;
+}
+.links{
+    width: 33.33%;
+    
+}
+
+.redesSociais{
+    width: 33.33%;
+}
+.conteudoLinks{
+    justify-content: space-between;
+    padding-top: 1rem;
+    
+    
+}
+.conteudoRedesSoc{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-right: 5rem;
+    
+}
+.conteudoRedesSoc :hover{
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+}
+.conteudoLinks li{
+    padding-bottom: 0.4rem;
+}
+.conteudoLinks :hover{
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+}
+.footer img{
+    height: 65px;
+    
+}
+
+.barrinha{
+    margin-top: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    width: 90%;
+    border: 5px solid white;
+}
+.direitos{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+}
 
 
 
@@ -596,6 +697,9 @@ padding: 5px 8px 5px 8px;
     }
     .ladoesquerdo{
         width: 100%;
+        gap: 8rem;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
     }
     .ladodireito{
         width: 100%;
@@ -615,15 +719,7 @@ padding: 5px 8px 5px 8px;
         height: 20rem;
         margin-top: 50px;
       }
-      .sobreNos {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-align: justify;
-        gap: 1rem;
-        width: 75%;
-        padding-right: 0;
-      }
+
       .sobreNos h1{
         font-size: 45px;
         color: #50FF6B;
@@ -657,51 +753,55 @@ padding: 5px 8px 5px 8px;
     .servicosOferecidoscinza{
         height: 1151px;
     }
+    .containerservicos{
+        grid-template-columns: none;
+        grid-template-rows: none;
+    }
 }
 /* Responsividade da parte dos benefícios*/
 @media (max-width :768px){
 
-.sobreNos {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: justify;
-  gap: 1rem;
-  width: 75%;
-  padding-right: 0;
-  padding-bottom: 5rem;
-}
-.minicard{
-    display: none;
-}
-.card{
-    width: 100%;
+    .sobreNos {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-}
-.card:nth-child(3){
-    transform: translateX(0px);
-}
-.cardbeneficio{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-.containerbeneficio{
-    flex-wrap: wrap;
-    gap:3rem
-}
-.imagembeneficio{
-    width: 100%;
-}
-.imagembeneficio img{
-    width: 90%;
-}
+    text-align: justify;
+    gap: 4rem;
+    width: 75%;
+    padding-right: 0;
+    padding-bottom: 5rem;
+    }
+    .minicard{
+        display: none;
+    }
+    .card{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .card:nth-child(3){
+        transform: translateX(0px);
+    }
+    .cardbeneficio{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .containerbeneficio{
+        flex-wrap: wrap;
+        gap:3rem
+    }
+    .imagembeneficio{
+        width: 100%;
+    }
+    .imagembeneficio img{
+        width: 90%;
+    }
 }
 
-/*  */
+/* FOOTER */
 @media (max-width :768px){
     .footer {
         padding-top: 3rem;
@@ -720,5 +820,44 @@ padding: 5px 8px 5px 8px;
       .footer .logo{
         width: 50%;
         margin: auto;
+    }
+}
+/* EQUIPE */
+@media (max-width :768px){
+    .containerequipe{
+        grid-template-columns: none;
+
+    }
+    .membro .membro-info {
+        opacity: 1;
+        gap: 2rem;
+        
+    }
+    .membro-info {
+        position: relative;
+        right: 0;
+        background-color: #0B57C4;
+        padding: 1rem;
+        z-index: 1;
+        border-radius: 3px;
+        transition: .2s ease;
+        opacity: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+@keyframes quadro_flutuando{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(30px);
+    }
+    100%{
+        transform: translateY(0);
     }
 }

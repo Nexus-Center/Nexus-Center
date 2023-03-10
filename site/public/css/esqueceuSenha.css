@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-/* Icones placeholder*/
-@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
 /*CONFIG GERAL DA PÁGINA */
 * {
@@ -27,6 +25,16 @@ body::-webkit-scrollbar-thumb {
     /* creates padding around scroll thumb */
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
 
 
 /* NAVBAR */
@@ -49,6 +57,17 @@ nav {
     margin-left: 10%;
 }
 
+.seta {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 30%;
+    margin-bottom: 10%;
+    width: 28px;
+    height: 0px;
+    border: 0.5px solid #908e8e;
+    transform: rotate(90deg);
+}
+
 .nav-list {
     list-style: none;
     display: flex;
@@ -57,6 +76,11 @@ nav {
     align-items: center;
 }
 
+.nav-list li:hover{
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+    cursor: pointer;
+    transition: 0.5s;
+}
 
 .container-mae-links .nav-list li {
     letter-spacing: 1px;
@@ -213,6 +237,11 @@ nav {
 
     .menu-item {
         display: block;
+    }
+
+    .hamburger {
+        cursor: pointer;
+
     }
 }
 
@@ -385,7 +414,7 @@ button {
     text-decoration: underline;
 }
 
-/* Responsividade Login */
+/* Responsividade Esqueceu senha */
 
 
 @media (max-width: 768px) {
