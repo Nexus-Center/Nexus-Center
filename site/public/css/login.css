@@ -105,6 +105,11 @@ nav {
     font-size: 15px;
 }
 
+.login:hover{
+    transform: scale(1.1);
+}
+
+
 .container-mae-links {
     margin-right: 10%;
 }
@@ -418,6 +423,10 @@ button {
     color: #00204E;
     font-size: 15px;
     text-decoration: underline;
+}
+
+.esq-2:hover{
+    color: #34eb4f;
 }
 
 /* Responsividade Login */
