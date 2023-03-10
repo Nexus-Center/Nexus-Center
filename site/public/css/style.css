@@ -804,5 +804,23 @@ padding: 5px 8px 5px 8px;
     }
     .membro .membro-info {
         opacity: 1;
+        gap: 2rem;
+        
+    }
+    .membro-info {
+        position: relative;
+        right: 0;
+        background-color: #0B57C4;
+        padding: 1rem;
+        z-index: 1;
+        border-radius: 3px;
+        transition: .2s ease;
+        opacity: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: center;
     }
 }
