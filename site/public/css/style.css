@@ -4,6 +4,24 @@
     --bg-banner: #00204E;
 }
 
+body::-webkit-scrollbar {
+    width: 6px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #e7dfdf 0%, #908e8e 100%);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #00EB25;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}
+
+
 body {
     font-family: 'Rubik'; 
     overflow-x: hidden;
