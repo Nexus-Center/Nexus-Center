@@ -25,6 +25,16 @@ body::-webkit-scrollbar-thumb {
     /* creates padding around scroll thumb */
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
 
 
 /* NAVBAR */
