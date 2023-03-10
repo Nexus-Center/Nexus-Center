@@ -43,10 +43,10 @@ nav {
 
 .icone-logo {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-left: 5%;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -109,14 +109,9 @@ nav {
     margin-right: 10%;
 }
 
-
-
-
-
-
-
-
 /* Navbar responsiva */
+
+
 
 .hamburger {
     width: 2rem;
@@ -124,7 +119,6 @@ nav {
     position: fixed;
     z-index: 5;
     right: 2rem;
-    top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -172,6 +166,8 @@ nav {
     transition: all .8s;
     z-index: 2
 }
+
+
 
 .show-menu .sidebar {
     right: 0;
@@ -339,17 +335,29 @@ button {
     background-color: #00204E;
     color: #FFFFFF;
     border-radius: 10px;
+    border-width: 1px;
     width: 28vh;
-    height: 6vh
+    height: 6vh;
+    transition: .2s ease;
+}
+
+.button-login:hover{
+    background-color: #01347c;
 }
 
 .button-cadastro {
-    background-color: #FFFFFF;
+    background-color: white;
     color: #00204E;
-    border-bottom-color: #00204E;
     border-radius: 10px;
+    border-width: 1px;
     width: 28vh;
-    height: 6vh
+    height: 6vh;
+    transition: .2s ease;
+}
+
+.button-cadastro:hover{
+    background-color: #00204E;
+    color: white;
 }
 
 .container-icon {
@@ -384,6 +392,8 @@ button {
     display: flex;
     margin-top: 3vh;
 }
+
+
 
 .esqueceu-senha {
     margin-top: 6vh;
