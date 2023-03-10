@@ -193,6 +193,7 @@ padding: 5px 8px 5px 8px;
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: exclusion;
+    
 }
 
 .containerslogan {
@@ -214,7 +215,12 @@ padding: 5px 8px 5px 8px;
 }
 
 .ladodireito {
-    width: 50%;
+    width: 100%;
+    padding-top: 2rem;
+    animation:quadro_flutuando 9.5s infinite
+    
+    
+
 }
 
 
@@ -287,6 +293,7 @@ padding: 5px 8px 5px 8px;
     width: 35%;
     display: flex;
     justify-content: center;
+    animation: quadro_flutuando 9.5s infinite;
 }
 
 .sobreNosHome img {
@@ -390,6 +397,7 @@ padding: 5px 8px 5px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: quadro_flutuando 9.5s infinite;
 }
 
 .imagembeneficio img{
@@ -822,5 +830,16 @@ padding: 5px 8px 5px 8px;
         align-items: center;
         gap: 0.5rem;
         text-align: center;
+    }
+}
+@keyframes quadro_flutuando{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(30px);
+    }
+    100%{
+        transform: translateY(0);
     }
 }
