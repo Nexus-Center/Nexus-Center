@@ -251,7 +251,8 @@ padding: 5px 8px 5px 8px;
 /* 1º CONTEÚDO DA PÁGINA */
 .sobreNosHome {
     width: 100%;
-    padding: 5rem 0;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -301,7 +302,7 @@ padding: 5px 8px 5px 8px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 500px;
+    
     gap: 3rem;
     padding: 5rem 0;
 }
@@ -670,6 +671,9 @@ padding: 5px 8px 5px 8px;
     }
     .ladoesquerdo{
         width: 100%;
+        gap: 8rem;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
     }
     .ladodireito{
         width: 100%;
@@ -689,15 +693,7 @@ padding: 5px 8px 5px 8px;
         height: 20rem;
         margin-top: 50px;
       }
-      .sobreNos {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-align: justify;
-        gap: 1rem;
-        width: 75%;
-        padding-right: 0;
-      }
+
       .sobreNos h1{
         font-size: 45px;
         color: #50FF6B;
@@ -731,51 +727,55 @@ padding: 5px 8px 5px 8px;
     .servicosOferecidoscinza{
         height: 1151px;
     }
+    .containerservicos{
+        grid-template-columns: none;
+        grid-template-rows: none;
+    }
 }
 /* Responsividade da parte dos benefícios*/
 @media (max-width :768px){
 
-.sobreNos {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: justify;
-  gap: 1rem;
-  width: 75%;
-  padding-right: 0;
-  padding-bottom: 5rem;
-}
-.minicard{
-    display: none;
-}
-.card{
-    width: 100%;
+    .sobreNos {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-}
-.card:nth-child(3){
-    transform: translateX(0px);
-}
-.cardbeneficio{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-.containerbeneficio{
-    flex-wrap: wrap;
-    gap:3rem
-}
-.imagembeneficio{
-    width: 100%;
-}
-.imagembeneficio img{
-    width: 90%;
-}
+    text-align: justify;
+    gap: 4rem;
+    width: 75%;
+    padding-right: 0;
+    padding-bottom: 5rem;
+    }
+    .minicard{
+        display: none;
+    }
+    .card{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .card:nth-child(3){
+        transform: translateX(0px);
+    }
+    .cardbeneficio{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .containerbeneficio{
+        flex-wrap: wrap;
+        gap:3rem
+    }
+    .imagembeneficio{
+        width: 100%;
+    }
+    .imagembeneficio img{
+        width: 90%;
+    }
 }
 
-/*  */
+/* FOOTER */
 @media (max-width :768px){
     .footer {
         padding-top: 3rem;
@@ -794,5 +794,15 @@ padding: 5px 8px 5px 8px;
       .footer .logo{
         width: 50%;
         margin: auto;
+    }
+}
+/* EQUIPE */
+@media (max-width :768px){
+    .containerequipe{
+        grid-template-columns: none;
+
+    }
+    .membro .membro-info {
+        opacity: 1;
     }
 }
