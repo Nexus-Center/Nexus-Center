@@ -127,7 +127,8 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    bottom: 31.8rem;
+    top: 2rem;
+
 }
 
 

@@ -127,7 +127,7 @@ nav {
     position: fixed;
     z-index: 5;
     right: 2rem;
-    bottom: 31.8rem;
+    top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
