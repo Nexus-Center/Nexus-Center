@@ -14,7 +14,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #00EB25;
+    background-color: #50FF6B;
     /* color of the scroll thumb */
     border-radius: 20px;
     /* roundness of the scroll thumb */
@@ -113,12 +113,12 @@ padding: 5px 8px 5px 8px;
     height: 2rem;
     position: fixed;
     z-index: 5;
-    right: 3rem;
-    top: 2rem;
+    right: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    bottom: 31.8rem;
 }
 
 
@@ -170,6 +170,7 @@ padding: 5px 8px 5px 8px;
 .menu{
     margin-top: 70vh;
     margin-left: 5.5rem;
+    width: 65%;
 }
 
 .menu-item{
@@ -281,7 +282,6 @@ padding: 5px 8px 5px 8px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-color: #DDEBFF;
     gap: 3rem;
 }
 
@@ -426,7 +426,6 @@ padding: 5px 8px 5px 8px;
 .servicos{
     width: 100%;
     padding: 8rem 0 8rem;
-    background-color: #D2FFDA;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -445,10 +444,10 @@ padding: 5px 8px 5px 8px;
 .containerservicos{
     width: 70%;
     padding: 2rem 3rem;
-    background-color: #50FF6B;
+    background-color: #91ffa1;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 350px;
+    grid-template-rows: 400px;
     border-radius: 5px;
     gap: 5rem;
 }

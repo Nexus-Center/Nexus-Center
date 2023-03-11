@@ -127,7 +127,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    top: 2rem;
+    bottom: 31.8rem;
 }
 
 
@@ -180,11 +180,9 @@ nav {
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
     margin-top: 68vh;
     margin-left: 13vh;
-    align-items: baseline;
+    width: 65%;
 }
 
 .menu-item {
