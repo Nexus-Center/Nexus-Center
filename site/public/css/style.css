@@ -430,7 +430,7 @@ padding: 5px 8px 5px 8px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 4.5rem;
 }
 
 .servicos h1{
@@ -460,6 +460,7 @@ padding: 5px 8px 5px 8px;
     align-items: center;
     border-radius: 2px;
     gap: 1.5rem;
+    
 }
 
 .imgservico{
@@ -468,7 +469,7 @@ padding: 5px 8px 5px 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(-40px);
+    transform: translateY(-80px);
 }
 
 .imgservico img{
@@ -601,6 +602,7 @@ padding: 5px 8px 5px 8px;
     margin: auto;
 }
 .links{
+
     width: 30%;
 }
 
@@ -611,6 +613,7 @@ padding: 5px 8px 5px 8px;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+
 }
 
 .redesSociais h4{
@@ -650,7 +653,9 @@ padding: 5px 8px 5px 8px;
     margin-bottom: 0.5rem;
     justify-content: center;
     width: 90%;
+
     border: 2px solid white;
+
 }
 .direitos{
     width: 90%;
@@ -762,6 +767,9 @@ padding: 5px 8px 5px 8px;
         grid-template-columns: none;
         grid-template-rows: none;
     }
+    .cardservico{
+        padding: 5rem 0 3rem;
+    }
 }
 /* Responsividade da parte dos benefícios*/
 @media (max-width :768px){
@@ -824,6 +832,9 @@ padding: 5px 8px 5px 8px;
       .footer .logo{
         width: 50%;
         margin: auto;
+    }
+    .conteudoRedesSoc{
+        padding: 0;
     }
 }
 /* EQUIPE */
