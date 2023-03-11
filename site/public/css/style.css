@@ -434,7 +434,7 @@ padding: 5px 8px 5px 8px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 4.5rem;
 }
 
 .servicos h1{
@@ -464,6 +464,7 @@ padding: 5px 8px 5px 8px;
     align-items: center;
     border-radius: 2px;
     gap: 1.5rem;
+    
 }
 
 .imgservico{
@@ -472,7 +473,7 @@ padding: 5px 8px 5px 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(-40px);
+    transform: translateY(-80px);
 }
 
 .imgservico img{
@@ -607,10 +608,12 @@ padding: 5px 8px 5px 8px;
 .links{
     width: 33.33%;
     
+    
 }
 
 .redesSociais{
     width: 33.33%;
+    text-align: center;
 }
 .conteudoLinks{
     justify-content: space-between;
@@ -620,9 +623,9 @@ padding: 5px 8px 5px 8px;
 }
 .conteudoRedesSoc{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 1rem;
-    padding-right: 5rem;
+    padding: 1rem 9rem 0;
     
 }
 .conteudoRedesSoc :hover{
@@ -647,7 +650,7 @@ padding: 5px 8px 5px 8px;
     margin-bottom: 0.5rem;
     justify-content: center;
     width: 90%;
-    border: 5px solid white;
+    border: 3px solid white;
 }
 .direitos{
     width: 90%;
@@ -726,7 +729,6 @@ padding: 5px 8px 5px 8px;
       .sobreNos h1{
         font-size: 45px;
         color: #50FF6B;
-        text-shadow: 0.01em 0.01em 0.2em #000000;
         text-align: center;
       }
 }
@@ -759,6 +761,9 @@ padding: 5px 8px 5px 8px;
     .containerservicos{
         grid-template-columns: none;
         grid-template-rows: none;
+    }
+    .cardservico{
+        padding: 5rem 0 3rem;
     }
 }
 /* Responsividade da parte dos benefícios*/
@@ -823,6 +828,9 @@ padding: 5px 8px 5px 8px;
       .footer .logo{
         width: 50%;
         margin: auto;
+    }
+    .conteudoRedesSoc{
+        padding: 0;
     }
 }
 /* EQUIPE */
