@@ -8,21 +8,15 @@
     padding: 0;
 }
 
-body::-webkit-scrollbar {
-    width: 6px;
-    /* width of the entire scrollbar */
+body{
+    overflow: hidden;
 }
 
-body::-webkit-scrollbar-track {
-    background: linear-gradient(180deg, #e7dfdf 0%, #908e8e 100%);
-}
 
-body::-webkit-scrollbar-thumb {
-    background-color: #00EB25;
-    /* color of the scroll thumb */
-    border-radius: 20px;
-    /* roundness of the scroll thumb */
-    /* creates padding around scroll thumb */
+/* NAVBAR */
+a {
+    color: #ffff;
+    text-decoration: none;
 }
 
 input[type=number]::-webkit-inner-spin-button { 
@@ -36,13 +30,6 @@ input[type=number] {
 }
 
 
-
-/* NAVBAR */
-a {
-    color: #ffff;
-    text-decoration: none;
-}
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -54,7 +41,10 @@ nav {
 .icone-logo {
     display: flex;
     align-items: flex-start;
-    margin-left: 10%;
+    margin-left: 5%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .seta {
@@ -96,16 +86,23 @@ nav {
 
 /* Botão que direciona ao login */
 .login {
-    width: 15vh;
-    height: 5vh;
-    border: 1px solid #FFFFFF;
-    border-radius: 8px;
-    padding: 0.2vh;
-    background-color: #00204E;
-    color: #FFFFFF;
-    font-size: 18px;
+    border-radius: 3px;
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    height: 35px;
+    width: 85px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    font-weight: bold;
+    flex-direction: row;
+    transition: .2s ease;
+    font-size: 15px;
+}
+
+.login:hover{
+    transform: scale(1.1);
 }
 
 .container-mae-links {
@@ -336,23 +333,35 @@ button {
     height: 647px;
 }
 
-
 .button-login {
     background-color: #00204E;
     color: #FFFFFF;
     border-radius: 10px;
+    border-width: 1px;
     width: 28vh;
-    height: 6vh
+    height: 6vh;
+    transition: .2s ease;
+}
+
+.button-login:hover{
+    background-color: #01347c;
 }
 
 .button-cadastro {
-    background-color: #FFFFFF;
+    background-color: white;
     color: #00204E;
-    border-bottom-color: #00204E;
     border-radius: 10px;
+    border-width: 1px;
     width: 28vh;
-    height: 6vh
+    height: 6vh;
+    transition: .2s ease;
 }
+
+.button-cadastro:hover{
+    background-color: #00204E;
+    color: white;
+}
+
 
 .container-icon {
     display: flex;

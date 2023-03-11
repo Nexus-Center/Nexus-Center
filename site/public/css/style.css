@@ -355,10 +355,6 @@ padding: 5px 8px 5px 8px;
     align-items: center;
     gap: 1rem;
 }
-.cardbeneficio .minicard i{
-    font-size: 2.7rem;
-    color: white;
-}
 
 .card{
     width: 70%;
@@ -587,10 +583,11 @@ padding: 5px 8px 5px 8px;
 
 /* FOOTER */
 .footergeral{
-    background-color: #00204E;
+    background-color: #001028;
     width: 100%;
     font-family: "Rubik";
     color: white;
+    padding: 1.5rem;
 }
 .footer{
     position: relative;
@@ -598,34 +595,40 @@ padding: 5px 8px 5px 8px;
     margin: auto;
     display: flex;
     color: aliceblue;
-
 }
 
 .logo{
-    width: 33.33%;
+    width: 30%;
     margin: auto;
 }
 .links{
-    width: 33.33%;
-    
-    
+
+    width: 30%;
 }
 
 .redesSociais{
-    width: 33.33%;
-    text-align: center;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
 }
+
+.redesSociais h4{
+    margin-left: 0.5rem;
+}
+
 .conteudoLinks{
     justify-content: space-between;
     padding-top: 1rem;
-    
-    
 }
 .conteudoRedesSoc{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding-top: 1rem;
-    padding: 1rem 9rem 0;
+    gap: 1rem;
     
 }
 .conteudoRedesSoc :hover{
@@ -650,7 +653,9 @@ padding: 5px 8px 5px 8px;
     margin-bottom: 0.5rem;
     justify-content: center;
     width: 90%;
-    border: 3px solid white;
+
+    border: 2px solid white;
+
 }
 .direitos{
     width: 90%;
@@ -816,7 +821,6 @@ padding: 5px 8px 5px 8px;
         position: relative;
         font-family: Arial, Helvetica, sans-serif;
         color: aliceblue;
-        background-color: #00204E;
         display: flex;
         flex-direction: column;
         text-align: center;
