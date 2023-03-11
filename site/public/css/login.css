@@ -8,22 +8,9 @@
     padding: 0;
 }
 
-body::-webkit-scrollbar {
-    width: 6px;
-    /* width of the entire scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-    background: linear-gradient(180deg, #e7dfdf 0%, #908e8e 100%);
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #00EB25;
-    /* color of the scroll thumb */
-    border-radius: 20px;
-    /* roundness of the scroll thumb */
-    /* creates padding around scroll thumb */
-}
+body {
+    overflow: hidden;
+  }
 
 
 
@@ -128,7 +115,6 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     top: 2rem;
-
 }
 
 
@@ -181,9 +167,11 @@ nav {
 }
 
 .menu {
+    display: flex;
+    flex-direction: column;
     margin-top: 68vh;
     margin-left: 13vh;
-    width: 65%;
+    align-items: baseline;
 }
 
 .menu-item {

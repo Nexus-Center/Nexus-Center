@@ -5,27 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/cadastro.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-
     <title>Nexus Center | Cadastro</title>
-    
-    <!-- <link rel="icon" href="./assets/icon/favicon2.ico"> -->
+    <!-- Icone Logo -->
+    <link rel="Logo icon" href="./assets/globo.png">
+    <!-- Link css Login -->
+    <link rel="stylesheet" href="./css/cadastro.css">
+
 </head>
 
 <body>
-    
-    <!--header inicio-->
+
+    <!-- NAVBAR -->
     <header>
         <nav>
 
             <div class="icone-logo">
                 <img src="./assets/Logo.png" alt="NexusCenter" width="115vh">
+
             </div>
 
             <!-- Links -->
@@ -37,12 +33,12 @@
                     <li><a href="index.html#equipe">Equipe</a></li>
 
                     <!-- Botão Login (Redireciona ao Login) -->
-                    <a href="link">
+                    <li><a href="login.html">
                         <button class="login">
                             <img src="./assets/Cadeado.png" alt="Icone cadeado" style="width: 20px;">
                             Login
                         </button>
-                    </a>
+                    </a></li>
                 </ul>
 
 
@@ -53,12 +49,14 @@
                         <div class="line" id="line2"></div>
                         <div class="line" id="line3"></div>
                     </div>
-                    
+
+
                     <aside class="sidebar">
                         <nav>
                             <ul class="menu">
                                 <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
-                                <li class="menu-item"><a href="index.html#sobreNosHome" class="menu-link">Sobre Nós</a></li>
+                                <li class="menu-item"><a href="index.html#sobreNosHome" class="menu-link">Sobre Nós</a>
+                                </li>
                                 <li class="menu-item"><a href="index.html#servicos" class="menu-link">Serviços</a></li>
                                 <li class="menu-item"><a href="index.html#equipe" class="menu-link">Login</a></li>
                             </ul>
@@ -68,55 +66,122 @@
             </div>
         </nav>
     </header>
-    
-    <!--header fim-->
-    
-    <div class="banner ">
-        <div class="container tamanho-conteudo">
-            <div class="card">
-                <div class="cabecalho">
-                    <h2>Cadastro</h2>
-                    <p>Encontre a solução ideal para o seu Call Center</p>
-                </div>
-                <div class="formulario">
-                    
-                    <!--
-                        Para inserir mais um campo, copie uma das inputs abaixo.
-                        Assim que inserir vá para o script abaixo.
-                    -->
-                    
-                    <span class="tipo_campo">Nome Completo</span>
-                    <input id="nome_input" type="text" placeholder="Nome Completo">
-                    
-                    <span class="tipo_campo">E-mail</span>
-                    <input id="email_input" type="text" placeholder="usuario@email.com">
-                    
-                    <span class="tipo_campo">Senha</span>
-                    <input id="senha_input" type="password" placeholder="******">
-                    
-                    <span class="tipo_campo">Confirmação da Senha</span>
-                    <input id="confirmacao_senha_input" type="password" placeholder="******">
-                    
-                    <span class="tipo_campo">Código da Empresa</span>
-                    <input id="codigo_empresa_input" type="text" placeholder="Ex: 1234">
-                    
-                    <div class="termos">
-                        <input type="checkbox" id="termos">
-                        <label for="termos">Li e aceito os <a href="">Termos de Uso e Política de
-                            Privacidade</a></label>
-                        </div>
-                        
-                        <button class="btn_cadastrar" onclick="cadastrar()">Cadastrar</button>
-                        
+
+
+
+    <!-- Corpo -->
+
+    <div class="container-cadastro">
+
+
+
+
+        <div class="container-centralizar">
+            <div class="texto-cadastro">
+                <h1>Cadastro</h1>
+                <div class="descricao-cadastro">
+                    <h2>Encontre a solução ideal para o seu Call Center</h2>
+                    <div class="formulario">
                     </div>
+
+                    <div class="formulario">
+
+                        <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
+                        <span class="tipo_campo">Nome completo</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastro/user_icon.png" width="20px" height="20px"></i>
+                                <div class="seta"></div>
+
+                            </div>
+                            <input id="nomel_input" type="text"
+                                placeholder="             Nome Sobrenome                                            "
+                                maxlength="35">
+                        </div>
+
+                        <span class="tipo_campo">Email</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/Login/email.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="email_input" type="text"
+                                placeholder="             usuario@email.com                                            "
+                                maxlength="20">
+                        </div>
+
+
+                        <span class="tipo_campo">Senha</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastro/cadeado_icon.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="senha_input" type="text"
+                                placeholder="             *****************                                            "
+                                maxlength="20">
+                        </div>
+
+                        <span class="tipo_campo">Confirmar senha</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastro/cadeado_icon.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="confirmarsenha_input" type="text"
+                                placeholder="             *****************                                            "
+                                maxlength="20">
+                        </div>
+
+                        <span class="tipo_campo">Codigo da empresa</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastro/codigo_icon.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="codigo_input" type="text"
+                                placeholder="Ex: 123                                                 " maxlength="20">
+                        </div>
+                    </div>
+
+                    <div class="centralizar-termos">
+                        <div class="termos">
+                            <input type="checkbox" id="termos">
+                            <label for="termos">Li e aceito os <a href="">Termos de Uso e Política de
+                                    Privacidade</a></label>
+                        </div>
+                    </div>
+
+                    <div class="botoes">
+
+                        <a href="./cadastro.html"><button class="button-cadastro"
+                                onclick="cadastrar()">Cadastrar</button></a>
+
+                    </div>
+
+
+                </div>
             </div>
 
+
+
         </div>
-        <img class="fundo" src="./assets/cadastro/fundo_cadastro.png" alt="Imagem para tela de Cadastro">
+
+        <div class="imagem-cadastro">
+            <img src="./assets/cadastro/fundo_cadastro.png" alt="" width="500px" height="500px">
+        </div>
     </div>
-    
-</body>
+    </div>
 
-</html>
+    <!-- Script Java Script Menu -->
+    <script src="./js/menu.js"></script>
 
-<script src="./js/cadastro.js"></script>
+    <!-- Script Java Script Cadastro -->
+    <script src="./js/cadastro.js"></script>
