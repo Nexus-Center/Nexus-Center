@@ -433,7 +433,11 @@ button {
 }
 
 .termos a{
-  color:#00204E
+  color: #2000ff;
+}
+
+.termos:hover a {
+  color: #00EB25;
 }
 
 .centralizar-termos {
