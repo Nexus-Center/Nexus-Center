@@ -28,6 +28,17 @@ a {
   text-decoration: none;
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+
+}
+input[type=number] { 
+ -moz-appearance: textfield;
+ appearance: textfield;
+
+}
+
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -38,10 +49,10 @@ nav {
 
 .icone-logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-left: 5%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -56,7 +67,33 @@ nav {
   transform: rotate(90deg);
 }
 
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin-top: 0.5vh;
+  text-align: center;
+  align-items: center;
+}
 
+.nav-list li:hover{
+  text-shadow: 0.03em 0.03em 0.5em #52b4de;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.container-mae-links .nav-list li {
+  letter-spacing: 1px;
+  margin-left: 36px;
+  font-size: 18px;
+  padding: 2px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-list .login {
+  margin-left: 15vh;
+}
+
+/* Botão que direciona ao login */
 .login {
   border-radius: 3px;
   background-color: transparent;
@@ -77,62 +114,18 @@ nav {
   transform: scale(1.1);
 }
 
-
-.nav-list {
-  list-style: none;
-  display: flex;
-  margin-top: 0.5vh;
-  text-align: center;
-  align-items: center;
-}
-
-.nav-list li:hover {
-  text-shadow: 0.03em 0.03em 0.5em #52b4de;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.container-mae-links .nav-list li {
-  letter-spacing: 1px;
-  margin-left: 36px;
-  font-size: 18px;
-  padding: 2px;
-  font-family: 'Ubuntu', sans-serif;
-}
-
-.nav-list .cadastro {
-  margin-left: 15vh;
-}
-
-/* Botão que direciona ao cadastro */
-.cadastro {
-  border-radius: 3px;
-  background-color: transparent;
-  border-color: white;
-  color: white;
-  height: 35px;
-  width: 85px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-  transition: .2s ease;
-  font-size: 15px;
-}
-
-.cadastro:hover {
-  transform: scale(1.1);
-}
-
-
 .container-mae-links {
   margin-right: 10%;
 }
 
+
+
+
+
+
+
+
 /* Navbar responsiva */
-
-
 
 .hamburger {
   width: 2rem;
@@ -140,10 +133,11 @@ nav {
   position: fixed;
   z-index: 5;
   right: 2rem;
+  top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  top: 2rem;
+  cursor: pointer;
 }
 
 
@@ -189,18 +183,14 @@ nav {
   z-index: 2
 }
 
-
-
 .show-menu .sidebar {
   right: 0;
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
   margin-top: 68vh;
   margin-left: 13vh;
-  align-items: baseline;
+  width: 65%;
 }
 
 .menu-item {
@@ -226,6 +216,14 @@ nav {
 
 
 
+
+
+
+
+
+
+
+
 /* Responsividade 974px - Quebrar expaçamento do cadastro e links */
 
 @media (max-width: 974px) {
@@ -238,27 +236,26 @@ nav {
 /* Responsividade 768px - Menu */
 @media (max-width: 768px) {
   .line {
-    display: block;
+      display: block;
   }
 
   .nav-list {
-    display: none;
+      display: none;
   }
 
   .sidebar {
-    display: block;
+      display: block;
   }
 
   .menu-item {
-    display: block;
+      display: block;
   }
 
   .hamburger {
-    cursor: pointer;
+      cursor: pointer;
 
   }
 }
-
 
 
 /* BANNER */

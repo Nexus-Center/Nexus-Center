@@ -167,11 +167,9 @@ nav {
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
+    width: 65%;
     margin-top: 68vh;
     margin-left: 13vh;
-    align-items: baseline;
 }
 
 .menu-item {
