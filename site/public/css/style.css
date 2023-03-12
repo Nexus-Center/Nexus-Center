@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
-:root{
+:root {
     --bg-banner: #00204E;
 }
 
@@ -23,7 +23,7 @@ body::-webkit-scrollbar-thumb {
 
 
 body {
-    font-family: 'Rubik'; 
+    font-family: 'Rubik';
     overflow-x: hidden;
 }
 
@@ -40,7 +40,7 @@ nav {
     align-items: center;
     background-color: #00204E;
     height: 12vh;
-    background-image: linear-gradient(to bottom, #437CCE38,#00204E );
+    background-image: linear-gradient(to bottom, #437CCE38, #00204E);
     z-index: 5;
 }
 
@@ -59,7 +59,8 @@ nav {
     margin-top: 0.5vh;
     align-items: center;
 }
-.nav-list li:hover{
+
+.nav-list li:hover {
     text-shadow: 0.03em 0.03em 0.5em #52b4de;
     cursor: pointer;
     transition: 0.5s;
@@ -94,11 +95,12 @@ nav {
     font-size: 15px;
 }
 
-.login:hover{
+.login:hover {
     transform: scale(1.1);
 }
-.menu li{
-padding: 5px 8px 5px 8px;
+
+.menu li {
+    padding: 5px 8px 5px 8px;
 }
 
 .container-mae-links {
@@ -108,7 +110,7 @@ padding: 5px 8px 5px 8px;
 
 /* Navbar responsiva */
 
-.hamburger{
+.hamburger {
     width: 2rem;
     height: 2rem;
     position: fixed;
@@ -123,7 +125,7 @@ padding: 5px 8px 5px 8px;
 
 
 
-.line{
+.line {
     display: none;
     width: 100%;
     height: .1rem;
@@ -134,24 +136,24 @@ padding: 5px 8px 5px 8px;
     transition: transform .7s;
 }
 
-.show-menu #line1{
+.show-menu #line1 {
     transform: rotate(45deg) translate(.4rem, .9rem);
     background-color: white;
     box-shadow: none;
 }
 
-.show-menu #line2{
+.show-menu #line2 {
     opacity: 0;
     visibility: hidden;
 }
 
-.show-menu #line3{
+.show-menu #line3 {
     transform: rotate(-45deg) translate(.3rem, -.9rem);
     background-color: white;
     box-shadow: none;
 }
 
-.sidebar{
+.sidebar {
     display: none;
     width: 100%;
     height: 100%;
@@ -163,17 +165,17 @@ padding: 5px 8px 5px 8px;
     transition: all .8s;
 }
 
-.show-menu .sidebar{
+.show-menu .sidebar {
     right: 0;
 }
 
-.menu{
+.menu {
     margin-top: 70vh;
     margin-left: 5.5rem;
     width: 65%;
 }
 
-.menu-item{
+.menu-item {
     display: none;
     text-align: center;
     letter-spacing: 1px;
@@ -185,15 +187,15 @@ padding: 5px 8px 5px 8px;
     font-family: 'Ubuntu', sans-serif;
 }
 
-.menu-link{
-    font-family:sans-serif;
+.menu-link {
+    font-family: sans-serif;
     font-size: 2rem;
     color: rgb(245, 245, 245);
     transition: color .7s;
     line-height: 9vh;
 }
 
-.menu-link:hover{
+.menu-link:hover {
     color: white;
     transition: color .7s;
 }
@@ -212,7 +214,7 @@ padding: 5px 8px 5px 8px;
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: exclusion;
-    
+
 }
 
 .containerslogan {
@@ -236,10 +238,7 @@ padding: 5px 8px 5px 8px;
 .ladodireito {
     width: 100%;
     padding-top: 2rem;
-    animation:quadro_flutuando 9.5s infinite
-    
-    
-
+    animation: quadro_flutuando 9.5s infinite
 }
 
 
@@ -307,7 +306,7 @@ padding: 5px 8px 5px 8px;
 }
 
 
-.sobreladoesquerdo{
+.sobreladoesquerdo {
     width: 35%;
     display: flex;
     justify-content: center;
@@ -320,34 +319,34 @@ padding: 5px 8px 5px 8px;
 
 /* inicio dos beneficios */
 
-.beneficios{
+.beneficios {
     width: 100%;
     background-color: #D3E0FD;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
+
     gap: 3rem;
     padding: 5rem 0;
 }
 
-.beneficios h1{
+.beneficios h1 {
     font-size: 30px;
     color: #1876FF;
     font-weight: 800;
     letter-spacing: 1px;
 }
 
-.containerbeneficio{
+.containerbeneficio {
     width: 80%;
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     gap: 1rem;
 }
 
-.cardbeneficio{
+.cardbeneficio {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -355,12 +354,13 @@ padding: 5px 8px 5px 8px;
     align-items: center;
     gap: 1rem;
 }
-.cardbeneficio .minicard i{
+
+.cardbeneficio .minicard i {
     font-size: 2.7rem;
     color: white;
 }
 
-.card{
+.card {
     width: 70%;
     padding: 1rem;
     background-color: #7eb4ffaf;
@@ -372,15 +372,15 @@ padding: 5px 8px 5px 8px;
     gap: 1rem;
 }
 
-.card:nth-child(2){
+.card:nth-child(2) {
     transform: translateX(40px);
 }
 
-.card:nth-child(3){
+.card:nth-child(3) {
     transform: translateX(80px);
 }
 
-.minicard{
+.minicard {
     width: 12%;
     background-color: #1876FF;
     height: 90px;
@@ -390,11 +390,11 @@ padding: 5px 8px 5px 8px;
     border-radius: 5px;
 }
 
-.minicard img{
+.minicard img {
     width: 50px;
 }
 
-.frasecard{
+.frasecard {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -402,19 +402,19 @@ padding: 5px 8px 5px 8px;
     gap: 1rem;
 }
 
-.frasecard h2{
+.frasecard h2 {
     font-size: 20px;
     color: #1876FF;
     text-transform: uppercase;
 }
 
-.frasecard p{
+.frasecard p {
     font-size: 15px;
     color: #00204E;
 }
 
 
-.imagembeneficio{
+.imagembeneficio {
     width: 35%;
     display: flex;
     align-items: center;
@@ -422,12 +422,12 @@ padding: 5px 8px 5px 8px;
     animation: quadro_flutuando 9.5s infinite;
 }
 
-.imagembeneficio img{
+.imagembeneficio img {
     width: 450px;
 }
 
 
-.servicos{
+.servicos {
     width: 100%;
     padding: 8rem 0 8rem;
     display: flex;
@@ -437,7 +437,7 @@ padding: 5px 8px 5px 8px;
     gap: 4.5rem;
 }
 
-.servicos h1{
+.servicos h1 {
     font-size: 30px;
     color: #001B42;
     text-transform: uppercase;
@@ -445,7 +445,7 @@ padding: 5px 8px 5px 8px;
     letter-spacing: 1px;
 }
 
-.containerservicos{
+.containerservicos {
     width: 70%;
     padding: 2rem 3rem;
     background-color: #91ffa1;
@@ -456,18 +456,18 @@ padding: 5px 8px 5px 8px;
     gap: 5rem;
 }
 
-.cardservico{
-    background-color:#001B42;
+.cardservico {
+    background-color: #001B42;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 2px;
     gap: 1.5rem;
-    
+
 }
 
-.imgservico{
+.imgservico {
     width: 50%;
     height: 150px;
     display: flex;
@@ -476,11 +476,11 @@ padding: 5px 8px 5px 8px;
     transform: translateY(-80px);
 }
 
-.imgservico img{
+.imgservico img {
     width: 200px;
 }
 
-.textoservico{
+.textoservico {
     padding: 0 2rem;
     display: flex;
     flex-direction: column;
@@ -489,20 +489,20 @@ padding: 5px 8px 5px 8px;
     gap: 1rem;
 }
 
-.textoservico h2{
+.textoservico h2 {
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
 }
 
-.textoservico p{
+.textoservico p {
     color: white;
     font-weight: 200;
 }
 
 /* Começo da equipe */
 
-.equipe{
+.equipe {
     width: 100%;
     gap: 4rem;
     padding: 8rem 0 8rem;
@@ -513,21 +513,21 @@ padding: 5px 8px 5px 8px;
     flex-direction: column;
 }
 
-.equipe h1{
+.equipe h1 {
     font-size: 30px;
     color: white;
     font-weight: 800;
     letter-spacing: 1px;
 }
 
-.containerequipe{
+.containerequipe {
     width: 70%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
-.membro{
+.membro {
     position: relative;
     display: flex;
     justify-content: center;
@@ -535,12 +535,12 @@ padding: 5px 8px 5px 8px;
 }
 
 
-.membro img{
+.membro img {
     width: 200px;
     box-shadow: -10px 10px 0 #0B57C4;
 }
 
-.membro-info{
+.membro-info {
     position: absolute;
     right: -35px;
     background-color: #0B57C4;
@@ -556,43 +556,45 @@ padding: 5px 8px 5px 8px;
     gap: 0.5rem;
 }
 
-.membro:hover .membro-info{
+.membro:hover .membro-info {
     opacity: 1;
 
 }
 
-.membro-info h2{
+.membro-info h2 {
     color: white;
 }
 
-.icons{
+.icons {
     width: 100%;
     display: flex;
-    justify-content:space-evenly ;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.icons a{
+.icons a {
     text-decoration: none;
     color: white;
 }
 
-.icons i{
+.icons i {
     transition: .2s ease;
 }
 
-.icons i:hover{
+.icons i:hover {
     transform: scale(1.1);
 }
 
 /* FOOTER */
-.footergeral{
+.footergeral {
     background-color: #001028;
     width: 100%;
     font-family: "Rubik";
     color: white;
+    padding: 1.5rem;
 }
-.footer{
+
+.footer {
     position: relative;
     width: 90%;
     margin: auto;
@@ -601,53 +603,49 @@ padding: 5px 8px 5px 8px;
 
 }
 
-.logo{
-    width: 33.33%;
+.logo {
+    width: 30%;
     margin: auto;
 }
-.links{
+
+.links {
     width: 30%;
 }
 
-.redesSociais{
+.redesSociais {
     width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 1rem;
-}
-.redesSociais h4{
-    margin-left: 0.5rem;
-}
-.conteudoLinks{
-    justify-content: space-between;
-    padding-top: 1rem;
-    
-    
-}
-.conteudoRedesSoc{
-    display: flex;
-    justify-content: space-around;
-    padding-top: 1rem;
-    padding: 1rem 9rem 0;
-    
-}
-.conteudoRedesSoc :hover{
-    text-shadow: 0.03em 0.03em 0.5em #52b4de;
-}
-.conteudoLinks li{
-    padding-bottom: 0.4rem;
-}
-.conteudoLinks :hover{
-    text-shadow: 0.03em 0.03em 0.5em #52b4de;
-}
-.footer img{
-    height: 65px;
-    
+    align-items: center;
+    flex-direction: column;
 }
 
-.barrinha{
+.conteudoLinks {
+    padding-top: 1rem;
+}
+
+.conteudoRedesSoc {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    gap: 1rem;
+    width: 30%;
+    align-items: center;
+}
+
+.conteudoRedesSoc :hover {
+    text-shadow: 0.03rem 0.03rem 0.5rem #52b4de;
+}
+
+.conteudoLinks :hover {
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+}
+
+.footer img {
+    height: 65px;
+
+}
+
+.barrinha {
     margin-top: 20px;
     display: flex;
     margin-left: auto;
@@ -657,7 +655,8 @@ padding: 5px 8px 5px 8px;
     width: 90%;
     border: 2px solid white;
 }
-.direitos{
+
+.direitos {
     width: 90%;
     margin: auto;
     display: flex;
@@ -676,8 +675,8 @@ padding: 5px 8px 5px 8px;
 @media (max-width: 974px) {
     .nav-list .login {
         margin-left: 6vh;
-        
-}
+
+    }
 }
 
 
@@ -699,58 +698,68 @@ padding: 5px 8px 5px 8px;
         display: block;
     }
 }
+
 /* Responsividade primeiro conteúdo */
-@media  (max-width: 768px) {
-    
-    .containerslogan{
+@media (max-width: 768px) {
+
+    .containerslogan {
         display: flex;
         flex-wrap: wrap;
     }
-    .ladoesquerdo{
+
+    .ladoesquerdo {
         width: 100%;
         gap: 8rem;
         padding-top: 8rem;
         padding-bottom: 8rem;
     }
-    .ladodireito{
+
+    .ladodireito {
         width: 100%;
     }
-    .containerslogan .ladodireito img{
+
+    .containerslogan .ladodireito img {
         display: none;
-        
+
     }
 }
+
 /* Responsiveidade segundo conteúdo */
-@media (max-width: 768px){
-    .sobreNosHome{
+@media (max-width: 768px) {
+    .sobreNosHome {
         display: flex;
         flex-wrap: wrap;
     }
+
     .sobreNosHome img {
         height: 20rem;
         margin-top: 50px;
-      }
+    }
 
-      .sobreNos h1{
+    .sobreNos h1 {
         font-size: 45px;
         color: #50FF6B;
         text-align: center;
-      }
+    }
 }
+
 /* Responsividade terceiro conteúdo serviços */
-@media (max-width: 768px){
-    .cards{
+@media (max-width: 768px) {
+    .cards {
         display: flex;
         flex-wrap: wrap;
     }
-    .cards .card{
+
+    .cards .card {
         width: 100%;
         margin: auto;
     }
-    .servicosOferecidos{
+
+    .servicosOferecidos {
         padding-top: 3rem;
     }
-    .cardsServicos{
+
+    .cardsServicos {
         width: 70%;
         height: 1327px;
         border-radius: 20px;
@@ -760,68 +769,77 @@ padding: 5px 8px 5px 8px;
         flex-direction: column;
         justify-content: space-between;
     }
-    .servicosOferecidoscinza{
+
+    .servicosOferecidoscinza {
         height: 1151px;
     }
-    .containerservicos{
+
+    .containerservicos {
         grid-template-columns: none;
         grid-template-rows: none;
     }
-    .cardservico{
+
+    .cardservico {
         padding: 5rem 0 3rem;
     }
 }
+
 /* Responsividade da parte dos benefícios*/
-@media (max-width :768px){
+@media (max-width :768px) {
 
     .sobreNos {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: justify;
-    gap: 4rem;
-    width: 75%;
-    padding-right: 0;
-    padding-bottom: 5rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: justify;
+        gap: 4rem;
+        width: 75%;
+        padding-right: 0;
+        padding-bottom: 5rem;
     }
-    .minicard{
+
+    .minicard {
         display: none;
     }
-    .card{
+
+    .card {
         width: 100%;
         display: flex;
         flex-direction: column;
     }
-    .card:nth-child(3){
+
+    .card:nth-child(3) {
         transform: translateX(0px);
     }
-    .cardbeneficio{
+
+    .cardbeneficio {
         width: 80%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
     }
-    .containerbeneficio{
+
+    .containerbeneficio {
         flex-wrap: wrap;
-        gap:3rem
+        gap: 3rem
     }
-    .imagembeneficio{
+
+    .imagembeneficio {
         width: 100%;
     }
-    .imagembeneficio img{
+
+    .imagembeneficio img {
         width: 90%;
     }
 }
 
 /* FOOTER */
-@media (max-width :768px){
+@media (max-width :768px) {
     .footer {
         padding-top: 3rem;
         position: relative;
-        font-family: Arial, Helvetica, sans-serif;
         color: aliceblue;
-        background-color: #00204E;
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -829,26 +847,47 @@ padding: 5px 8px 5px 8px;
         align-content: center;
         align-items: center;
         gap: 3rem;
-      }
-      .footer .logo{
+    }
+
+    .footer .logo {
         width: 50%;
         margin: auto;
     }
-    .conteudoRedesSoc{
-        padding: 0;
+
+    .conteudoRedesSoc {
+        margin-left: 4.4rem;;
+    }
+
+    .redesSociais {
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .barrinha{
+        margin-right: 5rem;
+    }
+
+    .conteudoLinks{
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
     }
 }
+
 /* EQUIPE */
-@media (max-width :768px){
-    .containerequipe{
+@media (max-width :768px) {
+    .containerequipe {
         grid-template-columns: none;
 
     }
+
     .membro .membro-info {
         opacity: 1;
         gap: 2rem;
-        
+
     }
+
     .membro-info {
         position: relative;
         right: 0;
@@ -866,14 +905,17 @@ padding: 5px 8px 5px 8px;
         text-align: center;
     }
 }
-@keyframes quadro_flutuando{
-    0%{
+
+@keyframes quadro_flutuando {
+    0% {
         transform: translateY(0);
     }
-    50%{
+
+    50% {
         transform: translateY(30px);
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }
