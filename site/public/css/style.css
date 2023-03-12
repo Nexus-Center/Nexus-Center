@@ -303,6 +303,7 @@ nav {
 .sobreNos p {
     font-size: 25px;
     color: black;
+    line-height: 2rem;
 }
 
 
@@ -481,7 +482,7 @@ nav {
 }
 
 .textoservico {
-    padding: 0 2rem;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -498,6 +499,7 @@ nav {
 .textoservico p {
     color: white;
     font-weight: 200;
+    line-height: 1.6rem;
 }
 
 /* Começo da equipe */
