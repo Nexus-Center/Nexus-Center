@@ -738,6 +738,10 @@ nav {
         margin-top: 50px;
     }
 
+    .sobreNos p {
+        text-align: -webkit-left;
+    }
+
     .sobreNos h1 {
         font-size: 45px;
         color: #50FF6B;
@@ -857,7 +861,8 @@ nav {
     }
 
     .conteudoRedesSoc {
-        margin-left: 4.4rem;;
+        margin-left: 4.4rem;
+        ;
     }
 
     .redesSociais {
@@ -866,11 +871,11 @@ nav {
         justify-content: center
     }
 
-    .barrinha{
+    .barrinha {
         margin-right: 5rem;
     }
 
-    .conteudoLinks{
+    .conteudoLinks {
         display: flex;
         gap: 1rem;
         flex-direction: column;
