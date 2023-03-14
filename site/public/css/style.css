@@ -595,13 +595,12 @@ nav {
 
 .footer {
     position: relative;
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
     color: aliceblue;
     background-color: #001028;
-    padding: 1.5rem;
-
+    padding: 1.5rem 0rem;
 }
 
 .logo {
@@ -622,6 +621,9 @@ nav {
 
 .conteudoLinks {
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
 .conteudoRedesSoc {
@@ -843,7 +845,6 @@ nav {
 /* FOOTER */
 @media (max-width :768px) {
     .footer {
-        padding-top: 3rem;
         position: relative;
         color: aliceblue;
         display: flex;
