@@ -25,6 +25,7 @@ body::-webkit-scrollbar-thumb {
 body {
     font-family: 'Rubik';
     overflow-x: hidden;
+    background-color: #001028;
 }
 
 a {
@@ -282,6 +283,7 @@ nav {
     align-items: center;
     flex-direction: row;
     gap: 3rem;
+    background-color: white;
 }
 
 .sobreNos {
@@ -436,6 +438,7 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 4.5rem;
+    background-color: white;
 }
 
 .servicos h1 {
@@ -588,13 +591,7 @@ nav {
 }
 
 /* FOOTER */
-.footergeral {
-    background-color: #001028;
-    width: 100%;
-    font-family: "Rubik";
-    color: white;
-    padding: 1.5rem;
-}
+
 
 .footer {
     position: relative;
@@ -602,6 +599,8 @@ nav {
     margin: auto;
     display: flex;
     color: aliceblue;
+    background-color: #001028;
+    padding: 1.5rem;
 
 }
 
@@ -666,6 +665,7 @@ nav {
     padding-top: 15px;
     padding-bottom: 15px;
     margin: auto;
+    color: aliceblue;
 }
 
 
@@ -869,10 +869,6 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center
-    }
-
-    .barrinha {
-        margin-right: 5rem;
     }
 
     .conteudoLinks {
