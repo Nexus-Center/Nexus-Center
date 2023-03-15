@@ -170,6 +170,10 @@ nav {
     right: 0;
 }
 
+.show-teste .sidebar {
+    right: 100;
+}
+
 .menu {
     margin-top: 70vh;
     margin-left: 5.5rem;
