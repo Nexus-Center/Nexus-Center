@@ -259,7 +259,7 @@ nav {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin-top: 5%;
+    margin-top: 10%;
     gap: 20vh;
 }
 
@@ -452,9 +452,13 @@ button {
 
 @media (max-width: 600px) {
   
+    .container-login {
+        margin-top: 12%;
+    }
 
     .formulario input {
         width: 35vh;
+
     }
 
     .button-login {
