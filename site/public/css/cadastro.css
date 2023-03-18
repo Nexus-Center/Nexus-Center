@@ -26,13 +26,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-input[type=number]::-webkit-inner-spin-button { 
+input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 
 }
-input[type=number] { 
- -moz-appearance: textfield;
- appearance: textfield;
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 
 }
 
@@ -42,13 +43,14 @@ a {
   text-decoration: none;
 }
 
-input[type=number]::-webkit-inner-spin-button { 
+input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 
 }
-input[type=number] { 
- -moz-appearance: textfield;
- appearance: textfield;
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 
 }
 
@@ -89,7 +91,7 @@ nav {
   align-items: center;
 }
 
-.nav-list li:hover{
+.nav-list li:hover {
   text-shadow: 0.03em 0.03em 0.5em #52b4de;
   cursor: pointer;
   transition: 0.5s;
@@ -124,7 +126,7 @@ nav {
   font-size: 15px;
 }
 
-.login:hover{
+.login:hover {
   transform: scale(1.1);
 }
 
@@ -250,23 +252,23 @@ nav {
 /* Responsividade 768px - Menu */
 @media (max-width: 768px) {
   .line {
-      display: block;
+    display: block;
   }
 
   .nav-list {
-      display: none;
+    display: none;
   }
 
   .sidebar {
-      display: block;
+    display: block;
   }
 
   .menu-item {
-      display: block;
+    display: block;
   }
 
   .hamburger {
-      cursor: pointer;
+    cursor: pointer;
 
   }
 }
@@ -279,8 +281,8 @@ nav {
   flex-direction: row;
   margin-top: 2%;
   gap: 20vh;
-    display: flex;
-    text-align: center;
+  display: flex;
+  text-align: center;
 }
 
 
@@ -434,7 +436,7 @@ button {
   font-family: 'Inter';
 }
 
-.termos input{
+.termos input {
   cursor: pointer;
   border: 1px solid #000000;
 }
@@ -443,7 +445,7 @@ button {
   font-size: 10px;
 }
 
-.termos a{
+.termos a {
   color: #2000ff;
 }
 
@@ -481,57 +483,63 @@ button {
 }
 
 @media (max-width: 600px) {
-  
+
+
+  .menu {
+    margin-top: 68vh;
+    margin-left: 15vh;
+    width: 54%;
+  }
 
   .formulario input {
-      width: 35vh;
+    width: 35vh;
   }
 
   .button-login {
-      width: 19vh;
+    width: 19vh;
 
   }
 
   .button-cadastro {
-      width: 38vh;
-  }  
+    width: 38vh;
+  }
 
   .container-login {
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
   }
 
   .container-icon {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
   }
 
   .botoes {
     gap: 5%;
     display: flex;
     margin-top: 2vh;
-}
+  }
 
   .descricao-cadastro h2 {
-      font-weight: lighter;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      margin-top: 2vh;
+    font-weight: lighter;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    margin-top: 2vh;
   }
 
   .termos a {
     font-size: 9px;
-}
+  }
 
-.termos  {
-  font-size: 9px;
-}
+  .termos {
+    font-size: 9px;
+  }
 
-.container-cadastro {
+  .container-cadastro {
 
-  margin-top: 3%;
- 
-}
+    margin-top: 3%;
+
+  }
 }

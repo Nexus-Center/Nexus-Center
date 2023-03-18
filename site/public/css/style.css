@@ -927,3 +927,15 @@ nav {
         transform: translateY(0);
     }
 }
+
+
+/* Correção  Alinhamento menu Hamburguer*/
+@media (max-width: 600px) {
+
+    .menu {
+        margin-top: 68vh;
+        margin-left: 15vh;
+        width: 54%;
+    }
+
+}

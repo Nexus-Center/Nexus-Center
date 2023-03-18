@@ -10,7 +10,7 @@
 
 body {
     overflow: hidden;
-  }
+}
 
 
 
@@ -57,7 +57,8 @@ nav {
     text-align: center;
     align-items: center;
 }
-.nav-list li:hover{
+
+.nav-list li:hover {
     text-shadow: 0.03em 0.03em 0.5em #52b4de;
     cursor: pointer;
     transition: 0.5s;
@@ -92,7 +93,7 @@ nav {
     font-size: 15px;
 }
 
-.login:hover{
+.login:hover {
     transform: scale(1.1);
 }
 
@@ -249,7 +250,7 @@ nav {
         cursor: pointer;
 
     }
-    
+
 }
 
 
@@ -356,7 +357,7 @@ button {
     transition: .2s ease;
 }
 
-.button-login:hover{
+.button-login:hover {
     background-color: #01347c;
 }
 
@@ -370,7 +371,7 @@ button {
     transition: .2s ease;
 }
 
-.button-cadastro:hover{
+.button-cadastro:hover {
     background-color: #00204E;
     color: white;
 }
@@ -435,7 +436,7 @@ button {
     text-decoration: underline;
 }
 
-.esq-2:hover{
+.esq-2:hover {
     color: #34eb4f;
 }
 
@@ -451,7 +452,14 @@ button {
 }
 
 @media (max-width: 600px) {
-  
+
+    .menu {
+        margin-top: 68vh;
+        margin-left: 15vh;
+        width: 54%;
+    }
+
+
     .container-login {
         margin-top: 12%;
     }
@@ -467,7 +475,7 @@ button {
     }
 
     .button-cadastro {
-    width: 19vh;
+        width: 19vh;
     }
 
     .container-login {

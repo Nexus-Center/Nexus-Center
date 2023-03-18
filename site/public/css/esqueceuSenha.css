@@ -8,7 +8,7 @@
     padding: 0;
 }
 
-body{
+body {
     overflow: hidden;
 }
 
@@ -19,13 +19,14 @@ a {
     text-decoration: none;
 }
 
-input[type=number]::-webkit-inner-spin-button { 
+input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 
 }
-input[type=number] { 
-   -moz-appearance: textfield;
-   appearance: textfield;
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 
 }
 
@@ -66,7 +67,7 @@ nav {
     align-items: center;
 }
 
-.nav-list li:hover{
+.nav-list li:hover {
     text-shadow: 0.03em 0.03em 0.5em #52b4de;
     cursor: pointer;
     transition: 0.5s;
@@ -101,7 +102,7 @@ nav {
     font-size: 15px;
 }
 
-.login:hover{
+.login:hover {
     transform: scale(1.1);
 }
 
@@ -256,7 +257,7 @@ nav {
     text-align: center;
 }
 
-.texto-esqueceu-senha{
+.texto-esqueceu-senha {
     font-family: 'Inter', sans-serif;
 }
 
@@ -343,7 +344,7 @@ button {
     transition: .2s ease;
 }
 
-.button-login:hover{
+.button-login:hover {
     background-color: #01347c;
 }
 
@@ -357,7 +358,7 @@ button {
     transition: .2s ease;
 }
 
-.button-cadastro:hover{
+.button-cadastro:hover {
     background-color: #00204E;
     color: white;
 }
@@ -435,7 +436,12 @@ button {
 }
 
 @media (max-width: 600px) {
-  
+
+    .menu {
+        margin-top: 68vh;
+        margin-left: 15vh;
+        width: 54%;
+    }
 
     h1 {
         font-size: 26px;
@@ -458,7 +464,7 @@ button {
     }
 
     .button-cadastro {
-    width: 19vh;
+        width: 19vh;
     }
 
     .container-login {
@@ -486,7 +492,7 @@ button {
         margin-top: 5vh;
     }
 
-.container-login {
-    margin-top: 8vh;
-}
+    .container-login {
+        margin-top: 8vh;
+    }
 }
