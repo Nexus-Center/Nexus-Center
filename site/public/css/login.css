@@ -249,14 +249,6 @@ nav {
         cursor: pointer;
 
     }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #00204E;
-        height: 14vh;
-    }
     
 }
 
@@ -459,21 +451,19 @@ button {
 }
 
 @media (max-width: 600px) {
-    .imagem-login {
-        display: none;
-    }
+  
 
     .formulario input {
-        width: 44vh;
+        width: 35vh;
     }
 
     .button-login {
-        width: 23vh;
+        width: 19vh;
 
     }
 
     .button-cadastro {
-    width: 23vh;
+    width: 19vh;
     }
 
     .container-login {
