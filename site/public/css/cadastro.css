@@ -8,9 +8,23 @@
   padding: 0;
 }
 
-body {
-  overflow: hidden;
+body::-webkit-scrollbar {
+  width: 6px;
+  /* width of the entire scrollbar */
 }
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #e7dfdf 0%, #908e8e 100%);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #50FF6B;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  /* creates padding around scroll thumb */
+}
+
 
 input[type=number]::-webkit-inner-spin-button { 
   -webkit-appearance: none;
@@ -504,7 +518,7 @@ button {
       font-weight: lighter;
       font-family: 'Inter', sans-serif;
       font-size: 11px;
-      margin-top: 5vh;
+      margin-top: 2vh;
   }
 
   .termos a {
@@ -515,5 +529,9 @@ button {
   font-size: 9px;
 }
 
+.container-cadastro {
 
+  margin-top: 3%;
+ 
+}
 }
