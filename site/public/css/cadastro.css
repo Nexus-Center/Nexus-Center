@@ -465,3 +465,55 @@ button {
 
 
 }
+
+@media (max-width: 600px) {
+  
+
+  .formulario input {
+      width: 35vh;
+  }
+
+  .button-login {
+      width: 19vh;
+
+  }
+
+  .button-cadastro {
+      width: 38vh;
+  }  
+
+  .container-login {
+      display: flex;
+      justify-content: center;
+  }
+
+  .container-icon {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+  }
+
+  .botoes {
+    gap: 5%;
+    display: flex;
+    margin-top: 2vh;
+}
+
+  .descricao-cadastro h2 {
+      font-weight: lighter;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      margin-top: 5vh;
+  }
+
+  .termos a {
+    font-size: 9px;
+}
+
+.termos  {
+  font-size: 9px;
+}
+
+
+}
