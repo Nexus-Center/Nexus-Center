@@ -228,6 +228,38 @@ nav {
     }
 }
 
+@media (max-width: 600px) {
+    .line {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    .menu-item {
+        display: block;
+    }
+
+    .hamburger {
+        cursor: pointer;
+
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #00204E;
+        height: 14vh;
+    }
+    
+}
+
 
 
 /* BANNER */
@@ -421,6 +453,52 @@ button {
 @media (max-width: 768px) {
     .imagem-login {
         display: none;
+    }
+
+
+}
+
+@media (max-width: 600px) {
+    .imagem-login {
+        display: none;
+    }
+
+    .formulario input {
+        width: 44vh;
+    }
+
+    .button-login {
+        width: 23vh;
+
+    }
+
+    .button-cadastro {
+    width: 23vh;
+    }
+
+    .container-login {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-icon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .botoes {
+        gap: 5%;
+        display: flex;
+        margin-top: 3vh;
+    }
+
+    .descricao-login h2 {
+        font-weight: lighter;
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        margin-top: 5vh;
     }
 
 
