@@ -214,7 +214,7 @@ nav {
     justify-content: center;
     align-items: center;
     background-color: var(--bg-banner);
-    padding: 8rem 0 8rem;
+    padding: 8rem 0 12rem;
     background-image: url(../assets/effect.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -272,7 +272,6 @@ nav {
 }
 
 .containerslogan .ladodireito img {
-    height: 500px;
     margin-left: 100px;
 }
 
