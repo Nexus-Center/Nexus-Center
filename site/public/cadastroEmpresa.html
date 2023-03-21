@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Center | Cadastro</title>
+    <!-- Icone Logo -->
+    <link rel="Logo icon" href="./assets/globo.png">
+    <!-- Link css Login -->
+    <link rel="stylesheet" href="./css/cadastroEmpresa.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+
+            <div class="icone-logo">
+                <img src="./assets/cadastroEmpresa/logo.png" alt="NexusCenter" width="115vh">
+            </div>
+
+            <!-- Links -->
+            <div class="container-mae-links">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#sobreNosHome">Sobre Nós</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#equipe">Equipe</a></li>
+
+                    <!-- Botão Login (Redireciona ao Login) -->
+                    <a href="login.html">
+                        <button class="login">
+                            <img src="./assets/Cadeado.png" alt="Icone cadeado" style="width: 20px;">
+                            Login
+                        </button>
+                    </a>
+                </ul>
+
+
+                <!-- Responsivo -->
+
+                <div class="container">
+
+                    <div class="hamburger">
+                        <div class="line" id="line1"></div>
+                        <div class="line" id="line2"></div>
+                        <div class="line" id="line3"></div>
+                    </div>
+
+                    <aside class="sidebar">
+                        <nav>
+                            <ul class="menu">
+                                <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+                                <li class="menu-item"><a href="index.html#sobreNosHome" class="menu-link">Sobre Nós</a>
+                                </li>
+                                <li class="menu-item"><a href="index.html#servicos" class="menu-link">Serviços</a></li>
+                                <li class="menu-item"><a href="index.html#equipe" class="menu-link">Equipe</a></li>
+                                <li class="menu-item"><a href="login.html" class="menu-link">Login</a></li>
+
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Corpo -->
+
+    <div class="container-cadastro">
+
+
+
+
+        <div class="container-centralizar">
+            <div class="texto-cadastro">
+                <h1>Cadastro de empresa</h1>
+                <div class="descricao-cadastro">
+                    <h2>Faça o cadastro da sua empresa e conheça os <br> nossos serviços</h2>
+                    <div class="formulario">
+                    </div>
+
+                    <div class="formulario">
+
+                        <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
+                        <span class="tipo_campo">Nome da Empresa</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastroEmpresa/empresa.png" width="20px" height="20px"></i>
+                                <div class="seta"></div>
+
+                            </div>
+                            <input id="nome_input" type="text"
+                                placeholder="             Nome da Empresa                                            "
+                                maxlength="30">
+                        </div>
+
+                        <span class="tipo_campo">CNPJ da Empresa</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastroEmpresa/cartao.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="cnpj_input" type="number"
+                                placeholder="             XX. XXX. XXX/0001-XX                                            "
+                                maxlength="14">
+                        </div>
+
+
+                        <span class="tipo_campo">Email corporativo para contato</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastroEmpresa/email.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="email_input" type="text"
+                                placeholder="             empresa@email.com                                            "
+                                maxlength="35">
+                        </div>
+
+                        <span class="tipo_campo">Telefone corporativo para contato</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastroEmpresa/telefone.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="telefone_input" type="number"
+                                placeholder="             (DDD) XXXX-XXXX                                            "
+                                maxlength="11">
+                        </div>
+
+
+                    </div>
+
+                    <div class="centralizar-termos">
+                        <div class="termos">
+                            <input type="checkbox" id="termos">
+                            <label for="termos">Li e aceito os <a href="./assets/Politica_Privacidade.pdf"
+                                    target="_blank">Termos de Uso e Política de
+                                    Privacidade</a></label>
+                        </div>
+                    </div>
+
+
+
+                    <div class="botoes">
+
+                        <a href="./cadastro.html"><button class="button-cadastro" onclick="cadastrar()">Cadastrar
+                                Empresa</button></a>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="container-informacoes">
+            <div class="imagem-cadastro">
+                <img src="./assets/cadastroEmpresa/ImagemCadastro.png" alt="" width="500px" height="350px">
+            </div>
+
+
+            <div class="cardbeneficio">
+                <!-- Cada card representa um retangulo na tela -->
+                <div class="card a">
+                    <div class="minicard">
+                        <i><img src="assets/cadastroEmpresa/alerta.png" alt="alerta"></i>
+                    </div>
+                    <div class="frasecard">
+                        <h2> ATENÇÃO! </h2>
+                        <p> Ao finalizar o cadastro, será enviado ao email cadastrado <br>
+                            um código de identificação da sua empresa, este código
+                            <br> é necessário para o cadastro de seus funcionários em
+                            <br>nossa plataforma.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Script Java Script Menu -->
+    <script src="./js/menu.js"></script>

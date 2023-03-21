@@ -8,18 +8,52 @@
     padding: 0;
 }
 
-/* Scroll Bar */
-/* body {
-    overflow: hidden;
-} */
+body::-webkit-scrollbar {
+    width: 6px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #e7dfdf 0%, #908e8e 100%);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #50FF6B;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}
 
 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
 
 /* NAVBAR */
 a {
     color: #ffff;
     text-decoration: none;
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+
 
 nav {
     display: flex;
@@ -31,10 +65,10 @@ nav {
 
 .icone-logo {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-left: 5%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -48,8 +82,6 @@ nav {
     border: 0.5px solid #908e8e;
     transform: rotate(90deg);
 }
-
-
 
 .nav-list {
     list-style: none;
@@ -98,14 +130,18 @@ nav {
     transform: scale(1.1);
 }
 
-
 .container-mae-links {
     margin-right: 10%;
 }
 
+
+
+
+
+
+
+
 /* Navbar responsiva */
-
-
 
 .hamburger {
     width: 2rem;
@@ -113,10 +149,11 @@ nav {
     position: fixed;
     z-index: 5;
     right: 2rem;
+    top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    top: 2rem;
+    cursor: pointer;
 }
 
 
@@ -162,16 +199,14 @@ nav {
     z-index: 2
 }
 
-
-
 .show-menu .sidebar {
     right: 0;
 }
 
 .menu {
-    width: 65%;
     margin-top: 68vh;
     margin-left: 13vh;
+    width: 65%;
 }
 
 .menu-item {
@@ -197,10 +232,18 @@ nav {
 
 
 
-/* Responsividade 974px - Quebrar expaçamento do login e links */
+
+
+
+
+
+
+
+
+/* Responsividade 974px - Quebrar expaçamento do cadastro e links */
 
 @media (max-width: 974px) {
-    .nav-list .login {
+    .nav-list .cadastro {
         margin-left: 6vh;
     }
 }
@@ -230,55 +273,32 @@ nav {
     }
 }
 
-@media (max-width: 600px) {
-    .line {
-        display: block;
-    }
-
-    .nav-list {
-        display: none;
-    }
-
-    .sidebar {
-        display: block;
-    }
-
-    .menu-item {
-        display: block;
-    }
-
-    .hamburger {
-        cursor: pointer;
-
-    }
-
-}
-
-
 
 /* BANNER */
-.container-login {
+.container-cadastro {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin-top: 10vh;
+    margin-top: 3%;
     gap: 20vh;
-}
-
-.container-centralizar {
     display: flex;
     text-align: center;
 }
 
-.texto-login {
+
+.texto-cadastro {
     font-family: 'Inter', sans-serif;
 }
 
-.descricao-login h2 {
+.descricao-cadastro h2 {
     font-weight: lighter;
     font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    margin-top: 5vh;
+    font-size: 12px;
+    margin-top: 2vh;
+}
+
+.imagem-cadastro {
+    margin-top: 8vh;
 }
 
 /* Formulário */
@@ -314,13 +334,13 @@ nav {
 .formulario {
     display: flex;
     flex-direction: column;
-    margin-top: 4vh;
+    margin-top: 2.5vh;
 }
 
 .formulario input {
     margin: 5px 0 15px 0;
     border: 1px solid #000000;
-    padding: 2vh;
+    padding: 1.5vh;
     border-radius: 12px;
     line-height: 0;
     outline-color: #00EB25;
@@ -348,7 +368,7 @@ button {
 }
 
 
-.button-login {
+.button-cadastro {
     background-color: #00204E;
     color: #FFFFFF;
     border-radius: 10px;
@@ -358,23 +378,18 @@ button {
     transition: .2s ease;
 }
 
-.button-login:hover {
-    background-color: #01347c;
-}
+
 
 .button-cadastro {
-    background-color: white;
-    color: #00204E;
+    color: white;
     border-radius: 10px;
     border-width: 1px;
-    width: 28vh;
+    width: 55vh;
     height: 6vh;
-    transition: .2s ease;
 }
 
 .button-cadastro:hover {
-    background-color: #00204E;
-    color: white;
+    background-color: #01347c;
 }
 
 .container-icon {
@@ -421,13 +436,27 @@ button {
     font-family: 'Inter';
 }
 
+.termos input {
+    cursor: pointer;
+    border: 1px solid #000000;
+}
 
+.termos {
+    font-size: 10px;
+}
 
-.esq-1 {
-    color: black;
-    font-weight: lighter;
-    font-size: 15px;
+.termos a {
+    color: #2000ff;
+}
 
+.termos:hover a {
+    color: #00EB25;
+}
+
+.centralizar-termos {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 1vh;
 }
 
 
@@ -441,14 +470,21 @@ button {
     color: #34eb4f;
 }
 
+
+.container-informacoes {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Responsividade Login */
 
 
 @media (max-width: 768px) {
-    .imagem-login {
+  
+
+    .container-informacoes{
         display: none;
     }
-
 
 }
 
@@ -460,14 +496,8 @@ button {
         width: 54%;
     }
 
-
-    .container-login {
-        margin-top: 12%;
-    }
-
     .formulario input {
         width: 35vh;
-
     }
 
     .button-login {
@@ -476,7 +506,7 @@ button {
     }
 
     .button-cadastro {
-        width: 19vh;
+        width: 38vh;
     }
 
     .container-login {
@@ -494,15 +524,35 @@ button {
     .botoes {
         gap: 5%;
         display: flex;
-        margin-top: 3vh;
+        margin-top: 2vh;
     }
 
-    .descricao-login h2 {
+    .descricao-cadastro h2 {
         font-weight: lighter;
         font-family: 'Inter', sans-serif;
-        font-size: 10px;
-        margin-top: 5vh;
+        font-size: 12px;
+        margin-top: 2vh;
     }
 
+    .termos a {
+        font-size: 9px;
+    }
 
+    .termos {
+        font-size: 9px;
+    }
+
+    .container-cadastro {
+
+        margin-top: 3%;
+
+    }
+
+    .texto-cadastro {
+        font-size: 12px;
+    }
+
+    .container-informacoes{
+        display: none;
+    }
 }

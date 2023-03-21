@@ -418,13 +418,6 @@ button {
 }
 
 
-.botoes {
-  gap: 5%;
-  justify-content: center;
-  display: flex;
-  margin-top: 3vh;
-}
-
 
 
 .esqueceu-senha {
@@ -459,16 +452,63 @@ button {
   margin-left: 1vh;
 }
 
+.botoes {
+  gap: 5%;
+  justify-content: center;
+  display: flex;
+  margin-top: 3vh;
+}
 
-.esq-2 {
-  color: #00204E;
+
+.esqueceu-senha {
+  margin-top: 6vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1vh;
+  font-family: 'Inter';
+}
+
+
+
+.esq-1 {
+  color: black;
+  font-weight: lighter;
   font-size: 15px;
-  text-decoration: underline;
+
 }
 
-.esq-2:hover {
-  color: #34eb4f;
+
+.button-login {
+  background-color: #00204E;
+  color: #FFFFFF;
+  border-radius: 10px;
+  border-width: 1px;
+  width: 28vh;
+  height: 6vh;
+  transition: .2s ease;
 }
+
+.button-login:hover {
+  background-color: #01347c;
+}
+
+
+.button-cadastro {
+  background-color: white;
+  color: #00204E;
+  border-radius: 10px;
+  border-width: 1px;
+  width: 28vh;
+  height: 6vh;
+  transition: .2s ease;
+}
+
+.button-cadastro:hover {
+  background-color: #00204E;
+  color: white;
+}
+
 
 
 /* Responsividade Login */
@@ -498,11 +538,14 @@ button {
   .button-login {
     width: 19vh;
 
-  }
+}
 
-  .button-cadastro {
-    width: 38vh;
-  }
+.button-cadastro {
+    width: 19vh;
+}
+
+
+
 
   .container-login {
     display: flex;
@@ -519,7 +562,7 @@ button {
   .botoes {
     gap: 5%;
     display: flex;
-    margin-top: 2vh;
+    margin-top: 3vh;
   }
 
   .descricao-cadastro h2 {
@@ -542,4 +585,11 @@ button {
     margin-top: 3%;
 
   }
+
+
+ 
+
+  .texto-cadastro {
+    font-size: 12px;
+  } 
 }
