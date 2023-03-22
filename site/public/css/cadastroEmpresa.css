@@ -293,8 +293,9 @@ nav {
 .descricao-cadastro h2 {
     font-weight: lighter;
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 2vh;
+    
 }
 
 .imagem-cadastro {
@@ -474,7 +475,104 @@ button {
 .container-informacoes {
     display: flex;
     flex-direction: column;
+    margin-top: -7vh;
+    gap: 3vh;
+
 }
+
+
+
+.beneficios h1 {
+    font-size: 30px;
+    color: #1876FF;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.containerbeneficio {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cardbeneficio {
+        width: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 1rem;
+
+}
+
+.cardbeneficio .minicard i {
+    font-size: 2.7rem;
+    color: white;
+}
+
+.card {
+    width: 90%;
+    height: 13.5vh;
+    padding: 1rem;
+    background-color: #7eb4ffaf;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.card:nth-child(2) {
+    transform: translateX(40px);
+}
+
+.card:nth-child(3) {
+    transform: translateX(80px);
+}
+
+.minicard {
+    width: 12%;
+    background-color: #1876FF;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.minicard img {
+    width: 35px;
+}
+
+.frasecard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 85%;
+    gap: 1rem;
+}
+
+.frasecard h2 {
+    font-size: 19px;
+    color: #1876FF;
+    text-transform: uppercase;
+    text-align: -webkit-left;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.frasecard p {
+    font-size: 14px;
+    color: #00204E;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: -webkit-left;
+}
+
+
 
 /* Responsividade Login */
 
@@ -486,6 +584,10 @@ button {
         display: none;
     }
 
+    .texto-cadastro {
+        font-size: 12px;
+        margin-top: 4vh;
+    }
 }
 
 @media (max-width: 600px) {
@@ -550,9 +652,11 @@ button {
 
     .texto-cadastro {
         font-size: 12px;
+        margin-top: 4vh;
     }
 
     .container-informacoes{
         display: none;
     }
 }
+
