@@ -295,7 +295,7 @@ nav {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     margin-top: 2vh;
-    
+
 }
 
 .imagem-cadastro {
@@ -498,12 +498,12 @@ button {
 }
 
 .cardbeneficio {
-        width: 80vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        gap: 1rem;
+    width: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
 
 }
 
@@ -578,9 +578,9 @@ button {
 
 
 @media (max-width: 768px) {
-  
 
-    .container-informacoes{
+
+    .container-informacoes {
         display: none;
     }
 
@@ -655,8 +655,7 @@ button {
         margin-top: 4vh;
     }
 
-    .container-informacoes{
+    .container-informacoes {
         display: none;
     }
 }
-
