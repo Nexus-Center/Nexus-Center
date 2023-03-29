@@ -10,6 +10,8 @@
     <link rel="Logo icon" href="./assets/globo.png">
     <!-- Link css Login -->
     <link rel="stylesheet" href="./css/cadastroEmpresa.css">
+    <!-- Script Java Script Menu -->
+    <script src="./js/funcoes.js"></script>
 
 </head>
 
@@ -111,7 +113,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="cnpj_input" type="number"
+                            <input id="cnpj_input" type="text"
                                 placeholder="             XX. XXX. XXX/0001-XX                                            "
                                 maxlength="14">
                         </div>
@@ -129,6 +131,31 @@
                                 maxlength="35">
                         </div>
 
+                        <span class="tipo_campo">Senha</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastroEmpresa/email.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="senha_input" type="password"
+                                placeholder="             *******************                                            "
+                                maxlength="35">
+                        </div>
+
+                        <span class="tipo_campo">Confimar a senha</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastroEmpresa/email.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="confirmacao_senha_input" type="password"
+                                placeholder="             *******************                                            "
+                                maxlength="35">
+                        </div>
+
+
                         <span class="tipo_campo">Telefone corporativo para contato</span>
                         <div class="container-icon">
                             <div class="icon">
@@ -136,7 +163,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="telefone_input" type="number"
+                            <input id="telefone_input" type="text"
                                 placeholder="             (DDD) XXXX-XXXX                                            "
                                 maxlength="11">
                         </div>
@@ -157,8 +184,8 @@
 
                     <div class="botoes">
 
-                        <a href="./cadastro.html"><button class="button-cadastro" onclick="cadastrar()">Cadastrar
-                                Empresa</button></a>
+                        <button class="button-cadastro" onclick="cadastrarempresa()">Cadastrar
+                                Empresa</button>
 
                     </div>
 
@@ -196,6 +223,79 @@
 
     </div>
     </div>
-
     <!-- Script Java Script Menu -->
     <script src="./js/menu.js"></script>
+</body>
+<script>
+
+    function cadastrarempresa() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var cnpjVar = cnpj_input.value;
+        var telVar = telefone_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var codigoVar =String(cnpj_input.value.substr(5,3))+String(cnpj_input.value.substr(11,3));
+        console.log(codigoVar)
+        // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || codigoVar == "" || cnpjVar== "" || telVar == "") {
+        //     cardErro.style.display = "block"
+        //     mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
+
+        //     // finalizarAguardar();
+        //     return false;
+        // }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarempresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                cnpjServer: cnpjVar,
+                telServer: telVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                codigoServer: codigoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            // if (resposta.ok) {
+            //     cardErro.style.display = "block";
+
+            //     mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+            //     // limparFormulario();
+            //     // finalizarAguardar();
+            // } else {
+            //     throw ("Houve um erro ao tentar realizar o cadastro!");
+            // }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
