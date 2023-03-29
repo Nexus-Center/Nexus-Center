@@ -25,18 +25,18 @@ function cadastrar(nome, email, senha, codigo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario (nome, email, senha, codigo) VALUES ('${nome}', '${email}', '${senha}','${codigo}');
+        INSERT INTO usuario (nome, email, senha, fkcodigoDeEmpresa) VALUES ('${nome}', '${email}', '${senha}','${codigo}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function cadastrarempresa(nome, email, senha, codigo) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
+function cadastrarempresa(nome, email, senha, codigo,cnpj,tel) {
+    console.log("ACESSEI O USUARIO 2MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario (nome, email, senha, codigo) VALUES ('${nome}', '${email}', '${senha}','${codigo}');
+        insert into empresa (razaoSocial, emailCorporativo, senha, idEmpresa, cnpj, telCorp) values ('${nome}', '${email}', '${senha}', '${codigo}','${cnpj}','${tel}'); 
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
