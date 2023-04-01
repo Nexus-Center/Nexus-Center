@@ -4,7 +4,7 @@ drop table usuario;
 drop table empresa;
 create table empresa(
 idEmpresa varchar(6) primary key not null,
-cnpj varchar(13) not null,
+cnpj varchar(14) not null,
 razaoSocial varchar(120),
 emailCorporativo varchar(45),
 senha varchar(45),

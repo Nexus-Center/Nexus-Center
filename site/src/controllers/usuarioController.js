@@ -124,6 +124,7 @@ function cadastrarempresa(req, res) {
     {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        // Procurar pelo trecho aonde esta função é requisitada
         usuarioModel.cadastrarempresa(nome, email, senha, codigo,cnpj,tel)
             .then(
                 function (resultado) {
