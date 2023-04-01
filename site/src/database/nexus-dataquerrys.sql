@@ -8,7 +8,7 @@ cnpj varchar(13) not null,
 razaoSocial varchar(120),
 emailCorporativo varchar(45),
 senha varchar(45),
-telCorp varchar(14)
+telCorp char(11)
 );
 create table usuario (
 idUser int primary key auto_increment,

@@ -169,7 +169,7 @@
                     <div class="botoes">
 
                         <a href="./cadastroEmpresa.html"><button class="button-cadastro"
-                                onclick="cadastrarEmpresa()">Cadastrar empresa</button></a>
+                                ">Cadastrar empresa</button></a>
                         <button class="button-login" onclick="cadastrar()">Cadastrar</button>
 
                     </div>
@@ -214,17 +214,18 @@
             var senhaVar = senha_input.value;
             var confirmacaoSenhaVar = confirmacao_senha_input.value;
             var codigoVar = codigo_input.value;
+            // Código abaixo comentado pois as divs as quais esta condicional faz referência não estão disponíveis para serem reutilizadas.
     
-            if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || codigoVar == "" ) {
-                cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
+            // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || codigoVar == "" ) {
+            //     cardErro.style.display = "block"
+            //     mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
     
-                finalizarAguardar();
-                return false;
-            }
-            else {
-                setInterval(sumirMensagem, 5000)
-            }
+            //     finalizarAguardar();
+            //     return false;
+            // }
+            // else {
+            //     setInterval(sumirMensagem, 5000)
+            // }
     
             // Enviando o valor da nova input
             fetch("/usuarios/cadastrar", {
@@ -244,30 +245,30 @@
     
                 console.log("resposta: ", resposta);
     
-                if (resposta.ok) {
-                    cardErro.style.display = "block";
+                // if (resposta.ok) {
+                //     cardErro.style.display = "block";
     
-                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                //     mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
     
-                    setTimeout(() => {
-                        window.location = "login.html";
-                    }, "2000")
+                //     setTimeout(() => {
+                //         window.location = "login.html";
+                //     }, "2000")
                     
-                    limparFormulario();
-                    finalizarAguardar();
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
+                //     limparFormulario();
+                //     finalizarAguardar();
+                // } else {
+                //     throw ("Houve um erro ao tentar realizar o cadastro!");
+                // }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
+                // finalizarAguardar();
             });
     
             return false;
         }
     
-        function sumirMensagem() {
-            cardErro.style.display = "none"
-        }
+        // function sumirMensagem() {
+        //     cardErro.style.display = "none"
+        // }
     
     </script>
