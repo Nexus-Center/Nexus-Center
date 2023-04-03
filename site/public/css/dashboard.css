@@ -9,6 +9,7 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh;
+    background-color: #abcdffb4;
 }
 
 .nav-lateral {
@@ -38,7 +39,7 @@ body {
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 2rem;
     width: 100%;
     justify-content: center;
@@ -48,9 +49,9 @@ body {
 .nav-list li {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 35px;
+    width: 93%;
+    height: 40px;
+    padding-left: 1rem;
 }
 
 .maq {
@@ -136,4 +137,82 @@ body {
 .maquinaAdicional:hover {
     transform: scale(1.1);
     border: 2px solid #164ea1;
+}
+
+.container-desempenho {
+    display: flex;
+    width: 100%;
+    margin-left: 8rem;
+}
+
+.desempenhoMaquina {
+    display: flex;
+    padding: 5rem;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.desempenhoMaquina h1{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cardDesempenho{
+    display: flex;
+    background-color: #00204F;
+    padding: 3rem;
+    width: 100%;
+    border-radius: 15px;
+    gap: 1rem;
+}
+
+.verde{
+    display: flex;
+    background-color: #4FF35D;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 15px;
+    gap: 1rem;
+}
+
+.verde h1{
+    color: white;
+    font-size: 60px;
+}
+
+.verde h2{
+    color: white;
+    font-size: 20px;
+}
+
+.vermelho{
+    display: flex;
+    background-color: #F34F4F;
+    width: 50%;
+    padding: 1rem 0;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 15px;
+    gap: 1rem;
+}
+
+.vermelho h1{
+    color: white;
+    font-size: 60px;
+}
+
+.vermelho h2{
+    color: white;
+    font-size: 20px;
+}
+
+.grafico {
+    background-color: rgb(195, 238, 130);
+    padding: 5rem;
+    width: 50%;
 }
