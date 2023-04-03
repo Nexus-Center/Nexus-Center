@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: "Rubik";
+    overflow: hidden;
+}
+
+.maedetodos {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.nav-lateral {
+    display: flex;
+    background-color: #00204F;
+    width: 15%;
+    height: 100%;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.container-mae {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35px;
+}
+
+.maq {
+    background-color: #34D411;
+}
+
+.nav-list a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    gap: 1rem;
+}
+
+.nav-list li:hover {
+    cursor: pointer;
+    background-color: #34D411;
+    transition: .5s ease;
+}
+
+
+.container-maquina {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 2rem;
+    padding: 2rem;
+    margin-left: 5.5rem;
+}
+
+.maquina {
+    display: flex;
+    width: 20%;
+    background-color: #00204F;
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+    transition: .2s ease;
+    gap: 1rem;
+}
+
+.maquina img {
+    width: 5vh;
+}
+
+.maquina:hover {
+    transform: scale(1.1);
+    border: 2px solid #164ea1;
+}
+
+.container-maquina a {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+}
+
+.maquina h1 {
+    color: white;
+}
+
+.maquinaAdicional {
+    display: flex;
+    width: 20%;
+    background-color: none;
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+    border: 2px solid #00204F;
+    color: #00204F;
+    font-size: 50px;
+    transition: .2s ease;
+}
+
+.maquinaAdicional:hover {
+    transform: scale(1.1);
+    border: 2px solid #164ea1;
+}
