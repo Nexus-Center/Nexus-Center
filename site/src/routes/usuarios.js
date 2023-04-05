@@ -15,12 +15,18 @@ router.get("/listar", function (req, res) {
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
-router.post("/cadastrarempresa", function (req, res) {
-    usuarioController.cadastrarempresa(req, res);
+
+// Cadastrando empresa
+router.post("/cadastrarEmpresa", function (req, res) {
+    usuarioController.cadastrarEmpresa(req, res);
 })
 
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
+});
+
+router.get("/exibirCodigo/:codigoEmpresa", function (req, res) {
+    usuarioController.exibirCodigo(req, res);
 });
 
 module.exports = router;

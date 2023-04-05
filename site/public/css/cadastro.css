@@ -315,7 +315,7 @@ nav {
   width: 230px;
   position: fixed;
   border-radius: 4px;
-  border: #e6005a 3px solid;
+  border: #34D411 3px solid;
   padding: 10px;
   margin-right: 10%;
 }
@@ -538,11 +538,11 @@ button {
   .button-login {
     width: 19vh;
 
-}
+  }
 
-.button-cadastro {
+  .button-cadastro {
     width: 19vh;
-}
+  }
 
 
 
@@ -587,9 +587,9 @@ button {
   }
 
 
- 
+
 
   .texto-cadastro {
     font-size: 12px;
-  } 
+  }
 }

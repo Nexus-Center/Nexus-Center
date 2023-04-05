@@ -60,12 +60,29 @@ function entrar(req, res) {
 
 }
 
+function exibirCodigo(req, res) {
+    var idEmpresa = req.params.codigoEmpresa
+
+    usuarioModel.exibirCodigo(idEmpresa).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var codigo= req.body.codigoServer;
+    var codigo = req.body.codigoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -74,9 +91,9 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (codigo == undefined){
-        res.sratus(400).send("Seu código está undefined!");
-    }else{
+    } else if (codigo == undefined) {
+        res.status(400).send("Seu código de empresa está undefined!");
+    }else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha, codigo)
@@ -97,34 +114,29 @@ function cadastrar(req, res) {
     }
 }
 
-
-function cadastrarempresa(req, res) {
+function cadastrarEmpresa(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
+    var cnpj = req.body.cnpjServer;
     var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var codigo = req.body.codigoServer;
-    var cnpj =req.body.cnpjServer;
     var tel = req.body.telServer;
+    var codigoGerado = req.body.codigoGeradoServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu CNPJ está undefined!");
     } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (codigo == undefined){
+        res.status(400).send("Sua email está undefined!");
+    } else if (tel == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
+    } else if (codigoGerado == undefined) {
         res.status(400).send("Seu código está undefined!");
-    }else if (cnpj == undefined){
-        res.status(400).send("Seu código está undefined!");
-    }else if (tel == undefined){
-        res.status(400).send("Seu código está undefined!");
-    }else
-    {
+    }else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarempresa(nome, email, senha, codigo,cnpj,tel)
+        usuarioModel.cadastrarEmpresa(nome, cnpj, email, tel, codigoGerado)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -142,10 +154,12 @@ function cadastrarempresa(req, res) {
     }
 }
 
+
 module.exports = {
     entrar,
     cadastrar,
+    exibirCodigo,
+    cadastrarEmpresa,
     listar,
-    testar,
-    cadastrarempresa
+    testar
 }

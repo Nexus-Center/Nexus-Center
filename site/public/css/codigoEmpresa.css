@@ -8,12 +8,6 @@
     padding: 0;
 }
 
-/* Scroll Bar */
-/* body {
-    overflow: hidden;
-} */
-
-
 
 /* NAVBAR */
 a {
@@ -228,6 +222,10 @@ nav {
         cursor: pointer;
 
     }
+
+    .container-imagem {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
@@ -252,34 +250,145 @@ nav {
 
     }
 
+    .container-imagem {
+        display: none;
+    }
+
 }
 
 
 
 /* BANNER */
-.container-login {
+.container-imagem {
+    width: 300px;
+    height: 300px;
+    margin-top: 10vh;
+}
+
+.container-codigo {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin-top: 10vh;
-    gap: 20vh;
+    gap: 60vh;
 }
 
-.container-centralizar {
+.codigo-campo {
+    width: 48vh;
+    padding: 2vh;
+    top: 392px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 2vh;
     display: flex;
-    text-align: center;
+    justify-content: center;
 }
 
-.texto-login {
-    font-family: 'Inter', sans-serif;
+.beneficios h1 {
+    font-size: 30px;
+    color: #1876FF;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.descricao-login h2 {
-    font-weight: lighter;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
+.containerbeneficio {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cardbeneficio {
+    width: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 14vh;
+
+}
+
+.cardbeneficio .minicard i {
+    font-size: 2.7rem;
+    color: white;
+}
+
+.card {
+    width: 90%;
+    height: 47.5vh;
+    padding: 1rem;
+    background-color: #7eb4ffaf;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.card:nth-child(2) {
+    transform: translateX(40px);
+}
+
+.card:nth-child(3) {
+    transform: translateX(80px);
+}
+
+.minicard {
+    width: 12%;
+    background-color: #1876FF;
+    height: 83px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.minicard img {
+    width: 35px;
+}
+
+.frasecard {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    gap: 1rem;
+}
+
+.frasecard h2 {
+    font-size: 16px;
+    color: #1876FF;
+    text-transform: uppercase;
+    text-align: -webkit-left;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.frasecard p {
+    font-size: 14px;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: -webkit-left;
+}
+
+.codigoTexto {
+    font-size: 9px;
+    display: flex;
+    margin-left: 14vh;
+    color: #00204e;
+    text-transform: uppercase;
+    text-align: -webkit-left;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 800;
     margin-top: 5vh;
+    /* margin-bottom: 10vh; */
+    letter-spacing: 1px;
 }
+
+
+
+
 
 /* Formulário */
 
@@ -348,33 +457,19 @@ button {
 }
 
 
-.button-login {
+.button-cadastro {
     background-color: #00204E;
     color: #FFFFFF;
     border-radius: 10px;
     border-width: 1px;
-    width: 28vh;
-    height: 6vh;
-    transition: .2s ease;
-}
-
-.button-login:hover {
-    background-color: #01347c;
-}
-
-.button-cadastro {
-    background-color: white;
-    color: #00204E;
-    border-radius: 10px;
-    border-width: 1px;
-    width: 28vh;
-    height: 6vh;
+    width: 52vh;
+    padding: 2vh;
     transition: .2s ease;
 }
 
 .button-cadastro:hover {
-    background-color: #00204E;
-    color: white;
+    background-color: #01347c;
+
 }
 
 .container-icon {
@@ -497,12 +592,47 @@ button {
         margin-top: 3vh;
     }
 
-    .descricao-login h2 {
-        font-weight: lighter;
-        font-family: 'Inter', sans-serif;
-        font-size: 11px;
-        margin-top: 5vh;
+
+
+    .minicard {
+        display: none;
     }
+
+    .codigoTexto {
+        display: flex;
+        margin-left: 10vh;
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    .frasecard {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        gap: 1vh;
+    }
+
+    .codigo-campo {
+        width: 36vh;
+    }
+
+    .button-cadastro {
+        width: 40vh;
+
+    }
+
+    .frasecard h2 {
+        font-size: 13px;
+        margin-bottom: 2vh;
+    }
+
+    .codigoTexto {
+        font-size: 7px;
+    }
+
+
 
 
 }

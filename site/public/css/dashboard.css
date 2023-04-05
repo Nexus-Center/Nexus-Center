@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh;
-    background-color: #abcdffb4;
+    background-color: white;
 }
 
 .nav-lateral {
@@ -154,12 +154,12 @@ body {
     gap: 2rem;
 }
 
-.desempenhoMaquina h1{
+.desempenhoMaquina h1 {
     font-size: 20px;
     font-weight: 500;
 }
 
-.cardDesempenho{
+.cardDesempenho {
     display: flex;
     background-color: #00204F;
     padding: 3rem;
@@ -168,7 +168,7 @@ body {
     gap: 1rem;
 }
 
-.verde{
+.verde {
     display: flex;
     background-color: #4FF35D;
     width: 50%;
@@ -179,17 +179,17 @@ body {
     gap: 1rem;
 }
 
-.verde h1{
+.verde h1 {
     color: white;
     font-size: 60px;
 }
 
-.verde h2{
+.verde h2 {
     color: white;
     font-size: 20px;
 }
 
-.vermelho{
+.vermelho {
     display: flex;
     background-color: #F34F4F;
     width: 50%;
@@ -201,12 +201,12 @@ body {
     gap: 1rem;
 }
 
-.vermelho h1{
+.vermelho h1 {
     color: white;
     font-size: 60px;
 }
 
-.vermelho h2{
+.vermelho h2 {
     color: white;
     font-size: 20px;
 }

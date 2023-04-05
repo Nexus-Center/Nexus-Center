@@ -1,41 +1,25 @@
--- Criar Database
-create database NexusCenter;
+CREATE DATABASE nexusCenter;
+USE nexusCenter;
 
--- Selecionar Database
-use NexusCenter;
-
--- Criar tabelas
-
-CREATE TABLE CadastroFuncionario (
-    idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45),
-    email VARCHAR(45),
-    CONSTRAINT chkEmail CHECK (email LIKE '%@%'),
-    senha VARCHAR(45),
-    codigoDeEmpresa INT,
-    codigoDeEquipe INT,
-    setor VARCHAR (5),
-
+CREATE TABLE empresa(
+idEmpresa varchar(6) primary key,
+nome varchar(120),
+cnpj char(14) not null,
+email varchar(45),
+tel char(14)
 );
 
-CREATE TABLE Maquina (
-    idMaquina INT PRIMARY KEY AUTO_INCREMENT,
-    setor VARCHAR(45),
-    fkFuncionario INT,
-    FOREIGN KEY (fkFuncionario)
-        REFERENCES CadastroFuncionario (idFuncionario)
+SELECT * FROM empresa;
+
+
+CREATE TABLE usuario (
+idUser int primary key auto_increment,
+nome varchar(45),
+email varchar(45),
+senha varchar(45),
+codigo varchar(6),
+FOREIGN KEY (codigo) REFERENCES empresa(idEmpresa)
 );
 
-CREATE TABLE Metricas (
-    idmetrica INT AUTO_INCREMENT,
-    dataHora DATETIME,
-    cpu DECIMAL(4 , 2 ),
-    ram DECIMAL(4 , 2),
-    memoria DECIMAL(4 , 2 ),
-    periferico DECIMAL(4 , 2),
-    fkMaquina  INT,
-    PRIMARY KEY (idmetrica , fkMaquina),
-    FOREIGN KEY (fkMaquina)
-        REFERENCES Maquina (idMaquina)
-)
+SELECT * FROM usuario;
 

@@ -126,7 +126,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="senha_input" type="text"
+                            <input id="senha_input" type="password"
                                 placeholder="             *****************                                            "
                                 maxlength="10">
                         </div>
@@ -138,7 +138,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="confirmacao_senha_input" type="text"
+                            <input id="confirmacao_senha_input" type="password"
                                 placeholder="             *****************                                            "
                                 maxlength="10">
                         </div>
@@ -160,8 +160,7 @@
                         <div class="termos">
                             <input type="checkbox" id="termos">
                             <label for="termos">Li e aceito os <a href="./assets/Politica_Privacidade.pdf"
-                                    target="_blank">Termos de Uso e Política de
-                                    Privacidade</a></label>
+                                    target="_blank">Termos de Uso e Política de Privacidade</a></label>
                         </div>
                     </div>
 
@@ -174,16 +173,11 @@
 
                     </div>
 
+                    <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro"> <span id="mensagem_erro"></span> </div>
+                    </div>
 
-
-                    <!-- <div class="botoes">
-
-                        <a href="./cadastro.html"><button class="button-cadastro"
-                                onclick="cadastrar()">Cadastrar</button></a>
-                                <button class="button-login" onclick="login()">Login</button>
-
-                    </div> -->
-
+                    <div id="div_erros_login"></div>
 
                 </div>
             </div>
@@ -202,72 +196,72 @@
     <!-- Script Java Script Menu -->
     <script src="./js/menu.js"></script>
 </body>
-    <script>
+<script>
 
-        function cadastrar() {
-            aguardar();
-    
-            //Recupere o valor da nova input pelo nome do id
-            // Agora vá para o método fetch logo abaixo
-            var nomeVar = nome_input.value;
-            var emailVar = email_input.value;
-            var senhaVar = senha_input.value;
-            var confirmacaoSenhaVar = confirmacao_senha_input.value;
-            var codigoVar = codigo_input.value;
-    
-            if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || codigoVar == "" ) {
-                cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
-    
-                finalizarAguardar();
-                return false;
-            }
-            else {
-                setInterval(sumirMensagem, 5000)
-            }
-    
-            // Enviando o valor da nova input
-            fetch("/usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    nomeServer: nomeVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar,
-                    codigoServer:codigoVar
-                })
-            }).then(function (resposta) {
-    
-                console.log("resposta: ", resposta);
-    
-                if (resposta.ok) {
-                    cardErro.style.display = "block";
-    
-                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-    
-                    setTimeout(() => {
-                        window.location = "login.html";
-                    }, "2000")
-                    
-                    limparFormulario();
-                    finalizarAguardar();
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
-            });
-    
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var codigoVar = codigo_input.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || codigoVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
+
+            // finalizarAguardar();
             return false;
         }
-    
-        function sumirMensagem() {
-            cardErro.style.display = "none"
+        else {
+            setInterval(sumirMensagem, 5000)
         }
-    
-    </script>
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                codigoServer: codigoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

@@ -76,10 +76,6 @@
     <!-- Corpo -->
 
     <div class="container-cadastro">
-
-
-
-
         <div class="container-centralizar">
             <div class="texto-cadastro">
                 <h1>Cadastro de empresa</h1>
@@ -131,29 +127,6 @@
                                 maxlength="35">
                         </div>
 
-                        <span class="tipo_campo">Senha</span>
-                        <div class="container-icon">
-                            <div class="icon">
-                                <i><img src="./assets/cadastroEmpresa/email.png" width="20px" height="20px"></i>
-
-                                <div class="seta"></div>
-                            </div>
-                            <input id="senha_input" type="password"
-                                placeholder="             *******************                                            "
-                                maxlength="35">
-                        </div>
-
-                        <span class="tipo_campo">Confimar a senha</span>
-                        <div class="container-icon">
-                            <div class="icon">
-                                <i><img src="./assets/cadastroEmpresa/email.png" width="20px" height="20px"></i>
-
-                                <div class="seta"></div>
-                            </div>
-                            <input id="confirmacao_senha_input" type="password"
-                                placeholder="             *******************                                            "
-                                maxlength="35">
-                        </div>
 
 
                         <span class="tipo_campo">Telefone corporativo para contato</span>
@@ -184,10 +157,15 @@
 
                     <div class="botoes">
 
-                        <button class="button-cadastro" onclick="cadastrarempresa()">Cadastrar
-                                Empresa</button>
+                        <button class="button-cadastro" onclick="cadastrarEmpresa()">Cadastrar Empresa</button>
 
                     </div>
+
+                    <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro"> <span id="mensagem_erro"></span> </div>
+                    </div>
+
+                    <div id="div_erros_login"></div>
 
 
                 </div>
@@ -211,10 +189,10 @@
                     </div>
                     <div class="frasecard">
                         <h2> ATENÇÃO! </h2>
-                        <p> Ao finalizar o cadastro, será enviado ao email cadastrado 
+                        <p> Ao finalizar o cadastro, será enviado ao email cadastrado
                             um <b>código de identificação da sua empresa</b>, este código
-                           é necessário para o cadastro de seus funcionários em
-                           nossa plataforma.
+                            é necessário para o cadastro de seus funcionários em
+                            nossa plataforma.
                         </p>
                     </div>
                 </div>
@@ -225,35 +203,58 @@
     </div>
     <!-- Script Java Script Menu -->
     <script src="./js/menu.js"></script>
+
+
+
 </body>
 <script>
+function exibirCodigo(codigoEmpresa) {
 
-    function cadastrarempresa() {
+        fetch(`/usuarios/exibirCodigo/${codigoEmpresa}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log("A resposta é :" + resposta[0]);
+                    sessionStorage.ID_EMPRESA = resposta[0].idEmpresa
+                    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function cadastrarEmpresa() {
         // aguardar();
 
+       
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var cnpjVar = cnpj_input.value;
-        var telVar = telefone_input.value;
         var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        var codigoVar =String(cnpj_input.value.substr(5,3))+String(cnpj_input.value.substr(11,3));
-        console.log(codigoVar)
-        // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || codigoVar == "" || cnpjVar== "" || telVar == "") {
-        //     cardErro.style.display = "block"
-        //     mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
+        var telVar = telefone_input.value;
+        var codigoGeradoVar = String(cnpj_input.value.substr(5,3)) + String(cnpj_input.value.substr(11,3));
 
-        //     // finalizarAguardar();
-        //     return false;
-        // }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
+        console.log(codigoGeradoVar)
+
+        if (nomeVar == "" || emailVar == "" || cnpjVar == "" || telVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
+
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
 
         // Enviando o valor da nova input
-        fetch("/usuarios/cadastrarempresa", {
+        fetch("/usuarios/cadastrarEmpresa", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -263,29 +264,33 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 cnpjServer: cnpjVar,
-                telServer: telVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar,
-                codigoServer: codigoVar
+                telServer: telVar,
+                codigoGeradoServer: codigoGeradoVar
+
+
             })
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
-            // if (resposta.ok) {
-            //     cardErro.style.display = "block";
+            if (resposta.ok) {
+                cardErro.style.display = "block";
 
-            //     mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Verifique o seu código de empresa gerado!";
+                console.log(resposta);
+                exibirCodigo(codigoGeradoVar);
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "codigoEmpresa.html";
                 }, "2000")
-                
-            //     // limparFormulario();
-            //     // finalizarAguardar();
-            // } else {
-            //     throw ("Houve um erro ao tentar realizar o cadastro!");
-            // }
+
+                // limparFormulario();
+                // finalizarAguardar();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
             // finalizarAguardar();
