@@ -101,6 +101,7 @@
                             <input id="nome_input" type="text"
                                 placeholder="             Nome da Empresa                                            "
                                 maxlength="30">
+                            <div class="resultado_invalido" id="resultado_"></div>
                         </div>
 
                         <span class="tipo_campo">CNPJ da Empresa</span>
@@ -249,8 +250,11 @@ function exibirCodigo(codigoEmpresa) {
 
             // finalizarAguardar();
             return false;
-        }
-        else {
+        } else if (cnpjVar.length < 14){
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O CNPJ deve conter 14 dígitos";
+            return false;
+        } else {
             setInterval(sumirMensagem, 5000)
         }
 
@@ -286,7 +290,7 @@ function exibirCodigo(codigoEmpresa) {
                     window.location = "codigoEmpresa.html";
                 }, "2000")
 
-                // limparFormulario();
+                limparFormulario();
                 // finalizarAguardar();
 
             } else {

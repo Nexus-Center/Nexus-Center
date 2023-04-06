@@ -25,9 +25,6 @@ function validarSessao() {
     }
 }
 
-function validarCodigo(){
-    var codigoGerado = sessionStorage.CODIGOGERADO;
-}
 
 function limparSessao() {
     // aguardar();

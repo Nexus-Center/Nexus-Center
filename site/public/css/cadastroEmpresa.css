@@ -661,3 +661,10 @@ button {
         display: none;
     }
 }
+
+/* Validações do cadastro de empresa */
+.resultado_invalido {
+    display: none;
+    color: red;
+    font-size: 15px;
+}

@@ -58,10 +58,12 @@
                         <nav>
                             <ul class="menu">
                                 <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
-                                <li class="menu-item"><a href="index.html#sobreNosHome" class="menu-link">Sobre Nós</a></li>
+                                <li class="menu-item"><a href="index.html#sobreNosHome" class="menu-link">Sobre Nós</a>
+                                </li>
                                 <li class="menu-item"><a href="index.html#servicos" class="menu-link">Serviços</a></li>
                                 <li class="menu-item"><a href="index.html#equipe" class="menu-link">Equipe</a></li>
-                                <li class="menu-item"><a style="color:#00EB25" href="cadastro.html" class="menu-link">Cadastrar</a></li>
+                                <li class="menu-item"><a style="color:#00EB25" href="cadastro.html"
+                                        class="menu-link">Cadastrar</a></li>
                                 <li class="menu-item"><a href="login.html" class="menu-link">Login</a></li>
                             </ul>
                         </nav>
@@ -176,8 +178,10 @@
                     <div class="alerta_erro">
                         <div class="card_erro" id="cardErro"> <span id="mensagem_erro"></span> </div>
                     </div>
-
+                
                     <div id="div_erros_login"></div>
+
+
 
                 </div>
             </div>
@@ -189,9 +193,9 @@
         <div class="imagem-cadastro">
             <img src="./assets/cadastro/fundo_cadastro.png" alt="" width="500px" height="500px">
         </div>
-
-
     </div>
+
+
     </div>
     <!-- Script Java Script Menu -->
     <script src="./js/menu.js"></script>
@@ -214,6 +218,10 @@
             mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
 
             // finalizarAguardar();
+            return false;
+        } else if (senhaVar != confirmacaoSenhaVar) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "As senhas digitadas não coincidem!";
             return false;
         }
         else {
