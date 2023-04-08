@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Center | Adicionar Máquinas</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="css/cadastroMaquina.css">
+</head>
+
+<body>
+
+    <!-- --ATENÇÃO-- -->
+    <!-- // Ao criar uma nova página, se for utilizar a nav lateral, maedetodos será necessário englobando todo o contéudo da pg  -->
+    <!-- // Abrir ela depois do body e fechar na mesma ordem (ela que permitirá que os próximos elementos fiquem no meio da tela) -->
+    <div class="maedetodos">
+        <nav class="nav-lateral">
+
+            <div class=" logo">
+                <a href="index.html"><img src="./assets/logo.png" alt="NexusCenter" width="150vh"></a>
+            </div>
+
+            <div class="container-mae">
+                <ul class="nav-list">
+                    
+                    <li><a href="#"> <img src="assets/dash/dash.png" width="15vh"> Dashboard </a></li>
+                    <li><a href="dashboard.html"><img src="assets/dash/maquina.png" width="15vh"> Máquinas </a></li>
+                    <li class="maq"><a href="#"> <img src="assets/dash/addMaquina.png" width="15h"> Adicionar Máquina </a></li>
+                    <li><a href="#"><img src="assets/dash/config.png" width="15vh"> Configurações </a></li>
+                    <li><a href="#"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+
+
+
+        <div class="container-cadastro">
+            <div class="container-centralizar">
+                <div class="texto-cadastro">
+                    <h1>Cadastro da Máquina</h1>
+                    <div class="descricao-cadastro">
+                        <h2>Cadastre a máquina do seu colaborador</h2>
+
+
+                        <div class="formulario">
+
+                            <!--
+                             Para inserir mais um campo, copie uma das inputs abaixo.
+                             Assim que inserir vá para o script abaixo.
+                         -->
+                            <span class="tipo_campo">Nome do usuário</span>
+                            <div class="container-icon">
+                                <div class="icon">
+                                    <i><img src="./assets/cadastro/user_icon.png" width="20px" height="20px"></i>
+                                    <div class="seta"></div>
+
+                                </div>
+                                <input id="nomeUsuario_input" type="text"
+                                    placeholder="             Nome Sobrenome                                            "
+                                    maxlength="30">
+                            </div>
+
+                            <span class="tipo_campo">Patrimônio</span>
+                            <div class="container-icon">
+                                <div class="icon">
+                                    <i><img src="./assets/Login/email.png" width="20px" height="20px"></i>
+
+                                    <div class="seta"></div>
+                                </div>
+                                <input id="patrimonio_input" type="text"
+                                    placeholder="             123456                                           "
+                                    maxlength="35">
+                            </div>
+
+
+                            <span class="tipo_campo">Senha</span>
+                            <div class="container-icon">
+                                <div class="icon">
+                                    <i><img src="./assets/cadastro/cadeado_icon.png" width="20px" height="20px"></i>
+
+                                    <div class="seta"></div>
+                                </div>
+                                <input id="senha_input" type="password"
+                                    placeholder="             *****************                                            "
+                                    maxlength="10">
+                            </div>
+
+                            <span class="tipo_campo">Confirmar senha</span>
+                            <div class="container-icon">
+                                <div class="icon">
+                                    <i><img src="./assets/cadastro/cadeado_icon.png" width="20px" height="20px"></i>
+
+                                    <div class="seta"></div>
+                                </div>
+                                <input id="confirmacao_senha_input" type="password"
+                                    placeholder="             *****************                                            "
+                                    maxlength="10">
+                            </div>
+
+
+
+
+                            <div class="botoes">
+                                <button class="button-cadastro" onclick="cadastrarMaquina()">Cadastrar máquina</button>
+                            </div>
+
+
+                            <div class="alerta_erro">
+                                <div class="card_erro" id="cardErro"> <span id="mensagem_erro"></span> </div>
+                            </div>
+
+                            <div id="div_erros_login"></div>
+
+
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="imagem-cadastro">
+                    <img src="./assets/cadastroMaquina/imagem_cadastro_maquina.png" alt="" width="500px" height="400px ">
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
