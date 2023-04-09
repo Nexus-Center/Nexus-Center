@@ -85,6 +85,28 @@ body {
     margin-top: 20vh;
 }
 
+.container-centralizar {
+    gap: 10vh;
+}
+
+.imagem-cadastro {
+    margin-top: 10vh;
+}
+
+
+.texto-cadastro h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.descricao-cadastro h2 {
+    font-weight: lighter;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-top: 2vh;
+    margin-bottom: 40px;
+}
 
 
 
@@ -118,12 +140,6 @@ input[type=number] {
     appearance: textfield;
 
 }
-
-
-
-
-
-
 
 
 
@@ -249,12 +265,6 @@ button {
 }
 
 
-
-.texto-cadastro {
-    font-family: 'Inter', sans-serif;
-}
-
-
 .button-cadastro {
     background-color: #00204E;
     color: #FFFFFF;
@@ -269,3 +279,4 @@ button {
     background-color: #00204E;
     color: white;
 }
+
