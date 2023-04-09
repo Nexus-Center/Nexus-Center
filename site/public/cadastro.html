@@ -84,7 +84,7 @@
 
         <div class="container-centralizar">
             <div class="texto-cadastro">
-                <h1>Cadastro de usuário</h1>
+                <div class="titulo"><h1>Cadastro de usuário</h1></div>
                 <div class="descricao-cadastro">
                     <h2>Encontre a solução ideal para o seu Call Center</h2>
                     <div class="formulario">
@@ -146,16 +146,27 @@
                         </div>
 
                         <span class="tipo_campo">Código da empresa</span>
-                        <div class="container-icon">
-                            <div class="icon">
-                                <i><img src="./assets/cadastro/codigo_icon.png" width="20px" height="20px"></i>
+                        <div class="alinhar-hint">
+                            <div class="container-icon">
+                                <div class="icon">
+                                    <i><img src="./assets/cadastro/codigo_icon.png" width="20px" height="20px"></i>
 
-                                <div class="seta"></div>
+                                    <div class="seta"></div>
+                                </div>
+                                <input id="codigo_input" type="number"
+                                    placeholder="             Ex: 123                                                            "
+                                    maxlength="5">
                             </div>
-                            <input id="codigo_input" type="number"
-                                placeholder="             Ex: 123                                                            "
-                                maxlength="5">
+                            <div class="icon tooltip"
+                                data-tooltip="Para obter o código da empresa é necessário cadastrar a empresa">
+                                <ion-icon> <img src="./assets/cadastro/interrogacao.png" alt="inter" width="25px"
+                                        height="25px" class="img">
+                                </ion-icon>
+
+                            </div>
                         </div>
+
+
                     </div>
 
                     <div class="centralizar-termos">
@@ -178,7 +189,7 @@
                     <div class="alerta_erro">
                         <div class="card_erro" id="cardErro"> <span id="mensagem_erro"></span> </div>
                     </div>
-                
+
                     <div id="div_erros_login"></div>
 
 

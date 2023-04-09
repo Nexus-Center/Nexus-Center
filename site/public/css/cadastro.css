@@ -139,8 +139,6 @@ nav {
 
 
 
-
-
 /* Navbar responsiva */
 
 .hamburger {
@@ -255,6 +253,9 @@ nav {
     display: block;
   }
 
+  h1, h2{
+    margin-right: 4vh;
+  }
   .nav-list {
     display: none;
   }
@@ -294,6 +295,8 @@ nav {
   font-weight: lighter;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
+  margin-right: 4vh;    
+
   margin-top: 2vh;
 }
 
@@ -457,6 +460,7 @@ button {
   justify-content: center;
   display: flex;
   margin-top: 3vh;
+  margin-right: 6vh;
 }
 
 
@@ -509,6 +513,9 @@ button {
   color: white;
 }
 
+.titulo {
+  margin-right: 4vh;
+}
 
 
 /* Responsividade Login */
@@ -545,8 +552,6 @@ button {
   }
 
 
-
-
   .container-login {
     display: flex;
     justify-content: center;
@@ -563,6 +568,7 @@ button {
     gap: 5%;
     display: flex;
     margin-top: 3vh;
+    margin-right: 4vh;
   }
 
   .descricao-cadastro h2 {
@@ -570,6 +576,13 @@ button {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     margin-top: 2vh;
+    margin-right: 4vh;    
+  }
+
+  
+
+  h1 {
+    margin-right: 4vh;
   }
 
   .termos a {
@@ -587,9 +600,63 @@ button {
   }
 
 
-
-
   .texto-cadastro {
     font-size: 12px;
   }
+}
+
+
+/* Hint */
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after,
+.tooltip::before {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: auto;
+  width: auto;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  transition: 0.2s ease-in-out transform;
+}
+
+.tooltip::before {
+  font-size: 14px;
+  line-height: 20px;
+  content: attr(data-tooltip);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  top: -10px;
+  transform: translate(-50%, -100%) scale(0);
+  transform-origin: bottom;
+}
+
+.tooltip::after {
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -150%) rotate(45deg) scale(0);
+  transform-origin: top center;
+}
+
+.tooltip:hover::before {
+  transform: translate(-50%, -100%) scale(1);
+}
+
+.tooltip:hover::after {
+  transform: translate(-50%, -150%) rotate(45deg) scale(1);
+}
+
+.alinhar-hint {
+  display: flex;
+  flex-direction: row;
+}
+
+.img {
+  margin-bottom: 1.5vh;
 }
