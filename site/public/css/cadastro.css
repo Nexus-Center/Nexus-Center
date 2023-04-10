@@ -699,8 +699,9 @@ button {
   }
 
   .tooltip::before {
-    width: 8vh;
+    width: 10vh;
     height: auto;
+    margin-left: -5vh;
   }
 }
 
