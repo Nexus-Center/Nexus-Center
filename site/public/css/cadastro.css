@@ -253,9 +253,10 @@ nav {
     display: block;
   }
 
-  h1, h2{
+  h1, h2 {
     margin-right: 4vh;
   }
+
   .nav-list {
     display: none;
   }
@@ -295,7 +296,7 @@ nav {
   font-weight: lighter;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  margin-right: 4vh;    
+  margin-right: 4vh;
 
   margin-top: 2vh;
 }
@@ -610,10 +611,10 @@ button {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     margin-top: 2vh;
-    margin-right: 4vh;    
+    margin-right: 4vh;
   }
 
-  
+
 
   h1 {
     margin-right: 4vh;

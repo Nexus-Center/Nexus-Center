@@ -156,7 +156,7 @@ input[type=number] {
 }
 
 .card_erro {
-    display: block;
+    display: none;
     background-color: #fff;
     color: black;
     width: 230px;
@@ -167,7 +167,7 @@ input[type=number] {
     margin-left: 30vh;
     margin-left: 300vh;
     top: 19vh;
-    right: 87vh;
+    right: 70vh;
 }
 
 .card_erro #mensagem_erro {
@@ -282,4 +282,3 @@ button {
     background-color: #00204E;
     color: white;
 }
-
