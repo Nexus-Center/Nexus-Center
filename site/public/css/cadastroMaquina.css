@@ -156,7 +156,7 @@ input[type=number] {
 }
 
 .card_erro {
-    display: none;
+    display: block;
     background-color: #fff;
     color: black;
     width: 230px;
@@ -164,7 +164,10 @@ input[type=number] {
     border-radius: 4px;
     border: #34D411 3px solid;
     padding: 10px;
-    margin-right: 10%;
+    margin-left: 30vh;
+    margin-left: 300vh;
+    top: 19vh;
+    right: 87vh;
 }
 
 .card_erro #mensagem_erro {
