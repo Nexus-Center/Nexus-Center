@@ -612,7 +612,7 @@ button {
 @media (max-width: 600px) {
 
   .card_erro {
-    display: block;
+    display: none;
     background-color: #fff;
     color: black;
     width: 230px;
