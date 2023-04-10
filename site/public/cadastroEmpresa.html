@@ -93,14 +93,14 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-                        <span class="tipo_campo">Nome da Empresa</span>
+                        <span class="tipo_campo">Razão Social</span>
                         <div class="container-icon">
                             <div class="icon">
                                 <i><img src="./assets/cadastroEmpresa/empresa.png" width="20px" height="20px"></i>
                                 <div class="seta"></div>
 
                             </div>
-                            <input id="nome_input" type="text"
+                            <input id="razaoSocial_input" type="text"
                                 placeholder="             Nome da Empresa                                            "
                                 maxlength="30">
                             <div class="resultado_invalido" id="resultado_"></div>
@@ -238,7 +238,7 @@
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        var nomeVar = nome_input.value;
+        var razaoSocialVar = razaoSocial_input.value;
         var cnpjVar = cnpj_input.value;
         var emailVar = email_input.value;
         var telVar = telefone_input.value;
@@ -246,7 +246,7 @@
 
         console.log(codigoGeradoVar)
 
-        if (nomeVar == "" || emailVar == "" || cnpjVar == "" || telVar == "") {
+        if (razaoSocialVar == "" || emailVar == "" || cnpjVar == "" || telVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
 
@@ -269,7 +269,7 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
+                razaoSocialServer: razaoSocialVar,
                 cnpjServer: cnpjVar,
                 emailServer: emailVar,
                 telServer: telVar,

@@ -3,10 +3,10 @@ USE nexusCenter;
 
 CREATE TABLE empresa(
 idEmpresa char(6) primary key,
-nome varchar(120),
+razaoSocial varchar(120),
 cnpj char(14) not null,
 email varchar(45),
-tel char(14)
+telefone char(14)
 );
 
 SELECT * FROM empresa;
