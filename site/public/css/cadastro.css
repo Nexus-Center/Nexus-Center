@@ -523,6 +523,61 @@ button {
 }
 
 
+/* Hint */
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after,
+.tooltip::before {
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: auto;
+  width: 30vh;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  transition: 0.2s ease-in-out transform;
+}
+
+.tooltip::before {
+  font-size: 14px;
+  line-height: 20px;
+  content: attr(data-tooltip);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  top: -10px;
+  transform: translate(-50%, -100%) scale(0);
+  transform-origin: bottom;
+}
+
+.tooltip::after {
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -150%) rotate(45deg) scale(0);
+  transform-origin: top center;
+}
+
+.tooltip:hover::before {
+  transform: translate(-50%, -100%) scale(1);
+}
+
+.tooltip:hover::after {
+  transform: translate(-50%, -150%) rotate(45deg) scale(1);
+}
+
+.alinhar-hint {
+  display: flex;
+  flex-direction: row;
+}
+
+.img {
+  margin-bottom: 1.5vh;
+}
+
 /* Responsividade Login */
 
 
@@ -548,6 +603,10 @@ button {
     right: 19vh;
   }
 
+  .tooltip::before {
+    width: 20vh;
+    height: auto;
+  }
 }
 
 @media (max-width: 600px) {
@@ -638,60 +697,10 @@ button {
   .texto-cadastro {
     font-size: 12px;
   }
+
+  .tooltip::before {
+    width: 15vh;
+    height: auto;
+  }
 }
 
-
-/* Hint */
-
-.tooltip {
-  position: relative;
-}
-
-.tooltip::after,
-.tooltip::before {
-  content: "";
-  position: absolute;
-  background-color: black;
-  height: auto;
-  width: 30vh;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  transition: 0.2s ease-in-out transform;
-}
-
-.tooltip::before {
-  font-size: 14px;
-  line-height: 20px;
-  content: attr(data-tooltip);
-  color: white;
-  padding: 10px;
-  border-radius: 4px;
-  top: -10px;
-  transform: translate(-50%, -100%) scale(0);
-  transform-origin: bottom;
-}
-
-.tooltip::after {
-  height: 10px;
-  width: 10px;
-  transform: translate(-50%, -150%) rotate(45deg) scale(0);
-  transform-origin: top center;
-}
-
-.tooltip:hover::before {
-  transform: translate(-50%, -100%) scale(1);
-}
-
-.tooltip:hover::after {
-  transform: translate(-50%, -150%) rotate(45deg) scale(1);
-}
-
-.alinhar-hint {
-  display: flex;
-  flex-direction: row;
-}
-
-.img {
-  margin-bottom: 1.5vh;
-}
