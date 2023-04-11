@@ -33,7 +33,6 @@ CREATE TABLE MetricaMouse(
 idMetrica INT PRIMARY KEY AUTO_INCREMENT,
 cordenadaX INT,
 cordenadaY INT,
-fkPeriferico INT,
 fkMaquina INT,
 FOREIGN KEY (fkMaquina) REFERENCES Maquina(idMaquina),
 fkEmpresa CHAR(6),
@@ -172,3 +171,6 @@ INSERT INTO MetricaUSB VALUES
     
 SELECT * FROM MetricaUSB;
     
+SELECT * FROM Empresa 
+	JOIN Usuario AS usuario ON usuario.fkEmpresa = idEmpresa
+    JOIN Maquina AS maquina ON maquina.fkEmpresa = idEmpresa;
