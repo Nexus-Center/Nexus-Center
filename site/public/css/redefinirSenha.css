@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+
+/*CONFIG GERAL DA PÁGINA */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+/* NAVBAR */
+a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00204E;
+    height: 12vh;
+}
+
+.icone-logo {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 5%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.seta {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 30%;
+    margin-bottom: 10%;
+    width: 28px;
+    height: 0px;
+    border: 0.5px solid #908e8e;
+    transform: rotate(90deg);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin-top: 0.5vh;
+    text-align: center;
+    align-items: center;
+}
+
+.nav-list li:hover {
+    text-shadow: 0.03em 0.03em 0.5em #52b4de;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.container-mae-links .nav-list li {
+    letter-spacing: 1px;
+    margin-left: 36px;
+    font-size: 18px;
+    padding: 2px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-list .login {
+    margin-left: 15vh;
+}
+
+/* Botão que direciona ao login */
+.login {
+    border-radius: 3px;
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    height: 35px;
+    width: 85px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    transition: .2s ease;
+    font-size: 15px;
+}
+
+.login:hover {
+    transform: scale(1.1);
+}
+
+.container-mae-links {
+    margin-right: 10%;
+}
+
+
+
+
+
+
+
+
+/* Navbar responsiva */
+
+.hamburger {
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 5;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+
+.line {
+    display: none;
+    width: 100%;
+    height: .1rem;
+    padding: 1px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 3px rgba(0, 0, 0, 0.788);
+    transition: transform .7s;
+}
+
+.show-menu #line1 {
+    transform: rotate(45deg) translate(.4rem, .9rem);
+    background-color: white;
+    box-shadow: none;
+}
+
+.show-menu #line2 {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3 {
+    transform: rotate(-45deg) translate(.3rem, -.9rem);
+    background-color: white;
+    box-shadow: none;
+}
+
+.sidebar {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #00204E;
+    box-shadow: 10px 5px 15px 10px rgba(0, 0, 0, 0.582);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: all .8s;
+    z-index: 2
+}
+
+.show-menu .sidebar {
+    right: 0;
+}
+
+.menu {
+    margin-top: 68vh;
+    margin-left: 13vh;
+    width: 65%;
+}
+
+.menu-item {
+    text-align: center;
+    letter-spacing: 1px;
+    margin-left: 36px;
+    font-size: 20px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.menu-link {
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: rgb(245, 245, 245);
+    transition: color .7s;
+    line-height: 9vh;
+}
+
+
+
+
+
+/* Responsividade 974px - Quebrar expaçamento do login e links */
+
+@media (max-width: 974px) {
+    .nav-list .login {
+        margin-left: 6vh;
+    }
+}
+
+
+/* Responsividade 768px - Menu */
+@media (max-width: 768px) {
+    .line {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    .menu-item {
+        display: block;
+    }
+
+    .hamburger {
+        cursor: pointer;
+
+    }
+}
+
+
+
+/* BANNER */
+.container-login {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 5%;
+    gap: 20vh;
+}
+
+.container-centralizar {
+    display: flex;
+    text-align: center;
+}
+
+.texto-esqueceu-senha {
+    font-family: 'Inter', sans-serif;
+}
+
+.descricao-esqueceu-senha h2 {
+    font-weight: lighter;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    margin-top: 5vh;
+}
+
+/* Formulário */
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #34D411 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.formulario .tipo_campo {
+    font-size: 16px;
+    display: flex;
+    font-family: 'Inter';
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4vh;
+}
+
+.formulario input {
+    margin: 5px 0 15px 0;
+    border: 1px solid #000000;
+    padding: 2vh;
+    border-radius: 12px;
+    line-height: 0;
+    outline-color: #00EB25;
+    font-family: 'Inter', FontAwesome;
+    line-height: 0;
+    width: 52vh;
+    text-align: center;
+}
+
+
+.icon i {
+    width: 40px;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+.fundo {
+    display: flex;
+    justify-content: flex-end;
+    height: 647px;
+}
+
+.button-login {
+    background-color: #00204E;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border-width: 1px;
+    width: 28vh;
+    height: 6vh;
+    transition: .2s ease;
+}
+
+.button-login:hover {
+    background-color: #01347c;
+}
+
+.button-cadastro {
+    background-color: white;
+    color: #00204E;
+    border-radius: 10px;
+    border-width: 1px;
+    width: 28vh;
+    height: 6vh;
+    transition: .2s ease;
+}
+
+.button-cadastro:hover {
+    background-color: #00204E;
+    color: white;
+}
+
+
+.container-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    right: 1;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+    margin-left: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+}
+
+.icon i {
+    font-size: 25px;
+    text-align: start;
+    margin-bottom: 1vh;
+}
+
+
+.botoes {
+    gap: 5%;
+    justify-content: center;
+    display: flex;
+    margin-top: 3vh;
+}
+
+.esqueceu-senha {
+    margin-top: 6vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1vh;
+    font-family: 'Inter';
+}
+
+
+
+.esq-1 {
+    color: black;
+    font-weight: lighter;
+    font-size: 15px;
+
+}
+
+
+.esq-2 {
+    color: #00204E;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+/* Responsividade Esqueceu senha */
+
+
+@media (max-width: 768px) {
+    .imagem-login {
+        display: none;
+    }
+
+    .container-login {
+        margin-top: 8%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .menu {
+        margin-top: 68vh;
+        margin-left: 15vh;
+        width: 54%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .descricao-esqueceu-senha h2 {
+        font-weight: lighter;
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+        margin-top: 5vh;
+    }
+
+    .formulario input {
+        width: 35vh;
+    }
+
+    .button-login {
+        width: 19vh;
+
+    }
+
+    .button-cadastro {
+        width: 19vh;
+    }
+
+    .container-login {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-icon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .botoes {
+        gap: 5%;
+        display: flex;
+        margin-top: 3vh;
+    }
+
+    .descricao-login h2 {
+        font-weight: lighter;
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        margin-top: 5vh;
+    }
+
+    .container-login {
+        margin-top: 8vh;
+    }
+}
