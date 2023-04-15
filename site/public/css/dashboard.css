@@ -9,13 +9,62 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh;
-    background-color: white;
+    background-color: #d8d8d8;
 }
+
+.container-legenda {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.legenda {
+    margin-right: 6.3rem;
+    width: 40%;
+    background-color: #D9D9D9;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tituloLegenda {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.coresLegenda {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.pings {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.pings h1 {
+    font-weight: 500;
+    margin-top: 2px;
+}
+
 
 .nav-lateral {
     display: flex;
     background-color: #00204F;
-    width: 15%;
+    width: 20%;
     height: 100%;
     flex-direction: column;
     gap: 3rem;
@@ -49,7 +98,7 @@ body {
 .nav-list li {
     display: flex;
     align-items: center;
-    width: 93%;
+    width: 94%;
     height: 40px;
     padding-left: 1rem;
 }
@@ -71,19 +120,40 @@ body {
     transition: .5s ease;
 }
 
+.magica {
+    width: 100%;
+}
 
 .container-maquina {
-    width: 100%;
+    width: 90%;
+    height: 175px;
     display: grid;
-    grid-template-columns: repeat(4, 2fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     padding: 2rem;
-    margin-left: 5.5rem;
+    margin-left: 1rem;
+    place-items: center;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    background-color: #f1f1f1;
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: #00204F;
+    border-radius: 10px;
+}
+
+.corpoMaquina {
+    width: 25%;
+    height: 90px;
 }
 
 .maquina {
     display: flex;
-    width: 20%;
     background-color: #00204F;
     width: 200px;
     height: 80px;
@@ -110,10 +180,49 @@ body {
     text-decoration: none;
     color: white;
     list-style: none;
+    height: 80px;
 }
 
 .maquina h1 {
     color: white;
+    margin-top: 2px;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#verm {
+    background-color: red;
+    animation: blink 1s infinite;
+}
+
+#vermP {
+    background-color: red;
+}
+
+#verd {
+    background-color: #8ADF9E;
+}
+
+#amarel {
+    background-color: #f1f143;
+}
+
+@keyframes blink {
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: #00204F;
+    }
+
+    100% {
+        background-color: red;
+    }
 }
 
 .maquinaAdicional {
@@ -142,46 +251,40 @@ body {
 .container-desempenho {
     display: flex;
     width: 100%;
-    margin-left: 8rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.desempenhoMaquina {
-    display: flex;
-    padding: 5rem;
-    width: 50%;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
 
 .desempenhoMaquina h1 {
     font-size: 20px;
     font-weight: 500;
+    text-align: center;
 }
 
 .cardDesempenho {
-    display: flex;
     background-color: #00204F;
-    padding: 3rem;
-    width: 100%;
-    border-radius: 15px;
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
     gap: 1rem;
+    flex-direction: column;
 }
 
 .verde {
     display: flex;
-    background-color: #4FF35D;
-    width: 50%;
+    background-color: #4ff35d;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
-    border-radius: 15px;
+    border-radius: 10px;
     gap: 1rem;
+    width: 100px;
 }
 
 .verde h1 {
     color: white;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .verde h2 {
@@ -191,19 +294,17 @@ body {
 
 .vermelho {
     display: flex;
-    background-color: #F34F4F;
-    width: 50%;
-    padding: 1rem 0;
+    background-color: rgb(243, 79, 79);
     align-items: center;
     flex-direction: column;
-    padding: 2rem;
-    border-radius: 15px;
+    border-radius: 10px;
     gap: 1rem;
+    width: 100px;
 }
 
 .vermelho h1 {
     color: white;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .vermelho h2 {
@@ -211,8 +312,101 @@ body {
     font-size: 20px;
 }
 
+
+
+.caixa-grafico {
+    width: 65%;
+}
+
 .grafico {
-    background-color: rgb(195, 238, 130);
-    padding: 5rem;
     width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.corpo-grafico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 95%;
+}
+
+
+.corpo-tabela {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.corpo-tabela h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.container-tabela {
+    width: 720px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.tabela {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9rem;
+}
+
+
+table {
+    width: 70vw;
+}
+
+table thead tr {
+    background-color: #000b1c;
+}
+
+table tbody tr {
+    background-color: #005da5;
+    transform: scale(1);
+    transition: .3s ease;
+}
+
+table tbody tr:hover {
+    margin: .5rem 0;
+    background-color: rgb(0, 132, 255);
+    transform: scale(1.02);
+}
+
+table tr {
+    color: white;
+    padding: .5rem;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+table td {
+    text-align: center;
+    width: 20vh;
+}
+
+td h1 {
+    color: #691c1c;
+}
+
+td h2 {
+    color: #34D411;
 }

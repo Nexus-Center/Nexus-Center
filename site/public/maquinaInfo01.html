@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/maquinaInfo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title> Info Maquina</title>
+</head>
+
+<body>
+
+    <div class="inicio">
+        <div class="voltar">
+            <a href="maquinas.html"><button> Voltar </button></a>
+        </div>
+        <h1 class="tituloMaq"> Informações da Máquina 01</h1>
+
+        <div class="legenda">
+            <div class="tituloLegenda">
+                <h1>Legenda</h1>
+            </div>
+
+
+            <div class="coresLegenda">
+                <div class="pings">
+                    <div class="circle" id="verd"></div>
+                    <h1> Ideal </h1>
+                </div>
+                <div class="pings">
+                    <div class="circle" id="amarel"></div>
+                    <h1> Atenção </h1>
+                </div>
+                <div class="pings">
+                    <div class="circle" id="vermP"></div>
+                    <h1> Alerta </h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-info">
+        <div class="superior">
+
+            <div class="info" id="cpuInfo">
+                <h1> Utilização: 60%</h1>
+                <h1> Processos: 222</h1>
+            </div>
+
+            <div class="caixa" id="verm">
+                <h1> CPU </h1>
+                <canvas id="cpu-chart"></canvas>
+            </div>
+
+            <div class="caixa" id="verd">
+                <h1> Memória </h1>
+                <canvas id="mem-chart"></canvas>
+            </div>
+
+            <div class="info" id="memInfo">
+                <h1> Em uso: <br> 10,7 GB</h1>
+                <h1> Disponível: <br> 5,2 GB</h1>
+            </div>
+        </div>
+
+
+        <div class="inferior">
+
+            <div class="info" id="discoInfo">
+                <h1> Tempo de Atividade: 4,3%</h1>
+                <h1> Velocidade de Gravação:<br> 15 KB/s</h1>
+            </div>
+
+            <div class="caixa" id="amarel">
+                <h1> Disco </h1>
+                <canvas id="disco-chart"></canvas>
+            </div>
+
+            <div class="caixa" id="usb">
+                <h1> USB Conectado </h1>
+                <canvas id="mem-chart"></canvas>
+            </div>
+
+            <div class="info" id="usbInfo">
+                <h1> Conectados: <br> 3</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
+<script>
+    // Gráfico da CPU
+
+    var ctx = document.getElementById('cpu-chart').getContext('2d');
+    var cpuChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
+            datasets: [{
+                label: 'CPU',
+                data: [70, 40, 20, 10, 70, 80],
+                backgroundColor: 'rgba(62, 62, 167)',
+                borderColor: 'rgba(62, 62, 167)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Gráfico de Memória
+
+    var ctx = document.getElementById('mem-chart').getContext('2d');
+    var memChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
+            datasets: [{
+                label: 'Memória',
+                data: [70, 80, 85, 90, 95, 100],
+                backgroundColor: 'rgba(62, 62, 167)',
+                borderColor: 'rgba(62, 62, 167)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Gráfico do disco
+
+    var ctx = document.getElementById('disco-chart').getContext('2d');
+    var discoChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
+            datasets: [{
+                label: 'Disco',
+                data: [10, 15, 5, 20, 23, 20],
+                backgroundColor: 'rgba(62, 62, 167)',
+                borderColor: 'rgba(62, 62, 167)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

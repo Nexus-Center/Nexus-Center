@@ -17,7 +17,7 @@ body {
 .nav-lateral {
     display: flex;
     background-color: #00204F;
-    width: 15%;
+    width: 17%;
     height: 100%;
     flex-direction: column;
     gap: 3rem;
@@ -51,7 +51,7 @@ body {
 .nav-list li {
     display: flex;
     align-items: center;
-    width: 93%;
+    width: 93.5%;
     height: 40px;
     padding-left: 1rem;
 }

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashboard - NexusCenter </title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- --ATENÇÃO-- -->
+    <!-- // Ao criar uma nova página, se for utilizar a nav lateral, maedetodos será necessário englobando todo o contéudo da pg  -->
+    <!-- // Abrir ela depois do body e fechar na mesma ordem (ela que permitirá que os próximos elementos fiquem no meio da tela) -->
+    <div class="maedetodos">
+        <nav class="nav-lateral">
+
+            <div class=" logo">
+                <a href="index.html"><img src="./assets/logo.png" alt="NexusCenter" width="150vh"></a>
+            </div>
+
+            <div class="container-mae">
+                <ul class="nav-list">
+                    <li class="maq"><a href="#"> <img src="assets/dash/maquina.png" width="15vh"> Máquinas </a></li>
+                    <li><a href="cadastroMaquina.html"> <img src="assets/dash/addMaquina.png" width="15vh"> Adicionar
+                            Maquinas </a></li>
+                    <li><a href="index.html"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="magica">
+
+            <div class="container-legenda">
+                <div class="legenda">
+                    <div class="tituloLegenda">
+                        <h1>Legenda</h1>
+                    </div>
+
+
+                    <div class="coresLegenda">
+                        <div class="pings">
+                            <div class="circle" id="verd"></div>
+                            <h1> Ideal </h1>
+                        </div>
+                        <div class="pings">
+                            <div class="circle" id="amarel"></div>
+                            <h1> Atenção </h1>
+                        </div>
+                        <div class="pings">
+                            <div class="circle" id="vermP"></div>
+                            <h1> Alerta </h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-maquina">
+
+                <a href="maquinaInfo01.html">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 1 </h1>
+                        <div class="circle" id="verm"></div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 2 </h1>
+                        <div class="circle" id="amarel"></div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 3 </h1>
+                        <div class="circle" id="verd"></div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 4 </h1>
+                        <div class="circle" id="verd"></div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 5 </h1>
+                        <div class="circle" id="verd"></div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 6 </h1>
+                        <div class="circle" id="verd"></div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 7 </h1>
+                        <div class="circle" id="verd"></div>
+                    </div>
+                </a>
+
+
+                <a href="#">
+                    <div class="maquina">
+                        <img src="assets/dash/maquina.png" alt="">
+                        <h1> Máquina 8 </h1>
+                        <div class="circle" id="verd"></div>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="maquinaAdicional">
+                        <h1> + </h1>
+                    </div>
+                </a>
+            </div>
+
+            <div class="container-desempenho">
+
+                <div class="corpo-tabela">
+                    <h3> Quadro de funcionarios</h3>
+                    <div class="container-tabela">
+                        <div class="tabela">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>Nome</td>
+                                        <td>Máquina</td>
+                                        <td>Status</td>
+                                        <td>USB Conectado</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>João Silva</td>
+                                        <td>Desktop 3</td>
+                                        <td>
+                                            <h2> Ativo </h2>
+                                        </td>
+                                        <td>Sim</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Maria Lúcia</td>
+                                        <td>Desktop 2</td>
+                                        <td>
+                                            <h1>Inativo</h1>
+                                        </td>
+                                        <td>Sim</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Pedro Sampaio</td>
+                                        <td>Desktop 5</td>
+                                        <td>
+                                            <h2> Ativo </h2>
+                                        </td>
+                                        <td>Não</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Marcelo Costa</td>
+                                        <td>Desktop 1</td>
+                                        <td>
+                                            <h2> Ativo </h2>
+                                        </td>
+                                        <td> Sim </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>Marcelo Costa</td>
+                                        <td>Desktop 1</td>
+                                        <td>
+                                            <h2> Ativo </h2>
+                                        </td>
+                                        <td> Sim </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Marcelo Costa</td>
+                                        <td>Desktop 1</td>
+                                        <td>
+                                            <h2> Ativo </h2>
+                                        </td>
+                                        <td> Sim </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="grafico">
+                    <div class="desempenhoMaquina">
+                        <h1> Desempenho das Máquinas </h1>
+                    </div>
+                    <div class="corpo-grafico">
+
+                        <div class="caixa-grafico">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                        <div class="cardDesempenho">
+                            <div class="verde">
+                                <h1> 16</h1>
+                                <h2> Alto </h2>
+                            </div>
+                            <div class="vermelho">
+                                <h1> 8 </h1>
+                                <h2> Baixo </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</body>
+
+</html>
+<script>
+    const data = {
+        labels: [
+            'Alto',
+            'Baixo',
+        ],
+        datasets: [{
+            label: 'Desempenho das Máquinas',
+            data: [16, 8],
+            backgroundColor: [
+                'rgb(79, 243, 93)',
+                'rgb(243, 79, 79)',
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config = {
+        type: 'doughnut',
+        data: data,
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+</script>
