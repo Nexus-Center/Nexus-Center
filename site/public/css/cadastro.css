@@ -343,7 +343,9 @@ nav {
   display: flex;
   flex-direction: column;
   margin-top: 2.5vh;
+  
 }
+
 
 .formulario input {
   margin: 5px 0 15px 0;
@@ -354,8 +356,8 @@ nav {
   outline-color: #00EB25;
   font-family: 'Inter', FontAwesome;
   line-height: 0;
-  width: 52vh;
-  text-align: center;
+  width: 46vh;
+  padding-inline-start: 10vh;
 }
 
 
@@ -633,7 +635,7 @@ button {
   }
 
   .formulario input {
-    width: 35vh;
+    width: 28vh;
   }
 
   .button-login {

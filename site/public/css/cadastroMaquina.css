@@ -207,8 +207,8 @@ input[type=number] {
     outline-color: #00EB25;
     font-family: 'Inter', FontAwesome;
     line-height: 0;
-    width: 52vh;
-    text-align: center;
+    width: 43vh;
+    padding-inline-start: 10vh;
 }
 
 

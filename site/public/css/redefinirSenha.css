@@ -314,7 +314,7 @@ nav {
     font-family: 'Inter', FontAwesome;
     line-height: 0;
     width: 52vh;
-    text-align: center;
+    padding-inline-start: 10vh;
 }
 
 

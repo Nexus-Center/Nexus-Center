@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+
+</head>
+<body>
+    
+</body>
+</html>
+
+<script src="cleave.js"></script>
+
+<!-- Crie dois campos de entrada de texto -->
+<input type="text" id="campo1" value="1234-5678">
+<input type="text" id="campo2" value="9876-5432">
+
+<!-- Inicialize o Cleave.js em ambos os campos de entrada de texto -->
+<script>
+  var cleave1 = new Cleave('#campo1', {
+    delimiter: '-',
+    blocks: [4, 4]
+  });
+
+  var cleave2 = new Cleave('#campo2', {
+    delimiter: '-',
+    blocks: [4, 4]
+  });
+
+  // Obtenha os valores brutos não formatados dos campos de entrada usando o .getRawValue()
+  var valorBruto1 = cleave1.getRawValue();
+  console.log(valorBruto1); // Saída: 12345678
+
+  var valorBruto2 = cleave2.getRawValue();
+  console.log(valorBruto2); // Saída: 98765432
+</script>

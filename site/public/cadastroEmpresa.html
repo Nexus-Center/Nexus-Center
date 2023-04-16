@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./css/cadastroEmpresa.css">
     <!-- Script Java Script Menu -->
     <script src="./js/funcoes.js"></script>
+    <!-- Script mask -->
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
 
 </head>
 
@@ -100,9 +102,7 @@
                                 <div class="seta"></div>
 
                             </div>
-                            <input id="razaoSocial_input" type="text"
-                                placeholder="             Nome da Empresa                                            "
-                                maxlength="30">
+                            <input id="razaoSocial_input" type="text" placeholder="Nome da Empresa" maxlength="30">
                             <div class="resultado_invalido" id="resultado_"></div>
                         </div>
 
@@ -113,9 +113,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="cnpj_input" type="text"
-                                placeholder="             XX. XXX. XXX/0001-XX                                            "
-                                maxlength="14">
+                            <input id="cnpj_input" type="text" placeholder="XX. XXX. XXX/0001-XX">
                         </div>
 
 
@@ -126,9 +124,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="email_input" type="text"
-                                placeholder="             empresa@email.com                                            "
-                                maxlength="35">
+                            <input id="email_input" type="text" placeholder="empresa@email.com" maxlength="40">
                         </div>
 
 
@@ -140,9 +136,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="telefone_input" type="text"
-                                placeholder="             (DDD) XXXX-XXXX                                            "
-                                maxlength="11">
+                            <input id="telefone_input" type="text" placeholder="(DDD) XXXX-XXXX">
                         </div>
 
 
@@ -207,11 +201,15 @@
     </div>
     <!-- Script Java Script Menu -->
     <script src="./js/menu.js"></script>
-
-
-
 </body>
+
+
+
+
+
+<!-- Web Data Viz -->
 <script>
+
     function exibirCodigo(codigoEmpresa) {
 
         fetch(`/usuarios/exibirCodigo/${codigoEmpresa}`, { cache: 'no-store' }).then(function (response) {
@@ -230,6 +228,8 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
+
+
 
 
     function cadastrarEmpresa() {
