@@ -343,7 +343,7 @@ nav {
   display: flex;
   flex-direction: column;
   margin-top: 2.5vh;
-  
+
 }
 
 
@@ -706,4 +706,3 @@ button {
     margin-left: -5vh;
   }
 }
-

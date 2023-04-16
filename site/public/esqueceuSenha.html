@@ -14,7 +14,8 @@
     <script src="https://unpkg.com/phosphor-icons"></script>
     <!-- Script Java Script Menu -->
     <script src="./js/funcoes.js"></script>
-
+    <!-- Cleave Mask -->
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
 
 </head>
 
@@ -106,9 +107,7 @@
                                 <div class="seta"></div>
 
                             </div>
-                            <input id="email_input" type="text"
-                                placeholder="usuario@email.com"
-                                maxlength="35">
+                            <input id="email_input" type="text" placeholder="usuario@email.com" maxlength="35">
                         </div>
 
                         <span class="tipo_campo">Código da empresa</span>
@@ -118,9 +117,7 @@
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="codigo_input" type="number"
-                                placeholder="Ex: 123"
-                                maxlength="5">
+                            <input id="codigo_input" type="text" placeholder="Ex: 123">
 
                         </div>
 
@@ -143,3 +140,14 @@
     <!-- Script Java Script Menu -->
     <script src="./js/menu.js"></script>
 </body>
+
+<script>
+
+    // // xxxxx
+    var cleaveCodigo = new Cleave('#codigo_input', {
+        blocks: [6],
+        numericOnly: true
+
+    });
+
+</script>

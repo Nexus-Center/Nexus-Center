@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/cadastroEmpresa.css">
     <!-- Script Java Script Menu -->
     <script src="./js/funcoes.js"></script>
-    <!-- Script mask -->
+    <!-- Cleave Mask -->
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
 
 </head>
@@ -203,6 +203,27 @@
     <script src="./js/menu.js"></script>
 </body>
 
+<script>
+    // // ##.###.###/####-##
+    var cleaveCnpj = new Cleave('#cnpj_input', {
+        delimiters: ['.', '.', '/', '-'],
+        blocks: [2, 3, 3, 4, 2],
+        numericOnly: true
+
+    });
+
+
+    // //(##) ####-####
+    var cleaveTelefone = new Cleave('#telefone_input', {
+        delimiters: ['(', ')', ' ', '-'],
+        blocks: [0, 2, 0, 4, 4],
+        numericOnly: true
+    });
+
+
+
+
+</script>
 
 
 
@@ -235,15 +256,19 @@
     function cadastrarEmpresa() {
         // aguardar();
 
+        const tel = telefone_input.value
+        const telefoneSemCaracteresNaoNumericos = tel.replace(/\D/g, "");
+
+        const cnpj = cnpj_input.value
+        const cnpjSemCaracteresNaoNumericos = cnpj.replace(/\D/g, "");
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var razaoSocialVar = razaoSocial_input.value;
-        var cnpjVar = cnpj_input.value;
+        var cnpjVar = cnpjSemCaracteresNaoNumericos;
         var emailVar = email_input.value;
-        var telVar = telefone_input.value;
-        var codigoGeradoVar = String(cnpj_input.value.substr(5, 3)) + String(cnpj_input.value.substr(11, 3));
-
+        var telVar = telefoneSemCaracteresNaoNumericos;
+        var codigoGeradoVar = String(cnpjSemCaracteresNaoNumericos.substr(5, 3)) + String(cnpjSemCaracteresNaoNumericos.substr(11, 3));
         console.log(codigoGeradoVar)
 
         if (razaoSocialVar == "" || emailVar == "" || cnpjVar == "" || telVar == "") {
@@ -252,7 +277,7 @@
 
             // finalizarAguardar();
             return false;
-        } else if (cnpjVar.length < 14) {
+        } else if (cnpjSemCaracteresNaoNumericos.length < 14) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "O CNPJ deve conter 14 dígitos";
             return false;
