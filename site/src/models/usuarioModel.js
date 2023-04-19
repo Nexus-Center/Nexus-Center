@@ -52,11 +52,11 @@ function cadastrarEmpresa(razaoSocial, cnpj, email, telefone, codigoGerado) {
     return database.executar(instrucao);
 }
 
-function cadastrarMaquina(nomeUsuario, patrimonio, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():", nomeUsuario, patrimonio, senha);
+function cadastrarMaquina(nomeUsuario, patrimonio, senha, fkEmpresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():", nomeUsuario, patrimonio, senha, fkEmpresa);
 
     var instrucao = `
-        INSERT INTO maquina (nomeUsuario, patrimonio, senha) VALUES ('${nomeUsuario}', '${patrimonio}', '${senha}');
+        INSERT INTO maquina (nomeUsuario, patrimonio, senha, fkEmpresa) VALUES ('${nomeUsuario}', '${patrimonio}', '${senha}', '${fkEmpresa}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

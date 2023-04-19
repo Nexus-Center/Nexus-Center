@@ -159,6 +159,7 @@ function cadastrarMaquina(req, res) {
     var nomeUsuario = req.body.nomeUsuarioServer;
     var patrimonio = req.body.patrimonioServer;
     var senha = req.body.senhaServer;
+    var fkEmpresa = req.body.fkEmpresaServer;
 
     // Faça as validações dos valores
     if (nomeUsuario == undefined) {
@@ -167,10 +168,12 @@ function cadastrarMaquina(req, res) {
         res.status(400).send("Seu patrimonio está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (fkEmpresa == undefined) {
+        res.status(400).send("Sua fkEmpresa está undefined!");
     }else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarMaquina(nomeUsuario, patrimonio, senha)
+        usuarioModel.cadastrarMaquina(nomeUsuario, patrimonio, senha, fkEmpresa)
             .then(
                 function (resultado) {
                     res.json(resultado);

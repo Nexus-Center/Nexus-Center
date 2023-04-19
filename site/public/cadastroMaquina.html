@@ -135,6 +135,7 @@
         var patrimonioVar = patrimonio_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var fkEmpresaVar = sessionStorage.ID_EMPRESA;
 
         if (nomeUsuarioVar == "" || patrimonioVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
@@ -157,7 +158,8 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeUsuarioServer: nomeUsuarioVar,
                 patrimonioServer: patrimonioVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                fkEmpresaServer: fkEmpresaVar
             })
         }).then(function (resposta) {
 
