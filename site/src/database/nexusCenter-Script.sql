@@ -44,8 +44,6 @@ CREATE TABLE MetricaMouse(
 CREATE TABLE RegistroAtividade(
 	fkUsuario INT,
 	FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUser),
-	fkEmpresa CHAR(6),
-	FOREIGN KEY (fkEmpresa) REFERENCES Maquina(fkEmpresa),
 	fkMaquina INT,
 	FOREIGN KEY (fkMaquina) REFERENCES Maquina(idMaquina),
 	sistemaOperacional VARCHAR(45),
@@ -56,7 +54,7 @@ CREATE TABLE RegistroAtividade(
 );
 
 CREATE TABLE Componente(
-	idComponente INT PRIMARY KEY,
+	idComponente INT PRIMARY KEY AUTO_INCREMENT,
     modelo VARCHAR(45),
     tipoComponente VARCHAR(45)
 );
@@ -93,7 +91,7 @@ CREATE TABLE Metrica(
 );
 
 CREATE TABLE Alerta(
-	idAlerta INT,
+	idAlerta INT PRIMARY KEY AUTO_INCREMENT,
     destinario VARCHAR(45),
     dataHora DATETIME,
     fkMetrica INT,
@@ -122,7 +120,7 @@ INSERT INTO Maquina VALUES
 SELECT * FROM Maquina;
     
 INSERT INTO RegistroAtividade VALUES
-	(1, 111111, 1, 'Windows', 'Samsung', null, '2023-04-16 9:53:12', '4h');
+	(1, 1, 'Windows', 'Samsung', null, '2023-04-16 9:53:12', '4h');
     
 SELECT * FROM RegistroAtividade;
     
