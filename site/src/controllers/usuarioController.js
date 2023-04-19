@@ -154,12 +154,47 @@ function cadastrarEmpresa(req, res) {
     }
 }
 
+function cadastrarMaquina(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nomeUsuario = req.body.nomeUsuarioServer;
+    var patrimonio = req.body.patrimonioServer;
+    var senha = req.body.senhaServer;
+
+    // Faça as validações dos valores
+    if (nomeUsuario == undefined) {
+        res.status(400).send("Seu nome de usuário está undefined!");
+    } else if (patrimonio == undefined) {
+        res.status(400).send("Seu patrimonio está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    }else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarMaquina(nomeUsuario, patrimonio, senha)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro da máquina! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 
 module.exports = {
     entrar,
     cadastrar,
     exibirCodigo,
     cadastrarEmpresa,
+    cadastrarMaquina,
     listar,
     testar
 }

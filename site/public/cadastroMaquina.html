@@ -68,7 +68,7 @@
 
                                     <div class="seta"></div>
                                 </div>
-                                <input id="patrimonio_input" type="text" placeholder="Ex: SA1236" maxlength="35">
+                                <input id="patrimonio_input" type="text" placeholder="Ex: SA1236">
                             </div>
 
 
@@ -79,7 +79,7 @@
 
                                     <div class="seta"></div>
                                 </div>
-                                <input id="senha_input" type="password" placeholder="***" maxlength="10">
+                                <input id="senha_input" type="password" placeholder="***">
                             </div>
 
                             <span class="tipo_campo">Confirmar senha</span>
@@ -89,7 +89,7 @@
 
                                     <div class="seta"></div>
                                 </div>
-                                <input id="confirmacao_senha_input" type="password" placeholder="***" maxlength="10">
+                                <input id="confirmacao_senha_input" type="password" placeholder="***">
                             </div>
 
 
@@ -124,3 +124,71 @@
 </body>
 
 </html>
+
+<script>
+    function cadastrarMaquina() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeUsuarioVar = nomeUsuario_input.value;
+        var patrimonioVar = patrimonio_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        if (nomeUsuarioVar == "" || patrimonioVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
+
+            // finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarMaquina", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeUsuarioServer: nomeUsuarioVar,
+                patrimonioServer: patrimonioVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro da máquina realizado com sucesso!";
+                console.log(resposta);
+
+                setTimeout(() => {
+                    window.location = "maquinas.html";
+                }, "2000")
+
+                limparFormulario();
+                // finalizarAguardar();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro da máquina!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

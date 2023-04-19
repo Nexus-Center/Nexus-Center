@@ -21,6 +21,11 @@ router.post("/cadastrarEmpresa", function (req, res) {
     usuarioController.cadastrarEmpresa(req, res);
 })
 
+// Cadastrando máquina
+router.post("/cadastrarMaquina", function (req, res) {
+    usuarioController.cadastrarMaquina(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
