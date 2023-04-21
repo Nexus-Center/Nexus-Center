@@ -321,6 +321,8 @@
                 // finalizarAguardar();
 
             } else {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "A empresa já possui cadastro, siga para a tela de cadastro de funcionários!";
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
