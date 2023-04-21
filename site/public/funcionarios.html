@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/funcionarios.css">
+    <link rel="Logo icon" href="./assets/globo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Funcionários</title>
+</head>
+
+<body>
+    <div class="maedetodos">
+        <nav class="nav-lateral">
+
+            <div class=" logo">
+                <a href="index.html"><img src="./assets/logo.png" alt="NexusCenter" width="150vh"></a>
+            </div>
+
+            <div class="container-mae">
+                <ul class="nav-list">
+                    <li class="maq"><a href="#"> <img src="assets/dash/dash.png" width="20vh"> Funcionários </a></li>
+                    <li><a href="maquinas.html"> <img src="assets/dash/maquina.png" width="15vh"> Máquinas </a></li>
+                    <li><a href="cadastroMaquina.html"> <img src="assets/dash/addMaquina.png" width="15h"> Adicionar Máquina
+                    </a></li>
+                    <li><a href="index.html"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="magica">
+            <div class="container-tabela">
+                <h1> Relatório dos Funcionários</h1>
+                <div class="tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Nome</td>
+                                <td>Máquina</td>
+                                <td>Status</td>
+                                <td>USB Conectado</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td> Fernanda Carmico </td>
+                                <td>Desktop 3</td>
+                                <td>
+                                    <h2> Ativo </h2>
+                                </td>
+                                <td>Sim</td>
+                            </tr>
+
+                            <tr>
+                                <td> Cláudio Frizzarini </td>
+                                <td>Desktop 2</td>
+                                <td>
+                                    <h2 class="inativo">Inativo</h2>
+                                </td>
+                                <td>Sim</td>
+                            </tr>
+
+                            <tr>
+                                <td> Thiago Gomes </td>
+                                <td>Desktop 5</td>
+                                <td>
+                                    <h2 class="inativo">Inativo</h1>
+                                </td>
+                                <td>Não</td>
+                            </tr>
+
+                            <tr>
+                                <td> Dan Josua </td>
+                                <td>Desktop 1</td>
+                                <td>
+                                    <h2> Ativo </h2>
+                                </td>
+                                <td> Sim </td>
+                            </tr>
+
+                            <tr>
+                                <td>Rogério Barbosa</td>
+                                <td>Desktop 6</td>
+                                <td>
+                                    <h2> Ativo </h2>
+                                </td>
+                                <td> Sim </td>
+                            </tr>
+                            <tr>
+                                <td> Lucas Pereira </td>
+                                <td>Desktop 7</td>
+                                <td>
+                                    <h2> Ativo </h2>
+                                </td>
+                                <td> Sim </td>
+                            </tr>
+                            <tr>
+                                <td> Henrique Crispino </td>
+                                <td>Desktop 8</td>
+                                <td>
+                                    <h2> Ativo </h2>
+                                </td>
+                                <td> Sim </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="container-status">
+
+                <div class="status">
+                    <h1> Atividade dos Funcionários Atual</h1>
+                    <div class="cardDesempenho">
+                        <div class="verde">
+                            <h1> 20 </h1>
+                            <h2> Ativo </h2>
+                        </div>
+                        <div class="vermelho">
+                            <h1> 5 </h1>
+                            <h2> Inativo </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="corpo-grafico">
+                    <h1> Atividade dos funcionários </h1>
+                    <h1> últimas 6 horas</h1>
+
+                    <canvas id="myChart"></canvas>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+    </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+
+    const dados = {
+        labels: ["08:00", "09:00", "10:00","11:00", "12:00", "13:00", "14:00"],
+        datasets: [
+            {
+                label: "Ativos",
+                backgroundColor: "rgb(79, 243, 93)",
+                borderColor: "rgb(79, 243, 93)",
+                borderWidth: 1,
+                data: [23, 20, 24, 23, 22, 24]
+            },
+            {
+                label: "Inativos",
+                backgroundColor: "rgb(243, 79, 79)",
+                borderColor: "rgb(243, 79, 79)",
+                borderWidth: 1,
+                data: [2, 5, 1, 2, 8, 1]
+            },
+        ]
+        
+    };
+
+
+    const config = {
+        type: 'bar',
+        data: dados,
+        options: {
+            indexAxis: 'y',
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
+
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+
+</script>

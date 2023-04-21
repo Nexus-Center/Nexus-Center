@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+    font-family: "Rubik";
+    overflow: hidden;
+}
+
+.maedetodos {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: white;
+}
+
+.nav-lateral {
+    display: flex;
+    background-color: #00204F;
+    width: 20%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 200px;
+    gap: 3rem;
+    width: 100%;
+    align-items: center;
+}
+
+.container-mae {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-list li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    background-color: #34D411;
+}
+
+.maq {
+    width: 100%;
+}
+
+.nav-list a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    gap: 1rem;
+}
+
+.nav-list li:hover {
+    cursor: pointer;
+    background-color: #34D411;
+    transition: .5s ease;
+}
+
+
+.infoHardware {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    color: #8bff93;
+}
+
+.infoHardware h3 {
+    font-size: 20px;
+}
+
+.logouts {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.logouts ul {
+    width: 100%;
+}
+
+.logouts li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.logouts a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logouts li:hover {
+    cursor: pointer;
+    background-color: #34D411;
+    transition: .5s ease;
+    width: 100%;
+}
+
+
+.container-centralizar {
+    display: flex;
+    justify-content: center;
+    display: row;
+}
+
+
+.container-graficos {
+    width: 100%;
+    background-color: #ecebfc;
+}
+
+.superior {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.container-cpu {
+    width: 40%;
+    background-color: #ffffff;
+    padding: 2rem;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-grafico {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.corpo-grafico {
+    padding: 1rem;
+    height: 100%;
+    width: 65%;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.corpo-grafico h1 {
+    font-size: 20px;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+#verdP {
+    background-color: #8bff93;
+}
+
+#vermP {
+    background-color: #d41818;
+    animation: blink 1s infinite;
+}
+
+#amarelP {
+    background-color: #fafa29;
+}
+
+@keyframes blink {
+    0% {
+        background-color: #d41818;
+    }
+
+    50% {
+        background-color: white;
+    }
+
+    100% {
+        background-color: #d41818;
+    }
+}
+
+.kpi {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.caixa {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    flex-direction: column;
+}
+
+.caixa h1 {
+    color: white;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.caixa h2 {
+    color: white;
+    font-weight: 500;
+}
+
+.verd {
+    background-color: #8bff93;
+}
+
+.amarel {
+    background-color: #fffc3f;
+}
+
+.verm {
+    background-color: #bd1818;
+}
+
+
+.grafico {
+    width: 100%;
+    height: 70%;
+}
+
+
+.status {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.statusAtual .alerta {
+    color: #bd1818;
+    font-weight: 500;
+}
+
+.statusAtual .ideal {
+    color: #8bff93;
+    font-weight: 500;
+}
+
+.statusAtual .atencao {
+    color: #d7d72b;
+    font-weight: 500;
+}
+
+.utilizacao {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.utilizacao b {
+    text-align: center;
+}
+
+.container-memoria {
+    width: 40%;
+    padding: 2rem;
+    height: 300px;
+}
+
+
+.inferior {
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+
+.container-usb {
+    width: 45%;
+    height: 96%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.corpo-usb {
+    background-color: white;
+    width: 100%;
+    height: 60%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.corpo-usb h1 {
+    font-size: 20px;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.aviso {
+    background-color: white;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.texto-aviso {
+    width: 80%;
+}
+
+.aviso h1 {
+    line-height: 1.3;
+}
+
+.aviso b {
+    color: #bd1818;
+}
+
+
+#cpu-chart {
+    height: 90% !important;
+}
+
+#mem-chart {
+    height: 90% !important;
+}
+
+#disco-chart {
+    height: 90% !important;
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/infoMaquina.css">
+    <link rel="Logo icon" href="./assets/globo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Máquina 01</title>
+</head>
+
+<body>
+    <div class="maedetodos">
+        <nav class="nav-lateral">
+
+            <div class=" logo">
+                <a href="index.html"><img src="./assets/logo.png" alt="NexusCenter" width="150vh"></a>
+
+                <div class="container-mae">
+                    <ul class="nav-list">
+                        <li class="maq"><a href="maquinas.html"><img src="assets/dash/maquina.png" width="15vh"> Máquina
+                                01</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="infoHardware">
+                <h3> Inf. Hardware:</h3>
+                <h1>Sistema Operacional: </h1>
+                <h2> Windowns </h2>
+                <h1> Processador: Intel Inside</h1>
+                <h1> Memória Ram: 8GB </h1>
+            </div>
+
+            <div class="logouts">
+                <ul>
+                    <li><a href="#"> <img src="assets/dash/lixeira.png" width="15vh"> Deletar Máquina</a></li>
+                    <li><a href="maquinas.html"> <img src="assets/dash/exit.png" width="15vh"> Voltar</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-graficos">
+            <div class="superior">
+
+                <div class="container-cpu">
+                    <div class="corpo-grafico">
+                        <div class="titulo-grafico">
+                            <h1> Indicadores de uso da CPU </h1>
+                            <div class="circle" id="vermP"></div>
+                        </div>
+                        <div class="kpi">
+                            <div class="caixa verd">
+                                <h1> 40% </h1>
+                                <h2> Ideal </h2>
+                            </div>
+
+                            <div class="caixa amarel">
+                                <h1> 65% </h1>
+                                <h2> Atenção </h2>
+                            </div>
+
+                            <div class="caixa verm">
+                                <h1> 85% </h1>
+                                <h2> Alerta</h2>
+                            </div>
+
+                        </div>
+                        <div class="grafico">
+                            <canvas id="cpu-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="status">
+                        <div class="statusAtual">
+                            <h1> Status:<b class="alerta"> Alerta </b></h1>
+                        </div>
+
+                        <div class="utilizacao">
+                            <h1> Utilização: </h1>
+                            <b> 88% </b>
+                            <h1> Processos: </h1>
+                            <b> 448 </b>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="container-cpu">
+                    <div class="corpo-grafico">
+                        <div class="titulo-grafico">
+                            <h1> Indicadores de uso de Memória</h1>
+                            <div class="circle" id="verdP"></div>
+                        </div>
+                        <div class="kpi">
+                            <div class="caixa verd">
+                                <h1> 40% </h1>
+                                <h2> Ideal </h2>
+                            </div>
+
+                            <div class="caixa amarel">
+                                <h1> 65% </h1>
+                                <h2> Atenção </h2>
+                            </div>
+
+                            <div class="caixa verm">
+                                <h1> 85% </h1>
+                                <h2> Alerta</h2>
+                            </div>
+                        </div>
+                        <div class="grafico">
+                            <canvas id="mem-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="status">
+                        <div class="statusAtual">
+                            <h1> Status:<b class="ideal"> Ideal</b></h1>
+                        </div>
+
+                        <div class="utilizacao">
+                            <h1> Utilização: </h1>
+                            <b> 88% </b>
+                            <h1> Processos: </h1>
+                            <b> 448 </b>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <div class="inferior">
+
+                <div class="container-cpu">
+                    <div class="corpo-grafico">
+                        <div class="titulo-grafico">
+                            <h1> Indicadores de uso do Disco</h1>
+                            <div class="circle" id="amarelP"></div>
+                        </div>
+                        <div class="kpi">
+                            <div class="caixa verd">
+                                <h1> 40% </h1>
+                                <h2> Ideal </h2>
+                            </div>
+
+                            <div class="caixa amarel">
+                                <h1> 65% </h1>
+                                <h2> Atenção </h2>
+                            </div>
+
+                            <div class="caixa verm">
+                                <h1> 85% </h1>
+                                <h2> Alerta</h2>
+                            </div>
+
+                        </div>
+                        <div class="grafico">
+                            <canvas id="disco-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="status">
+                        <div class="statusAtual">
+                            <h1> Status:<b class="atencao"> Atenção </b></h1>
+                        </div>
+
+                        <div class="utilizacao">
+                            <h1> Utilização: </h1>
+                            <b> 88% </b>
+                            <h1> Processos: </h1>
+                            <b> 448 </b>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="container-usb">
+                    <div class="corpo-usb">
+                        <h1> USB Conectado:</h1>
+                    </div>
+
+                    <div class="aviso">
+                        <div class="texto-aviso">
+                            <h1>Caso algum componente da máquina esteja no status de <b> Alerta </b> recomenda-se a
+                                solicitação do
+                                serviço de suporte da empresa, pois isso pode comprometer o desempenho do funcionário.
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</body>
+
+</html>
+<script>
+    // Gráfico da CPU
+
+    var ctx = document.getElementById('cpu-chart').getContext('2d');
+    var cpuChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
+            datasets: [{
+                label: 'CPU',
+                data: [70, 40, 20, 10, 70, 80],
+                backgroundColor: 'rgba(62, 62, 167)',
+                borderColor: 'rgba(62, 62, 167)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Gráfico de Memória
+
+    var ctx = document.getElementById('mem-chart').getContext('2d');
+    var memChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
+            datasets: [{
+                label: 'Memória',
+                data: [70, 80, 85, 90, 95, 100],
+                backgroundColor: 'rgba(62, 62, 167)',
+                borderColor: 'rgba(62, 62, 167)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Gráfico do disco
+
+    var ctx = document.getElementById('disco-chart').getContext('2d');
+    var discoChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
+            datasets: [{
+                label: 'Disco',
+                data: [10, 15, 5, 20, 23, 20],
+                backgroundColor: 'rgba(62, 62, 167)',
+                borderColor: 'rgba(62, 62, 167)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+</script>

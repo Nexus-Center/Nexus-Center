@@ -12,9 +12,9 @@ body {
     background-color: #ffffff;
 }
 
-.container-legenda {
+.container-legenda{
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: flex-end;
     margin-top: 1rem;
 }
@@ -112,6 +112,7 @@ body {
     text-decoration: none;
     color: white;
     gap: 1rem;
+    width: 100%;
 }
 
 .nav-list li:hover {
@@ -122,6 +123,7 @@ body {
 
 .magica {
     width: 100%;
+    height: 100%;
 }
 
 .container-maquina {
@@ -139,13 +141,13 @@ body {
 ::-webkit-scrollbar {
     background-color: #f1f1f1;
     width: 10px;
-}
+  }
 
-
+  
 ::-webkit-scrollbar-thumb {
-    background-color: #00204F;
+    background-color: #00204F; 
     border-radius: 10px;
-}
+  }
 
 .corpoMaquina {
     width: 25%;
@@ -165,6 +167,8 @@ body {
     text-decoration: none;
     transition: .2s ease;
     gap: 1rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
 }
 
 .maquina img {
@@ -199,7 +203,7 @@ body {
     animation: blink 1s infinite;
 }
 
-#vermP {
+#vermP{
     background-color: red;
 }
 
@@ -251,162 +255,45 @@ body {
 .container-desempenho {
     display: flex;
     width: 100%;
+    height: 60%;
+    margin-top: 0.5rem;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
+    gap: 4rem;
 }
 
+.desempenhoMaquina {
+    display: flex;
+    width: 40%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
 
 .desempenhoMaquina h1 {
     font-size: 20px;
     font-weight: 500;
-    text-align: center;
 }
 
 .cardDesempenho {
     background-color: #00204F;
-    padding: 0.5rem;
-    border-radius: 10px;
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
+    width: 100%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.verde {
-    display: flex;
-    background-color: #4ff35d;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    gap: 1rem;
-    width: 100px;
-}
-
-.verde h1 {
-    color: white;
-    font-size: 40px;
-}
-
-.verde h2 {
-    color: white;
-    font-size: 20px;
-}
-
-.vermelho {
-    display: flex;
-    background-color: rgb(243, 79, 79);
-    align-items: center;
-    flex-direction: column;
-    border-radius: 10px;
-    gap: 1rem;
-    width: 100px;
-}
-
-.vermelho h1 {
-    color: white;
-    font-size: 40px;
-}
-
-.vermelho h2 {
-    color: white;
-    font-size: 20px;
-}
-
-
-
-.caixa-grafico {
-    width: 65%;
-}
 
 .grafico {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-direction: column;
-}
-
-.corpo-grafico {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    width: 95%;
-}
-
-
-.corpo-tabela {
-    width: 60%;
+    width: 30%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
-.corpo-tabela h3 {
+.grafico h1{
     font-size: 20px;
     font-weight: 500;
-}
-
-.container-tabela {
-    width: 720px;
-    height: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
-.tabela {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 9rem;
-}
-
-
-table {
-    width: 70vw;
-}
-
-table thead tr {
-    background-color: #000b1c;
-}
-
-table tbody tr {
-    background-color: #005da5;
-    transform: scale(1);
-    transition: .3s ease;
-}
-
-table tbody tr:hover {
-    margin: .5rem 0;
-    background-color: rgb(0, 132, 255);
-    transform: scale(1.02);
-}
-
-table tr {
-    color: white;
-    padding: .5rem;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-}
-
-table td {
-    text-align: center;
-    width: 20vh;
-}
-
-td h1 {
-    color: #691c1c;
-}
-
-td h2 {
-    color: #34D411;
 }

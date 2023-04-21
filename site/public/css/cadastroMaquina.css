@@ -61,6 +61,7 @@ body {
 }
 
 .nav-list a {
+    width: 100%;
     display: flex;
     text-decoration: none;
     color: white;
@@ -229,30 +230,6 @@ button {
 }
 
 
-.button-cadastro {
-    background-color: #00204E;
-    color: #FFFFFF;
-    border-radius: 10px;
-    border-width: 1px;
-    width: 28vh;
-    height: 6vh;
-    transition: .2s ease;
-}
-
-
-
-.button-cadastro {
-    color: white;
-    border-radius: 10px;
-    border-width: 1px;
-    width: 55vh;
-    height: 6vh;
-}
-
-.button-cadastro:hover {
-    background-color: #000205;
-}
-
 .container-icon {
     display: flex;
     align-items: center;
@@ -287,9 +264,10 @@ button {
     width: 55vh;
     height: 6vh;
     transition: .2s ease;
+    font-family: Rubik;
 }
 
 .button-cadastro:hover {
-    background-color: #00204E;
+    background-color: #073370;
     color: white;
 }
