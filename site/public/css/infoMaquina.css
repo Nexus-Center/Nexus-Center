@@ -195,7 +195,7 @@ body {
 }
 
 #verdP {
-    background-color: #8bff93;
+    background-color: #27ff35;
 }
 
 #vermP {
@@ -204,7 +204,7 @@ body {
 }
 
 #amarelP {
-    background-color: #fafa29;
+    background-color: #ece800;
 }
 
 @keyframes blink {
@@ -252,11 +252,11 @@ body {
 }
 
 .verd {
-    background-color: #8bff93;
+    background-color: #27ff35;
 }
 
 .amarel {
-    background-color: #fffc3f;
+    background-color: #ece800;
 }
 
 .verm {
@@ -286,12 +286,12 @@ body {
 }
 
 .statusAtual .ideal {
-    color: #8bff93;
+    color: #27ff35;
     font-weight: 500;
 }
 
 .statusAtual .atencao {
-    color: #d7d72b;
+    color: #ece800;;
     font-weight: 500;
 }
 
