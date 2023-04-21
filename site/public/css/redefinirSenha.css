@@ -313,7 +313,7 @@ nav {
     outline-color: #00EB25;
     font-family: 'Inter', FontAwesome;
     line-height: 0;
-    width: 52vh;
+    width: 40vh;
     padding-inline-start: 10vh;
 }
 
@@ -339,7 +339,7 @@ button {
     color: #FFFFFF;
     border-radius: 10px;
     border-width: 1px;
-    width: 28vh;
+    width: 52vh;
     height: 6vh;
     transition: .2s ease;
 }
@@ -454,10 +454,7 @@ button {
         margin-top: 5vh;
     }
 
-    .formulario input {
-        width: 35vh;
-    }
-
+    
     .button-login {
         width: 19vh;
 
