@@ -636,3 +636,21 @@ button {
 
 
 }
+
+
+@media (max-width: 400px) {
+.codigo-campo {
+    width: 23vh;
+}
+
+.button-cadastro {
+    width: 27vh;
+}
+
+.codigoTexto {
+    display: flex;
+    margin-left: 6vh;
+}
+
+
+}
