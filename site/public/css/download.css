@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+    font-family: "Rubik";
+    overflow: hidden;
+}
+
+.maedetodos {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: white;
+}
+
+.nav-lateral {
+    display: flex;
+    background-color: #00204F;
+    width: 17%;
+    height: 100%;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.container-mae {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-list li {
+    display: flex;
+    align-items: center;
+    width: 93.5%;
+    height: 40px;
+    padding-left: 1rem;
+}
+
+.maq {
+    background-color: #34D411;
+}
+
+.nav-list a {
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    gap: 1rem;
+}
+
+.nav-list li:hover {
+    cursor: pointer;
+    background-color: #34D411;
+    transition: .5s ease;
+}
+
+.container-centralizar {
+    display: flex;
+    justify-content: center;
+    display: row;
+}
+
+.container-cadastro {
+    margin-left: 25vh;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+.container-centralizar {
+    gap: 10vh;
+}
+
+.imagem-cadastro {
+    margin-top: 5vh;
+}
+
+
+.texto-cadastro h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.descricao-cadastro h2 {
+    font-weight: lighter;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-top: 2vh;
+    margin-bottom: 40px;
+}
+
+
+.seta {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 30%;
+    margin-bottom: 10%;
+    width: 28px;
+    height: 0px;
+    border: 0.5px solid #908e8e;
+    transform: rotate(90deg);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.imagem{
+  margin-top: 15vh;
+}
+
+ /* Card */
+
+
+
+.beneficios h1 {
+    font-size: 30px;
+    color: #1876FF;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.containerbeneficio {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.card-centralizar{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+.cardbeneficio {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cardbeneficio .minicard i {
+    font-size: 2.7rem;
+    color: white;
+}
+
+.card {
+    width: 70%;
+    padding: 1rem;
+    background-color: #7eb4ffaf;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+
+
+.minicard {
+    width: 10vh;
+    background-color: #1876FF;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.minicard img {
+    width: 50px;
+}
+
+.frasecard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 85%;
+    gap: 1rem;
+}
+
+.frasecard h2 {
+    font-size: 20px;
+    color: #1876FF;
+    text-transform: uppercase;
+}
+
+.frasecard p {
+    font-size: 15px;
+    color: #00204E;
+}
+
+
+.imagembeneficio {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: quadro_flutuando 9.5s infinite;
+}
+
+.imagembeneficio img {
+    width: 450px;
+}
+
+.container-centralizar-titulos{
+   
+    margin-left: 20vh;
+    margin-top: 10vh;
+}

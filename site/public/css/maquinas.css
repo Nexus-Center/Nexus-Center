@@ -255,11 +255,9 @@ body {
 .container-desempenho {
     display: flex;
     width: 100%;
-    height: 60%;
-    margin-top: 0.5rem;
-    align-items: center;
+    margin-top: 1rem;
     justify-content: center;
-    gap: 4rem;
+    gap: 6rem;
 }
 
 .desempenhoMaquina {
@@ -272,20 +270,23 @@ body {
     gap: 0.5rem;
 }
 
+
+
+
 .desempenhoMaquina h1 {
     font-size: 20px;
     font-weight: 500;
+    margin-top: 1vh;
 }
 
 .cardDesempenho {
-    background-color: #00204F;
+    margin-top: 5vh;
     width: 100%;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 
 .grafico {
-    width: 30%;
+    width: 22%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -293,7 +294,22 @@ body {
     gap: 0.5rem;
 }
 
-.grafico h1{
+.grafico h1 {
     font-size: 20px;
+    text-align: center;
     font-weight: 500;
+    margin-top: 1vh;
+}
+
+.separar{
+    height: 2px;
+    width: 90%;
+    background-color: #d4d4d4;
+    margin-top: 3vh;
+
+}
+
+.centralizar{
+    display: flex;
+justify-content: center;
 }
