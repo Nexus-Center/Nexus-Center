@@ -90,7 +90,7 @@ body {
     gap: 1rem;
 }
 
-.container-tabela h1{
+.container-tabela h1 {
     font-size: 20px;
     font-weight: 500;
 }
@@ -109,13 +109,13 @@ body {
 ::-webkit-scrollbar {
     background-color: #f1f1f1;
     width: 10px;
-  }
+}
 
-  
+
 ::-webkit-scrollbar-thumb {
-    background-color: #00204F; 
+    background-color: #00204F;
     border-radius: 10px;
-  }
+}
 
 
 table {
@@ -155,7 +155,7 @@ table td {
 }
 
 
-.inativo{
+.inativo {
     color: #aa1313;
     font-weight: 500;
     font-size: 17px;
@@ -185,7 +185,7 @@ td h2 {
     gap: 0.5rem;
 }
 
-.corpo-grafico h1{
+.corpo-grafico h1 {
     font-size: 20px;
     font-weight: 500;
 }
@@ -200,7 +200,7 @@ td h2 {
     gap: 1rem;
 }
 
-.status h1{
+.status h1 {
     font-size: 20px;
     font-weight: 500;
 }
@@ -246,7 +246,7 @@ td h2 {
     border-radius: 15px;
     padding: 0.5rem 0;
     gap: 1rem;
-    
+
 }
 
 .vermelho h1 {

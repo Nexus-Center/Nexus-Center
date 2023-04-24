@@ -12,9 +12,9 @@ body {
     background-color: #ffffff;
 }
 
-.container-legenda{
+.container-legenda {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: flex-end;
     margin-top: 1rem;
 }
@@ -141,13 +141,13 @@ body {
 ::-webkit-scrollbar {
     background-color: #f1f1f1;
     width: 10px;
-  }
+}
 
-  
+
 ::-webkit-scrollbar-thumb {
-    background-color: #00204F; 
+    background-color: #00204F;
     border-radius: 10px;
-  }
+}
 
 .corpoMaquina {
     width: 25%;
@@ -168,7 +168,7 @@ body {
     transition: .2s ease;
     gap: 1rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    
+
 }
 
 .maquina img {
@@ -203,7 +203,7 @@ body {
     animation: blink 1s infinite;
 }
 
-#vermP{
+#vermP {
     background-color: red;
 }
 
@@ -301,7 +301,7 @@ body {
     margin-top: 1vh;
 }
 
-.separar{
+.separar {
     height: 2px;
     width: 90%;
     background-color: #d4d4d4;
@@ -309,7 +309,7 @@ body {
 
 }
 
-.centralizar{
+.centralizar {
     display: flex;
-justify-content: center;
+    justify-content: center;
 }

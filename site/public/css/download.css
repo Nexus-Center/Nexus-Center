@@ -121,66 +121,34 @@ body {
     transform: rotate(90deg);
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
+
+
+.imagem {
+    margin-top: 28vh;
 }
 
-.imagem{
-  margin-top: 15vh;
-}
-
- /* Card */
+/* Card */
 
 
-
-.beneficios h1 {
-    font-size: 30px;
-    color: #1876FF;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.containerbeneficio {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.card-centralizar{
+.card-centralizar {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-top: 4vh;
     gap: 2vh;
 }
-.cardbeneficio {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 1rem;
-}
 
-.cardbeneficio .minicard i {
-    font-size: 2.7rem;
-    color: white;
-}
+
+
 
 .card {
-    width: 70%;
     padding: 1rem;
     background-color: #7eb4ffaf;
     border-radius: 5px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    width: 75vh;
     gap: 1rem;
 }
-
 
 
 .minicard {
@@ -192,6 +160,7 @@ body {
     justify-content: center;
     border-radius: 5px;
 }
+
 
 .minicard img {
     width: 50px;
@@ -206,7 +175,7 @@ body {
 }
 
 .frasecard h2 {
-    font-size: 20px;
+    font-size: 16px;
     color: #1876FF;
     text-transform: uppercase;
 }
@@ -229,8 +198,78 @@ body {
     width: 450px;
 }
 
-.container-centralizar-titulos{
-   
-    margin-left: 20vh;
-    margin-top: 10vh;
+.container-centralizar-titulos {
+
+    margin-left: 15vh;
+    margin-top: 8vh;
+
+}
+
+.titulo {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+}
+
+.subtitulo {
+    text-align: center;
+    margin-top: 4vh;
+}
+
+.titulo-final {
+    margin-top: 4vh;
+    width: 75vh;
+    text-align: start;
+}
+
+.cardbeneficio {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.botao-alinhar {
+    display: flex;
+    flex-direction: column;
+}
+
+.botao {
+    background-color: #1876FF;
+    color: #FFFFFF;
+    border-radius: 1vh;
+    border-width: 1px;
+    width: 21vh;
+    height: 37px;
+    transition: .2s ease;
+    font-family: Rubik;
+    border-color: #1876FF;
+    padding: 0.5rem;
+
+    cursor: pointer;
+
+}
+
+.desc {
+    background-color: #FFFFFF;
+    color: #002A68;
+    border-radius: 1vh;
+    border-width: 1px;
+    width: 18vh;
+    font-weight: bold;
+    height: 20px;
+    font-family: Rubik;
+    border-color: white;
+    text-align: center;
+    padding: 0.5rem;
+
+}
+
+.botao:hover {
+    background-color: #1669e6;
+    color: white;
+
 }
