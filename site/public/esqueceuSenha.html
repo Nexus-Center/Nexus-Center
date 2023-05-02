@@ -126,7 +126,7 @@
 
                     <div class="botoes">
                         <a href="./login.html"><button class="button-cadastro">Voltar ao login</button></a>
-                        <a href="./redefinirSenha.html"><button class="button-login">Redefinir senha</button></a>
+                        <a href="./redefinirSenha.html"><button onclick="getIdUser()" class="button-login">Redefinir senha</button></a>
 
                     </div>
 
@@ -150,4 +150,23 @@
 
     });
 
+    
+    function getIdUser() {
+        var emailVar = email_input.value
+
+        fetch(`/usuarios/getIdUser/${emailVar}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log("A resposta é :" + resposta[0]);
+                    sessionStorage.EMAIL_USUARIO = resposta[0].email
+
+                });
+            } else {
+                console.error('Nenhum usuário encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados: ${error.message}`);
+            });
+    }
 </script>

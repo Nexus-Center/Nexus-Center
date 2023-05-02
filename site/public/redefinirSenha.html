@@ -103,21 +103,21 @@
                         <span class="tipo_campo">Nova senha</span>
                         <div class="container-icon">
                             <div class="icon">
-                                <i><img src="./assets/esqueceuSenha/codigo-empresa.png" width="20px" height="20px"></i>
+                                <i><img src="./assets/Login/cadeado.png" width="20px" height="20px"></i>
                                 <div class="seta"></div>
 
                             </div>
-                            <input id="codigo_input" type="number" placeholder="Ex: 123" maxlength="5">
+                            <input id="senha_input" type="text" placeholder="****">
                         </div>
 
                         <span class="tipo_campo">Confirmar nova senha</span>
                         <div class="container-icon">
                             <div class="icon">
-                                <i><img src="./assets/esqueceuSenha/codigo-empresa.png" width="20px" height="20px"></i>
+                                <i><img src="./assets/Login/cadeado.png" width="20px" height="20px"></i>
 
                                 <div class="seta"></div>
                             </div>
-                            <input id="codigo_input" type="number" placeholder="Ex: 123" maxlength="5">
+                            <input id="novaSenha_input" type="text" placeholder="****">
 
                         </div>
 
@@ -125,12 +125,16 @@
                     </div>
 
                     <div class="botoes">
-                        <a href="./login.html"><button class="button-login">Redefinir senha</button></a>
+                        <button onclick="editar()" class="button-login">Redefinir senha</button>
 
                     </div>
 
-
                 </div>
+                    <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro"> <span id="mensagem_erro"></span> </div>
+                    </div>
+
+                    <div id="div_erros_login"></div>
             </div>
 
         </div>
@@ -139,3 +143,34 @@
     <!-- Script Java Script Menu -->
     <script src="./js/menu.js"></script>
 </body>
+
+<script>
+    function editar() {
+        fetch(`/avisos/editar/${sessionStorage.getItem("ID_USUARIO")}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                novaSenha: novaSenha_input.value
+            })
+        }).then(function (resposta) {
+            setTimeout(function () {
+                    window.location = "/login.html"
+                }, 3000);
+            if (resposta.ok) {
+                
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Senha atualizada com sucesso! Redirecionando ao Login...";
+
+                
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar redefinir a senha! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+</script>

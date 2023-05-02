@@ -34,4 +34,8 @@ router.get("/exibirCodigo/:codigoEmpresa", function (req, res) {
     usuarioController.exibirCodigo(req, res);
 });
 
+router.get("/getIdUser/:email", function (req, res) {
+    usuarioController.getIdUser(req, res);
+});
+
 module.exports = router;

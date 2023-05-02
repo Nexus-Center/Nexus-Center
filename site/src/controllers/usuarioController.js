@@ -77,6 +77,23 @@ function exibirCodigo(req, res) {
 
 }
 
+function getIdUser(req, res) {
+    var email = req.body.email
+
+    usuarioModel.getIdUser(email).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
@@ -198,6 +215,7 @@ module.exports = {
     exibirCodigo,
     cadastrarEmpresa,
     cadastrarMaquina,
+    getIdUser,
     listar,
     testar
 }

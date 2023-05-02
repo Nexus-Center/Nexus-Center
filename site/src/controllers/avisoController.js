@@ -94,10 +94,10 @@ function publicar(req, res) {
 }
 
 function editar(req, res) {
-    var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
+    var novaSenha = req.body.novaSenha;
+    var idUser = req.params.idUser;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editar(novaSenha, idUser)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -106,7 +106,7 @@ function editar(req, res) {
         .catch(
             function (erro) {
                 console.log(erro);
-                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                console.log("Houve um erro ao redefinir a senha ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             }
         );

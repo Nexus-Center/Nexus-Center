@@ -27,6 +27,14 @@ function exibirCodigo(codigoGerado) {
     return database.executar(instrucao);
 }
 
+function getIdUser(email) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getIdUser(): ", email)
+    var instrucao = `
+        SELECT idUser FROM usuario WHERE email = '${email}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 function cadastrar(nome, email, senha, codigo) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha, codigo);
@@ -68,5 +76,6 @@ module.exports = {
     cadastrar,
     cadastrarEmpresa,
     cadastrarMaquina,
+    getIdUser,
     listar
 };
