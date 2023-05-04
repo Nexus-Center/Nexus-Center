@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <!-- --ATENÇÃO-- -->
     <!-- // Ao criar uma nova página, se for utilizar a nav lateral, maedetodos será necessário englobando todo o contéudo da pg  -->
     <!-- // Abrir ela depois do body e fechar na mesma ordem (ela que permitirá que os próximos elementos fiquem no meio da tela) -->
@@ -34,7 +33,7 @@
                     </li>
                     <li><a href="cadastroMaquina.html"> <img src="assets/dash/addMaquina.png" width="15h"> Adicionar Máquina </a>
                     </li>
-                    <li><a href="index.html"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
+                    <li><a onclick="limparSessao()"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
                 </ul>
             </div>
         </nav>
@@ -163,8 +162,8 @@
             </div>
         </div>
 </body>
-
 </html>
+
 <script>
     const data = {
         labels: [
@@ -239,5 +238,16 @@
     });
 
 
-
+    // Esta função será utilizada para limpar os dados do Relatório Máquinas caso troque o usuário no Login
+    // Substituir o "form_postagem" pelo nome da <div> que irá abranger os dados das máquinas!
+    // function limparFormulario() {
+    //     document.getElementById("containeer_mae").reset();
+    // }
+    
+    function limparSessao() {
+    // aguardar();
+    sessionStorage.clear();
+    // finalizarAguardar();
+    window.location = "../login.html";
+    }
 </script>

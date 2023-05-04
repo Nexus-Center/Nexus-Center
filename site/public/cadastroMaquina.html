@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <!-- --ATENÇÃO-- -->
     <!-- // Ao criar uma nova página, se for utilizar a nav lateral, maedetodos será necessário englobando todo o contéudo da pg  -->
     <!-- // Abrir ela depois do body e fechar na mesma ordem (ela que permitirá que os próximos elementos fiquem no meio da tela) -->
@@ -34,14 +33,10 @@
                     </li>
                     <li  class="maq"><a href="cadastroMaquina.html"> <img src="assets/dash/addMaquina.png" width="15h"> Adicionar Máquina </a>
                     </li>
-                    <li><a href="index.html"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
+                    <li><a onclick="limparSessao()"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
                 </ul>
             </div>
         </nav>
-
-
-
-
 
 
         <div class="container-cadastro">
@@ -129,7 +124,6 @@
         </div>
 
 </body>
-
 </html>
 
 <script>
@@ -200,4 +194,10 @@
         cardErro.style.display = "none"
     }
 
+    function limparSessao() {
+    // aguardar();
+    sessionStorage.clear();
+    // finalizarAguardar();
+    window.location = "../login.html";
+    }
 </script>

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Center | Funcionários</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/funcionarios.css">
     <link rel="Logo icon" href="./assets/globo.png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Funcionários</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                     </li>
                     <li><a href="cadastroMaquina.html"> <img src="assets/dash/addMaquina.png" width="15h"> Adicionar Máquina </a>
                     </li>
-                    <li><a href="index.html"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
+                    <li><a onclick="limparSessao()"> <img src="assets/dash/exit.png" width="15vh"> Sair </a></li>
                 </ul>
             </div>
         </nav>
@@ -155,8 +155,6 @@
 
 </html>
 <script>
-
-
     const dados = {
         labels: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00"],
         datasets: [
@@ -198,5 +196,10 @@
         config
     );
 
-
+    function limparSessao() {
+    // aguardar();
+    sessionStorage.clear();
+    // finalizarAguardar();
+    window.location = "../login.html";
+    }
 </script>
