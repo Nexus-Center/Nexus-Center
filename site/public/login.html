@@ -184,11 +184,12 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUser;
+                    sessionStorage.FKEMPRESA_USUARIO = json.fkEmpresa;
                     cardErro.style.display = "block";
                     mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para Dashboard...";
 
                     setTimeout(function () {
-                        window.location = "./funcionarios.html";
+                        window.location = "./dashboard/funcionarios.html";
                     }, 3000); // apenas para exibir o loading
 
                 });
