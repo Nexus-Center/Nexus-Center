@@ -77,6 +77,39 @@ function exibirCodigo(req, res) {
 
 }
 
+function kpiFuncionariosAtivos(req, res) {
+
+    usuarioModel.kpiFuncionariosAtivos().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a KPI.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
+function kpiFuncionariosInativos(req, res) {
+
+    usuarioModel.kpiFuncionariosInativos().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a KPI.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
+
 function getIdUser(req, res) {
     var email = req.body.email
 
@@ -215,6 +248,8 @@ module.exports = {
     exibirCodigo,
     cadastrarEmpresa,
     cadastrarMaquina,
+    kpiFuncionariosAtivos,
+    kpiFuncionariosInativos,
     getIdUser,
     listar,
     testar

@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionarios.css">
     <link rel="Logo icon" href="../assets/globo.png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="kpiFuncionariosAtivos(), kpiFuncionariosInativos()">
     <div class="maedetodos">
         <nav class="nav-lateral">
 
@@ -22,13 +22,16 @@
 
             <div class="container-mae">
                 <ul class="nav-list">
-                    <li  class="maq"><a href="funcionarios.html"> <img src="../assets/dash/dash.png" width="20vh"> Funcionários </a>
+                    <li class="maq"><a href="funcionarios.html"> <img src="../assets/dash/dash.png" width="20vh">
+                            Funcionários </a>
                     </li>
                     <li><a href="maquinas.html"> <img src="../assets/dash/maquina.png" width="15vh"> Máquinas </a>
                     </li>
-                    <li><a href="download.html"> <img src="../assets/dash/downlold.png" width="20h" height="20vh"> Aplicação </a>
+                    <li><a href="download.html"> <img src="../assets/dash/downlold.png" width="20h" height="20vh">
+                            Aplicação </a>
                     </li>
-                    <li><a href="cadastroMaquina.html"> <img src="../assets/dash/addMaquina.png" width="15h"> Adicionar Máquina </a>
+                    <li><a href="cadastroMaquina.html"> <img src="../assets/dash/addMaquina.png" width="15h"> Adicionar
+                            Máquina </a>
                     </li>
                     <li><a onclick="limparSessao()"> <img src="../assets/dash/exit.png" width="15vh"> Sair </a>
                     </li>
@@ -117,22 +120,25 @@
                 </div>
             </div>
 
+            <!-- KPI de atividade dos funcionários atual -->
             <div class="container-status">
 
                 <div class="status">
                     <h1> Atividade dos Funcionários Atual</h1>
                     <div class="cardDesempenho">
                         <div class="verde">
-                            <h1> 20 </h1>
+                            <h1 class="funcionariosAtivos" id="funcionariosAtivos"> 0 </h1>
                             <h2> Ativo </h2>
                         </div>
+
                         <div class="vermelho">
-                            <h1> 5 </h1>
+                            <h1 class="funcionariosInativos" id="funcionariosInativos"> 0 </h1>
                             <h2> Inativo </h2>
                         </div>
                     </div>
                 </div>
 
+                <!-- Gráfico de atividade dos funcionários últimas 6 horas -->
                 <div class="corpo-grafico">
                     <h1> Atividade dos funcionários </h1>
                     <h1> últimas 6 horas</h1>
@@ -147,14 +153,10 @@
 
     </div>
 
-
-
-
-    </div>
-    </div>
 </body>
 
 </html>
+
 <script>
     const dados = {
         labels: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00"],
@@ -198,9 +200,56 @@
     );
 
     function limparSessao() {
-    // aguardar();
-    sessionStorage.clear();
-    // finalizarAguardar();
-    window.location = "../login.html";
+        // aguardar();
+        sessionStorage.clear();
+        // finalizarAguardar();
+        window.location = "../login.html";
     }
+</script>
+
+<script>
+    var ativo = sessionStorage.getItem('QTD_ATIVO');
+    var inativo = sessionStorage.getItem('QTD_INATIVO');
+
+    // Função para atualizar as kpis toda vez que reiniciar a página
+    function kpiFuncionariosAtivos() {
+        fetch(`/usuarios/kpiFuncionariosAtivos`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log("A resposta é :" + resposta[0]);
+                    sessionStorage.QTD_ATIVO = resposta[0].qtdAtivos
+                    ativo = sessionStorage.getItem('QTD_ATIVO');
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados para KPI: ${error.message}`);
+            });
+
+        funcionariosAtivos.innerHTML = ativo
+    }
+
+    function kpiFuncionariosInativos() {
+        fetch(`/usuarios/kpiFuncionariosInativos`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log("A resposta é :" + resposta[0]);
+                    sessionStorage.QTD_INATIVO = resposta[0].qtdInativos
+                    inativo = sessionStorage.getItem('QTD_INATIVO');
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados para KPI: ${error.message}`);
+            });
+
+            funcionariosInativos.innerHTML = inativo
+    }
+
 </script>

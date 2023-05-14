@@ -34,6 +34,14 @@ router.get("/exibirCodigo/:codigoEmpresa", function (req, res) {
     usuarioController.exibirCodigo(req, res);
 });
 
+router.get("/kpiFuncionariosAtivos", function (req, res) {
+    usuarioController.kpiAtividadeFuncionarios(req, res);
+});
+
+router.get("/kpiFuncionariosInativos", function (req, res) {
+    usuarioController.kpiFuncionariosInativos(req, res);
+});
+
 router.get("/getIdUser/:email", function (req, res) {
     usuarioController.getIdUser(req, res);
 });
