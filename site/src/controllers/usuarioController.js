@@ -93,6 +93,22 @@ function kpiFuncionariosAtivos(req, res) {
 
 }
 
+function kpiFuncionariosAusentes(req, res) {
+
+    usuarioModel.kpiFuncionariosAusentes().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a KPI.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
 function kpiFuncionariosInativos(req, res) {
 
     usuarioModel.kpiFuncionariosInativos().then(function (resultado) {
@@ -249,6 +265,7 @@ module.exports = {
     cadastrarEmpresa,
     cadastrarMaquina,
     kpiFuncionariosAtivos,
+    kpiFuncionariosAusentes,
     kpiFuncionariosInativos,
     getIdUser,
     listar,

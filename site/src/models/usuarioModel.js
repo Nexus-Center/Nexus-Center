@@ -28,9 +28,18 @@ function exibirCodigo(codigoGerado) {
 }
 
 function kpiFuncionariosAtivos() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function kpiAtividadeFuncionarios(): ")
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function kpiFuncionariosAtivos(): ")
     var instrucao = `
         SELECT CAST(COUNT(*) AS UNSIGNED) AS qtdAtivos FROM metricamouse WHERE statusMouse = 'ativo';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function kpiFuncionariosAusentes() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function kpiFuncionariosAusentes(): ")
+    var instrucao = `
+        SELECT CAST(COUNT(*) AS UNSIGNED) AS qtdAusentes FROM metricamouse WHERE statusMouse = 'ausente';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -95,6 +104,7 @@ module.exports = {
     cadastrarEmpresa,
     cadastrarMaquina,
     kpiFuncionariosAtivos,
+    kpiFuncionariosAusentes,
     kpiFuncionariosInativos,
     getIdUser,
     listar

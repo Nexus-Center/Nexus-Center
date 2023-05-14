@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="kpiFuncionariosAtivos(), kpiFuncionariosInativos()">
+<body onload="kpiFuncionariosAtivos(), kpiFuncionariosAusentes(), kpiFuncionariosInativos()">
     <div class="maedetodos">
         <nav class="nav-lateral">
 
@@ -128,12 +128,17 @@
                     <div class="cardDesempenho">
                         <div class="verde">
                             <h1 class="funcionariosAtivos" id="funcionariosAtivos"> 0 </h1>
-                            <h2> Ativo </h2>
+                            <h2> Ativos </h2>
+                        </div>
+
+                        <div class="amarelo">
+                            <h1 class="funcionariosAusentes" id="funcionariosAusentes"> 0 </h1>
+                            <h2> Ausentes </h2>
                         </div>
 
                         <div class="vermelho">
                             <h1 class="funcionariosInativos" id="funcionariosInativos"> 0 </h1>
-                            <h2> Inativo </h2>
+                            <h2> Inativos </h2>
                         </div>
                     </div>
                 </div>
@@ -167,6 +172,13 @@
                 borderColor: "rgb(79, 243, 93)",
                 borderWidth: 1,
                 data: [23, 20, 24, 23, 22, 24]
+            },
+            {
+                label: "Ausentes",
+                backgroundColor: "rgb(233, 191, 25)",
+                borderColor: "rgb(233, 191, 25)",
+                borderWidth: 1,
+                data: [10, 9, 11, 2, 18, 10]
             },
             {
                 label: "Inativos",
@@ -209,6 +221,7 @@
 
 <script>
     var ativo = sessionStorage.getItem('QTD_ATIVO');
+    var ausente = sessionStorage.getItem('QTD_AUSENTE');
     var inativo = sessionStorage.getItem('QTD_INATIVO');
 
     // Função para atualizar as kpis toda vez que reiniciar a página
@@ -230,6 +243,26 @@
             });
 
         funcionariosAtivos.innerHTML = ativo
+    }
+
+    function kpiFuncionariosAusentes() {
+        fetch(`/usuarios/kpiFuncionariosAusentes`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log("A resposta é :" + resposta[0]);
+                    sessionStorage.QTD_AUSENTE = resposta[0].qtdAusentes
+                    ausente = sessionStorage.getItem('QTD_AUSENTE');
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados para KPI: ${error.message}`);
+            });
+
+        funcionariosAusentes.innerHTML = ausente
     }
 
     function kpiFuncionariosInativos() {
