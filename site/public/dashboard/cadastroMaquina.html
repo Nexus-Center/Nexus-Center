@@ -29,9 +29,11 @@
                     </li>
                     <li><a href="maquinas.html"> <img src="../assets/dash/maquina.png" width="15vh"> Máquinas </a>
                     </li>
-                    <li><a href="download.html"> <img src="../assets/dash/downlold.png" width="20h" height="20vh"> Aplicação </a>
+                    <li><a href="download.html"> <img src="../assets/dash/downlold.png" width="20h" height="20vh">
+                            Aplicação </a>
                     </li>
-                    <li  class="maq"><a href="cadastroMaquina.html"> <img src="../assets/dash/addMaquina.png" width="15h"> Adicionar Máquina </a>
+                    <li class="maq"><a href="cadastroMaquina.html"> <img src="../assets/dash/addMaquina.png"
+                                width="15h"> Adicionar Máquina </a>
                     </li>
                     <li><a onclick="limparSessao()"> <img src="../assets/dash/exit.png" width="15vh"> Sair </a></li>
                 </ul>
@@ -81,7 +83,7 @@
 
                                     <div class="seta"></div>
                                 </div>
-                                <input id="senha_input" type="password" placeholder="***">
+                                <input id="senha_input" type="password" placeholder="*******">
                             </div>
 
                             <span class="tipo_campo">Confirmar senha</span>
@@ -91,7 +93,7 @@
 
                                     <div class="seta"></div>
                                 </div>
-                                <input id="confirmacao_senha_input" type="password" placeholder="***">
+                                <input id="confirmacao_senha_input" type="password" placeholder="*******">
                             </div>
 
 
@@ -118,12 +120,14 @@
                 </div>
 
                 <div class="imagem-cadastro">
-                    <img src="../assets/cadastroMaquina/imagem_cadastro_maquina.png" alt="" width="500px" height="400px">
+                    <img src="../assets/cadastroMaquina/imagem_cadastro_maquina.png" alt="" width="500px"
+                        height="400px">
                 </div>
             </div>
         </div>
 
 </body>
+
 </html>
 
 <script>
@@ -138,15 +142,39 @@
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
         var fkEmpresaVar = sessionStorage.FKEMPRESA_USUARIO;
 
-        if (nomeUsuarioVar == "" || patrimonioVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (!nomeUsuarioVar || !patrimonioVar || !senhaVar || !confirmacaoSenhaVar) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Por favor não deixe nenhum espaço em branco";
 
             // finalizarAguardar();
             return false;
+        } else if (senhaVar == confirmacaoSenhaVar) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Cadastro Realizado!!";
+
+            // Para Limpar Maquinas;
+            // localStorage.setItem("novaMaquina", "");
+        
+            const listaMaquinas = localStorage.getItem("novaMaquina")
+
+            const maquinas = listaMaquinas.length > 0 ? JSON.parse(listaMaquinas) : []
+
+            const novaMaquina = { nome: patrimonioVar, status: "verm", so: "Linux", processador: "Intel Atom", ram: "4GB", disco: "250GB" }
+
+            maquinas.push(novaMaquina);
+
+            localStorage.setItem("novaMaquina", JSON.stringify(maquinas));
+            
+
+            setTimeout(() => {
+                window.location.href = 'maquinas.html';
+            }, 1000);
         } else {
-            setInterval(sumirMensagem, 5000)
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Senhas Incorretas!!";
         }
+
+
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrarMaquina", {
@@ -195,9 +223,9 @@
     }
 
     function limparSessao() {
-    // aguardar();
-    sessionStorage.clear();
-    // finalizarAguardar();
-    window.location = "../login.html";
+        // aguardar();
+        sessionStorage.clear();
+        // finalizarAguardar();
+        window.location = "../login.html";
     }
 </script>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/infoMaquina.css">
     <link rel="Logo icon" href="../assets/globo.png">
+    <script src="../js/infoMaquina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Máquina 01</title>
 </head>
@@ -27,7 +28,7 @@
                 </div>
             </div>
 
-            <div class="infoHardware">
+            <div class="infoHardware" id="infoHardware">
                 <h3> Inf. Hardware:</h3>
                 <h1>Sistema Operacional: Windows</h1>
                 <h1> Processador: Intel Inside</h1>
@@ -37,7 +38,7 @@
 
             <div class="logouts">
                 <ul>
-                    <li><a href="#"> <img src="../assets/dash/lixeira.png" width="15vh"> Deletar Máquina</a></li>
+                    <li><a href="#" onclick="deleteMaquina()"> <img src="../assets/dash/lixeira.png" width="15vh"> Deletar Máquina</a></li>
                     <li><a href="maquinas.html"> <img src="../assets/dash/exit.png" width="15vh"> Voltar</a></li>
                 </ul>
             </div>
@@ -54,7 +55,7 @@
                         </div>
                         <div class="kpi">
                             <div class="caixa verd">
-                                <h1> 70% </h1>
+                                <h1> < 70% </h1>
                                 <h2> Ideal </h2>
                             </div>
 
