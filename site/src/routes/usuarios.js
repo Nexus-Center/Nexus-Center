@@ -50,4 +50,12 @@ router.get("/getIdUser/:email", function (req, res) {
     usuarioController.getIdUser(req, res);
 });
 
+router.get("/ultimas/:idMaquina", function (req, res) {
+    usuarioController.buscarUltimosStatus(req, res);
+});
+
+router.get("/tempo-real/:idMaquina", function (req, res) {
+    usuarioController.buscarStatusEmTempoReal(req, res);
+})
+
 module.exports = router;
