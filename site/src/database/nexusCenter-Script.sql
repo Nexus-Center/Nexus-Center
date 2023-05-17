@@ -119,10 +119,24 @@ SELECT * FROM Usuario;
 INSERT INTO Maquina VALUES
 	(1, 'Ryu', '13245', 1234, 111111);
     
-SELECT * FROM Maquina;
+INSERT INTO Maquina VALUES
+	(2, 'Rafael Aldo', '23456', 1234, 111111);
+    
+INSERT INTO Maquina VALUES
+	(3, 'Vitoria', '23456', 1234, 111111);
+    
+INSERT INTO Maquina VALUES
+	(4, 'Thamires', '23456', 1234, 111111),
+    (5, 'Vitor Xavier', '34567', 1234, 111111),
+    (6, 'Vinicius Barbosa', 45678, 1234, 111111),
+    (7, 'Fernanda Caramico', 12345, 1234, 222222);
+    
+SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = 111111;
+
+
     
 INSERT INTO RegistroAtividade VALUES
-	(1, 111111, 1, 'Windows', 'Samsung', null, '2023-04-16 9:53:12', '4h');
+	(1, 1, 'Windows', 'Samsung', null, '2023-04-16 9:53:12', '4h');
     
 SELECT * FROM RegistroAtividade;
     
@@ -139,7 +153,7 @@ SELECT * FROM Componente;
 INSERT INTO ConfiguracaoComponente VALUES
 	(1, 111111, 1, FORMAT(5, 1), 1);
     
-SELECT * FROM ConfiguracaoCOmponente;
+SELECT * FROM ConfiguracaoComponente;
 
 INSERT INTO Metrica (idMetrica, fkMaquina, fkEmpresa, fkComponente) VALUES
 	(1, 1, 111111, 1);

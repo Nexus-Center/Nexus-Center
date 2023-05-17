@@ -257,6 +257,45 @@ function cadastrarMaquina(req, res) {
     }
 }
 
+function buscarUltimosStatus(req, res) {
+
+    var idEmpresa = req.params.idEmpresa;
+
+    console.log(`Recuperando as ultimos status`);
+
+    usuarioModel.buscarUltimosStatus(idEmpresa).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os ultimos status.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function buscarStatusEmTempoReal(req, res) {
+
+    var idEmpresa = req.params.idEmpresa;
+
+    console.log(`Recuperando status em tempo real`);
+
+    usuarioModel.buscarStatusEmTempoReal(idEmpresa).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os ultimos status.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     entrar,
@@ -269,5 +308,7 @@ module.exports = {
     kpiFuncionariosInativos,
     getIdUser,
     listar,
-    testar
+    testar,
+    buscarStatusEmTempoReal,
+    buscarUltimosStatus
 }

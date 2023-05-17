@@ -97,6 +97,55 @@ function cadastrarMaquina(nomeUsuario, patrimonio, senha, fkEmpresa) {
     return database.executar(instrucao);
 }
 
+function buscarUltimosStatus(idEmpresa) {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top ${limite_linhas}
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,  
+                        momento,
+                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
+                    from medida
+                    where fk_aquario = ${idMaquina}
+                    order by id desc`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        // fazer alterações para puxar o desktop, status e usbConectado
+        instrucaoSql = `SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = ${idEmpresa};`
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarStatusEmTempoReal(idEmpresa) {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top 1
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,  
+                        CONVERT(varchar, momento, 108) as momento_grafico, 
+                        fk_aquario 
+                        from medida where fk_aquario = ${idMaquina} 
+                    order by id desc`
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = ${idEmpresa};`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     entrar,
     exibirCodigo,
@@ -107,5 +156,7 @@ module.exports = {
     kpiFuncionariosAusentes,
     kpiFuncionariosInativos,
     getIdUser,
-    listar
+    listar,
+    buscarStatusEmTempoReal,
+    buscarUltimosStatus
 };

@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="kpiFuncionariosAtivos(), kpiFuncionariosAusentes(), kpiFuncionariosInativos()">
+<body onload="kpiFuncionariosAtivos(), kpiFuncionariosAusentes(), kpiFuncionariosInativos(), atualizacaoPeriodica()">
     <div class="maedetodos">
         <nav class="nav-lateral">
 
@@ -51,69 +51,7 @@
                                 <td>USB Conectado</td>
                             </tr>
                         </thead>
-                        <tbody>
-
-                            <tr>
-                                <td> Fernanda Caramico </td>
-                                <td>Desktop 3</td>
-                                <td>
-                                    <h2> Ativo </h2>
-                                </td>
-                                <td>Sim</td>
-                            </tr>
-
-                            <tr>
-                                <td> Cláudio Frizzarini </td>
-                                <td>Desktop 2</td>
-                                <td>
-                                    <h2 class="inativo">Inativo</h2>
-                                </td>
-                                <td>Sim</td>
-                            </tr>
-
-                            <tr>
-                                <td> Thiago Gomes </td>
-                                <td>Desktop 5</td>
-                                <td>
-                                    <h2 class="inativo">Inativo</h1>
-                                </td>
-                                <td>Não</td>
-                            </tr>
-
-                            <tr>
-                                <td> Dan Josua </td>
-                                <td>Desktop 1</td>
-                                <td>
-                                    <h2> Ativo </h2>
-                                </td>
-                                <td> Sim </td>
-                            </tr>
-
-                            <tr>
-                                <td>Rogério Barbosa</td>
-                                <td>Desktop 6</td>
-                                <td>
-                                    <h2> Ativo </h2>
-                                </td>
-                                <td> Sim </td>
-                            </tr>
-                            <tr>
-                                <td> Lucas Pereira </td>
-                                <td>Desktop 7</td>
-                                <td>
-                                    <h2> Ativo </h2>
-                                </td>
-                                <td> Sim </td>
-                            </tr>
-                            <tr>
-                                <td> Henrique Crispino </td>
-                                <td>Desktop 8</td>
-                                <td>
-                                    <h2> Ativo </h2>
-                                </td>
-                                <td> Sim </td>
-                            </tr>
-
+                        <tbody id="tabela_funcionarios">
                         </tbody>
                     </table>
 
@@ -285,4 +223,60 @@
             funcionariosInativos.innerHTML = inativo
     }
 
+</script>
+
+<!-- inserção dos funcionarios -->
+<script>
+
+    const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
+    
+    function atualizacaoPeriodica() {
+        
+        obterDados(idEmpresa);
+
+        // function sendData() {
+		// 	var http = new XMLHttpRequest();
+		// 	http.open('POST', 'http://localhost:3000/api/sendData', false);
+		// 	http.send(null);
+		// }
+
+        setInterval(() => {
+			// sendData();
+		}, 2000);
+        setTimeout(atualizacaoPeriodica, 5000);
+    }
+
+    function obterDados(idEmpresa) {
+        tabela_funcionarios.innerHTML = ``
+        fetch(`/usuarios/tempo-real/${idEmpresa}`).then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(resposta => {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    for(i = 0; i < resposta.length; i++){
+                        usuario = resposta[i].nomeUsuario
+                        patrimonio = resposta[i].patrimonio
+                        tabela_funcionarios.innerHTML += `
+                            <tr>
+                                <td>${usuario}</td>
+                                <td>${patrimonio}</td>
+                                <td>
+                                    <h2> Ativo </h2>
+                                </td>
+                                <td>Sim</td>
+                            </tr>
+                        `
+                    }
+                });
+            } else {
+
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados da máquina p/ gráfico: ${error.message}`);
+        });
+
+    }
 </script>
