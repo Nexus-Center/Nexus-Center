@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="carregarDadosPeriodo()">
     <!-- --ATENÇÃO-- -->
     <!-- // Ao criar uma nova página, se for utilizar a nav lateral, maedetodos será necessário englobando todo o contéudo da pg  -->
     <!-- // Abrir ela depois do body e fechar na mesma ordem (ela que permitirá que os próximos elementos fiquem no meio da tela) -->
@@ -28,11 +28,14 @@
                 <ul class="nav-list">
                     <li><a href="funcionarios.html"> <img src="../assets/dash/dash.png" width="20vh"> Funcionários </a>
                     </li>
-                    <li class="maq"><a href="maquinas.html"> <img src="../assets/dash/maquina.png" width="15vh"> Máquinas </a>
+                    <li class="maq"><a href="maquinas.html"> <img src="../assets/dash/maquina.png" width="15vh">
+                            Máquinas </a>
                     </li>
-                    <li><a href="download.html"> <img src="../assets/dash/downlold.png" width="20h" height="20vh"> Aplicação </a>
+                    <li><a href="download.html"> <img src="../assets/dash/downlold.png" width="20h" height="20vh">
+                            Aplicação </a>
                     </li>
-                    <li><a href="cadastroMaquina.html"> <img src="../assets/dash/addMaquina.png" width="15h"> Adicionar Máquina </a>
+                    <li><a href="cadastroMaquina.html"> <img src="../assets/dash/addMaquina.png" width="15h"> Adicionar
+                            Máquina </a>
                     </li>
                     <li><a onclick="limparSessao()"> <img src="../assets/dash/exit.png" width="15vh"> Sair </a></li>
                 </ul>
@@ -51,15 +54,15 @@
 
                     <div class="coresLegenda">
                         <div class="pings">
-                            <div class="circle" id="verd"></div>
+                            <div class="circle" id="verd"> 0 </div>
                             <h1> Ideal </h1>
                         </div>
                         <div class="pings">
-                            <div class="circle" id="amarel"></div>
+                            <div class="circle" id="amarel"> 0 </div>
                             <h1> Atenção </h1>
                         </div>
                         <div class="pings">
-                            <div class="circle" id="vermP"></div>
+                            <div class="circle" id="vermP"> 0 </div>
                             <h1> Alerta </h1>
                         </div>
 
@@ -74,7 +77,7 @@
                         <h1> + </h1>
                     </div>
                 </a>
-                
+
             </div>
 
             <div class="centralizar">
@@ -99,92 +102,153 @@
             </div>
         </div>
 </body>
+
 </html>
 
 <script>
-    const data = {
-        labels: [
-            'Alto',
-            'Baixo',
-        ],
-        datasets: [{
-            label: 'Desempenho das Máquinas',
-            data: [16, 8],
-            backgroundColor: [
-                'rgb(79, 243, 93)',
-                'rgb(243, 79, 79)',
-            ],
-            hoverOffset: 4
-        }]
-    };
+    // // Gráfico de desempenho 24 horas
+    // // Gráfico de desempenho semanal
+    // var data2 = {
+    //     labels: ["03/04", "04/04", "05/04", "06/04", "07/04", "08/04"],
+    //     datasets: [
+    //         {
+    //             label: "Ideal",
+    //             backgroundColor: "rgb(243, 79, 79)",
+    //             borderColor: "rgb(243, 79, 79)",
+    //             borderWidth: 1,
+    //             data: [10, 20, 30, 40, 50, 60]
+    //         },
+    //         {
+    //             label: "Atenção",
+    //             backgroundColor: "rgb(241, 241, 67)",
+    //             borderColor: "rgb(241, 241, 67)",
+    //             borderWidth: 1,
+    //             data: [10, 20, 30, 40, 50, 60]
+    //         },
+    //         {
+    //             label: "Alerta",
+    //             backgroundColor: "rgb(79, 243, 93)",
+    //             borderColor: "rgb(79, 243, 93)",
+    //             borderWidth: 1,
+    //             data: [20, 30, 40, 50, 60, 70]
+    //         }
+    //     ]
+    // };
 
-    const config = {
-        type: 'doughnut',
-        data: data,
-    };
+    // var options = {
+    //     responsive: true,
+    //     title: {
+    //         display: true,
+    //         text: "Desempenho máquinas semanal"
+    //     },
+    //     legend: {
+    //         display: true
+    //     },
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero: true
+    //             }
+    //         }]
+    //     }
+    // };
 
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-
-
-    var data2 = {
-        labels: ["03/04", "04/04", "05/04", "06/04", "07/04", "08/04"],
-        datasets: [
-            {
-                label: "Baixo",
-                backgroundColor: "rgb(243, 79, 79)",
-                borderColor: "rgb(243, 79, 79)",
-                borderWidth: 1,
-                data: [10, 20, 30, 40, 50, 60]
-            },
-            {
-                label: "Alto",
-                backgroundColor: "rgb(79, 243, 93)",
-                borderColor: "rgb(79, 243, 93)",
-                borderWidth: 1,
-                data: [20, 30, 40, 50, 60, 70]
-            }
-        ]
-    };
-
-    var options = {
-        responsive: true,
-        title: {
-            display: true,
-            text: "Vendas por mês"
-        },
-        legend: {
-            display: true
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    };
-
-    var ctx = document.getElementById("chartBar").getContext("2d");
-    var chartBar = new Chart(ctx, {
-        type: "bar",
-        data: data2,
-        options: options
-    });
+    // var ctx = document.getElementById("chartBar").getContext("2d");
+    // var chartBar = new Chart(ctx, {
+    //     type: "bar",
+    //     data: data2,
+    //     options: options
+    // });
 
 
-    // Esta função será utilizada para limpar os dados do Relatório Máquinas caso troque o usuário no Login
-    // Substituir o "form_postagem" pelo nome da <div> que irá abranger os dados das máquinas!
-    // function limparFormulario() {
-    //     document.getElementById("containeer_mae").reset();
-    // }
-    
+    // // Esta função será utilizada para limpar os dados do Relatório Máquinas caso troque o usuário no Login
+    // // Substituir o "form_postagem" pelo nome da <div> que irá abranger os dados das máquinas!
+    // // function limparFormulario() {
+    // //     document.getElementById("containeer_mae").reset();
+    // // }
+
     function limparSessao() {
-    // aguardar();
-    sessionStorage.clear();
-    // finalizarAguardar();
-    window.location = "../login.html";
+        // aguardar();
+        sessionStorage.clear();
+        // finalizarAguardar();
+        window.location = "../login.html";
+    }
+    
+</script>
+
+<script>
+
+    function carregarDadosPeriodo() {
+
+        var fkEmpresa = sessionStorage.getItem("FKEMPRESA_USUARIO")
+
+        fetch(`/medidas/carregarDadosPeriodo/${fkEmpresa}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, fkEmpresa);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+
+    function plotarGrafico(resposta, fkEmpresa) {
+        console.log('iniciando plotagem do gráfico...');
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - labels
+        const dados = {
+            labels: [
+                'Ideal',
+                'Atenção',
+                'Alerta'
+            ],
+            datasets: [{
+                label: 'quantidade',
+                data: [],
+                backgroundColor: [
+                    'rgb(79, 243, 93)',
+                    'rgb(241, 241, 67)',
+                    'rgb(243, 79, 79)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.datasets[0].data.push(registro.quantidade);
+        }
+
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'doughnut',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
     }
 </script>
