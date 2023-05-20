@@ -5,8 +5,13 @@ function carregarDadosPeriodo(fkEmpresa) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select * from metrica
-        where dataHora > now() - interval 24 hour;`
+        instrucaoSql = `SELECT
+        count(*) as quantidade from [dbo].[AlertaDashboard]
+        as q join [dbo].[Metrica] as m 
+        on q.fkParametroAlerta = m.idMetrica
+        WHERE
+        q.dataHora >= DATEADD(day, - 1, GETDATE())
+             AND m.fkEmpresa = ${fkEmpresa} group by q.statusAlerta;`
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = 

@@ -217,6 +217,7 @@ td h2 {
     gap: 1rem;
 }
 
+/* KPI */
 .verde {
     display: flex;
     background-color: #4ff35d;
@@ -279,4 +280,42 @@ td h2 {
 .vermelho h2 {
     color: white;
     font-size: 20px;
+}
+
+/* Legenda das KPI´s */
+.classBar{
+    background-color: #f1f1f1;
+    width: 2px;
+    height: 15vh;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.pings {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.pings h1 {
+    font-size: medium;
+    margin-bottom: 10px;
+    font-weight: 300;
+    margin-top: 2px;
+}
+
+#vermP {
+    background-color: red;
+}
+
+#verd {
+    background-color: #8ADF9E;
+}
+
+#amarel {
+    background-color: #f1f143;
 }
