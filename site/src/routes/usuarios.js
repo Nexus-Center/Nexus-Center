@@ -57,9 +57,18 @@ router.get("/ultimas/:idMaquina", function (req, res) {
 router.get("/tempo-real/:idMaquina", function (req, res) {
     usuarioController.buscarStatusEmTempoReal(req, res);
 })
-
+// listar maquinas
 router.get("/getListaMaquinas/:fkEmpresa", function (req, res){
     usuarioController.getListaMaquinas(req, res);
 });
+// Deletar as máquinas
+router.delete("/deletarMaquinas/:idMaquina", function(req, res){
+    usuarioController.deletarMaquinas(req, res)
+})
+
+// Puxar info máquina
+router.get("/getInfoMaquina/:fkMaquina", function(req, res){
+    usuarioController.getInfoMaquina(req, res)
+})
 
 module.exports = router;

@@ -164,6 +164,7 @@ nav {
     top: 0;
     right: -100%;
     transition: all .8s;
+    
 }
 
 .show-menu .sidebar {
@@ -174,10 +175,11 @@ nav {
     right: 100;
 }
 
+
 .menu {
-    margin-top: 70vh;
-    margin-left: 5.5rem;
     width: 65%;
+    margin-top: 68vh;
+    margin-left: 13vh;
 }
 
 .menu-item {

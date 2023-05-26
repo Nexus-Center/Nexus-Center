@@ -184,16 +184,42 @@ function buscarStatusEmTempoReal(idEmpresa) {
 }
 
 // Puxando informações da máquina
-function getListaMaquinas(fkMaquina){
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():");
-   
-    
-    var instrucao = `SELECT * FROM maquina 
-    JOIN infomaquina ON fkMaquina = idMaquina
-    WHERE maquina.fkEmpresa = ${fkMaquina}`;
-   console.log("Executando a instrução SQL: \n" + instrucao);
-   return database.executar(instrucao);
+function getListaMaquinas(fkEmpresa) {
+  console.log(
+    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():"
+  );
+
+  var instrucao = `SELECT * FROM maquina WHERE fkEmpresa = ${fkEmpresa}`;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
 }
+
+// Deletar a máquina
+function deletarMaquinas(idMaquina) {
+  console.log(
+    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarMaquina():"
+  );
+
+  // Para apagar da azure
+  // var instrucao = ` exec deletarMaquina idMaquina`;
+
+// Para deletar do mysql:
+  var instrucao = ` call deletarMaquina(${idMaquina})`;
+
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
+function getInfoMaquina(fkMaquina){
+  console.log(
+    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function infoMaquinas():"
+  );
+
+  var instrucao = `SELECT * FROM infoMaquina WHERE fkMaquina = ${fkMaquina}`
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
 
 module.exports = {
   entrar,
@@ -209,4 +235,6 @@ module.exports = {
   buscarStatusEmTempoReal,
   buscarUltimosStatus,
   getListaMaquinas,
+  deletarMaquinas,
+  getInfoMaquina
 };

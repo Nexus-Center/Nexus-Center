@@ -2,33 +2,25 @@ let maquinas;
 const fkEmpresaServer = sessionStorage.getItem("FKEMPRESA_USUARIO")
 
 function getMaquinas() {
-  fetch(`/usuarios/getListaMaquinas/${fkEmpresaServer}`, {
-    headers: {
-      "Content-type": "application/json",
-    },
-  }).then((resposta) => {
+  
+  fetch(`/usuarios/getListaMaquinas/${fkEmpresaServer}`)
+  .then((resposta) => {
     resposta.json().then((resposta) => {
         maquinas = resposta;
 
         console.log(maquinas);
-       
-        localStorage.setItem("Maquinas", JSON.stringify(resposta));
     });
   });
 }
 
 getMaquinas();
 
-setInterval(() => {
-  getMaquinas();
-}, 5000);
-
 document.addEventListener("DOMContentLoaded", () => {
   console.log(gridMaquinas);
   setTimeout(() => {
-    for (let [index, maquina] of maquinas.entries()) {
+    for (let maquina of maquinas) {
       gridMaquinas.innerHTML += `
-        <div class="maquina" onclick="getMaquina(${index})">
+        <div class="maquina" onclick="getMaquina(${maquina.idMaquina}, '${maquina.nomeDoUsuario}')">
             <img src="../assets/dash/maquina.png" alt="">
             <h1> ${maquina.nomeDoUsuario} </h1>
             <div class="circle" id="verd"></div>
@@ -37,10 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 200);
 });
 
-function getMaquina(index) {
-  let maquina = maquinas[index];
-  localStorage.setItem("maquina", JSON.stringify(maquina));
-  localStorage.setItem("index", index);
+
+function getMaquina(id, nomeUsuario) {
+  localStorage.setItem("ID_MAQUINA", id);
+  localStorage.setItem("NOME_USUARIO", nomeUsuario);
   window.location = "infoMaquina.html";
-  console.log(maquina);
 }
