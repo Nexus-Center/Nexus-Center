@@ -164,7 +164,6 @@ nav {
     top: 0;
     right: -100%;
     transition: all .8s;
-    
 }
 
 .show-menu .sidebar {
@@ -175,23 +174,23 @@ nav {
     right: 100;
 }
 
-
 .menu {
+    margin-top: 70vh;
+    margin-left: 5.5rem;
     width: 65%;
-    margin-top: 68vh;
-    margin-left: 13vh;
 }
 
 .menu-item {
     display: none;
     text-align: center;
     letter-spacing: 1px;
-    margin-left: 36px;
+    margin-left: 55px;
     font-size: 20px;
     padding: 2px;
     display: flex;
     flex-direction: column;
     font-family: 'Ubuntu', sans-serif;
+    width: 100%;
 }
 
 .menu-link {

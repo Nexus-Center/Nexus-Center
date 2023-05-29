@@ -18,6 +18,7 @@ getMaquinas();
 document.addEventListener("DOMContentLoaded", () => {
   console.log(gridMaquinas);
   setTimeout(() => {
+
     for (let maquina of maquinas) {
       gridMaquinas.innerHTML += `
         <div class="maquina" onclick="getMaquina(${maquina.idMaquina}, '${maquina.nomeDoUsuario}')">
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="circle" id="verd"></div>
         </div>`;
     }
-  }, 200);
+  }, 1600);
 });
 
 
