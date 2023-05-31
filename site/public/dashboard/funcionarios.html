@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="kpiFuncionariosAtivos(), kpiFuncionariosAusentes(), kpiFuncionariosInativos(), atualizacaoPeriodica()">
+<body onload=" obterLinhas(idEmpresa)">
     <div class="maedetodos">
         <nav class="nav-lateral">
 
@@ -46,7 +46,7 @@
                         <thead>
                             <tr>
                                 <td>Nome</td>
-                                <td>Máquina</td>
+                                <td>Patrimônio</td>
                                 <td>Status</td>
                                 <td>USB Conectado</td>
                             </tr>
@@ -84,7 +84,7 @@
                 <!-- Gráfico de atividade dos funcionários últimas 6 horas -->
                 <div class="corpo-grafico">
                     <h1> Atividade dos funcionários </h1>
-                    <h1> últimas 6 horas</h1>
+                    <h1> na última hora</h1>
 
                     <canvas id="myChart"></canvas>
                 </div>
@@ -100,139 +100,40 @@
 
 </html>
 
-<script>
-    const dados = {
-        labels: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00"],
-        datasets: [
-            {
-                label: "Ativos",
-                backgroundColor: "rgb(79, 243, 93)",
-                borderColor: "rgb(79, 243, 93)",
-                borderWidth: 1,
-                data: [23, 20, 24, 23, 22, 24]
-            },
-            {
-                label: "Ausentes",
-                backgroundColor: "rgb(233, 191, 25)",
-                borderColor: "rgb(233, 191, 25)",
-                borderWidth: 1,
-                data: [10, 9, 11, 2, 18, 10]
-            },
-            {
-                label: "Inativos",
-                backgroundColor: "rgb(243, 79, 79)",
-                borderColor: "rgb(243, 79, 79)",
-                borderWidth: 1,
-                data: [2, 5, 1, 2, 8, 1]
-            },
-        ]
-
-    };
-
-
-    const config = {
-        type: 'bar',
-        data: dados,
-        options: {
-            indexAxis: 'y',
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        },
-    };
-
-
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-
-    function limparSessao() {
-        // aguardar();
-        sessionStorage.clear();
-        // finalizarAguardar();
-        window.location = "../login.html";
-    }
-</script>
-
-<script>
-    var ativo = sessionStorage.getItem('QTD_ATIVO');
-    var ausente = sessionStorage.getItem('QTD_AUSENTE');
-    var inativo = sessionStorage.getItem('QTD_INATIVO');
-
-    // Função para atualizar as kpis toda vez que reiniciar a página
-    function kpiFuncionariosAtivos() {
-        fetch(`/usuarios/kpiFuncionariosAtivos`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log("A resposta é :" + resposta[0]);
-                    sessionStorage.QTD_ATIVO = resposta[0].qtdAtivos
-                    ativo = sessionStorage.getItem('QTD_ATIVO');
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados para KPI: ${error.message}`);
-            });
-
-        funcionariosAtivos.innerHTML = ativo
-    }
-
-    function kpiFuncionariosAusentes() {
-        fetch(`/usuarios/kpiFuncionariosAusentes`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log("A resposta é :" + resposta[0]);
-                    sessionStorage.QTD_AUSENTE = resposta[0].qtdAusentes
-                    ausente = sessionStorage.getItem('QTD_AUSENTE');
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados para KPI: ${error.message}`);
-            });
-
-        funcionariosAusentes.innerHTML = ausente
-    }
-
-    function kpiFuncionariosInativos() {
-        fetch(`/usuarios/kpiFuncionariosInativos`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    console.log("A resposta é :" + resposta[0]);
-                    sessionStorage.QTD_INATIVO = resposta[0].qtdInativos
-                    inativo = sessionStorage.getItem('QTD_INATIVO');
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados para KPI: ${error.message}`);
-            });
-
-            funcionariosInativos.innerHTML = inativo
-    }
-
-</script>
-
 <!-- inserção dos funcionarios -->
 <script>
-
+    
     const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
+    var limite_linhas = 0
+
+    function obterLinhas(idEmpresa) {
+        fetch(`/usuarios/obter_linhas/${idEmpresa}`).then(resposta => {
+            if (resposta.ok) {
+                resposta.json().then(resposta => {
+
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    
+                    limite_linhas = resposta[0].numeroMaquinas;
+                    // console.log(resposta)
+                    atualizacaoPeriodica()
+                    // obterDadosGrafico(idEmpresa, limite_linhas);
+                });
+            } else {
+                
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados da máquina p/ gráfico: ${error.message}`);
+        });
+        
+    }
+    
     
     function atualizacaoPeriodica() {
         
-        obterDados(idEmpresa);
+        obterDados(limite_linhas);
+        obterDadosGrafico(idEmpresa, limite_linhas);
 
         // function sendData() {
 		// 	var http = new XMLHttpRequest();
@@ -245,29 +146,56 @@
 		}, 2000);
         setTimeout(atualizacaoPeriodica, 5000);
     }
-
-    function obterDados(idEmpresa) {
+    
+    var erros = 0;
+    
+    function obterDados(limite_linhas) {
         tabela_funcionarios.innerHTML = ``
-        fetch(`/usuarios/tempo-real/${idEmpresa}`).then(resposta => {
+        fetch(`/usuarios/tempo-real/${limite_linhas}`).then(resposta => {
             if (resposta.ok) {
                 resposta.json().then(resposta => {
 
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    
+                    var ativos = 0;
+                    var ausentes = 0;
+                    var inativos = 0;
 
                     for(i = 0; i < resposta.length; i++){
-                        usuario = resposta[i].nomeUsuario
-                        patrimonio = resposta[i].patrimonio
+                        usuario = resposta[i].nomeUsuario;
+                        patrimonio = resposta[i].patrimonio;
+                        status = resposta[i].statusMouse;
+                        var cor = '';
+
+                        if(status.toLowerCase() == "ativo"){
+                            ativos++;
+                            cor = '#34D411';
+                        } else if(status.toLowerCase() == "ausente"){
+                            ausentes++;
+                            cor = '#e9bf19';
+                        } else if(status.toLowerCase() == "inativo"){
+                            inativos++;
+                            cor = '#aa1313';
+                        } else {
+                            erros++;
+                        }
+
                         tabela_funcionarios.innerHTML += `
                             <tr>
                                 <td>${usuario}</td>
                                 <td>${patrimonio}</td>
                                 <td>
-                                    <h2> Ativo </h2>
+                                    <h2  style="color: ${cor}">${status}</h2>
                                 </td>
                                 <td>Sim</td>
                             </tr>
                         `
                     }
+
+                    funcionariosAtivos.innerHTML = ativos;
+                    funcionariosAusentes.innerHTML = ausentes;
+                    funcionariosInativos.innerHTML = inativos;
+
                 });
             } else {
 
@@ -275,8 +203,154 @@
             }
         })
         .catch(function (error) {
-            console.error(`Erro na obtenção dos dados da máquina p/ gráfico: ${error.message}`);
+            console.error(`Erro na obtenção dos dados da máquina: ${error.message}`);
         });
 
+    }
+
+    function obterDadosGrafico(idEmpresa, limite_linhas) {
+
+        var usuarios = [];
+        var ativos = [];
+        var ausentes = [];
+        var inativos = [];
+
+        for(idMaquina = 1; idMaquina <= limite_linhas; idMaquina++){
+            fetch(`/usuarios/obterDadosGrafico/${idMaquina}`).then(resposta => {
+                if (resposta.ok) {
+                    resposta.json().then(resposta => {
+                        
+                        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        resposta.reverse();
+                        var maquinaUsuario = '';
+                        var maquinaAtivo = 0;
+                        var maquinaAusente = 0;
+                        var maquinaInativo = 0;
+
+                        for(i = 0; i < resposta.length; i++){
+                            maquinaUsuario = resposta[i].nomeUsuario
+                            var status = resposta[i].statusMouse;
+                            if(status.toLowerCase() == 'ativo'){
+                                maquinaAtivo++;
+                            } else if(status.toLowerCase() == 'ausente'){
+                                maquinaAusente++;
+                            } else if(status.toLowerCase() == 'inativo'){
+                                maquinaInativo++;
+                            } else {
+                                erros++;
+                            }
+                        }
+                        
+                        usuarios.push(maquinaUsuario);
+                        // console.log(usuarios.length);
+                        ativos.push(maquinaAtivo);
+                        ausentes.push(maquinaAusente);
+                        inativos.push(maquinaInativo);
+
+                        // console.log(`Usuario: ${usuarios}; Ativos: ${ativos}; Ausentes: ${ausentes}; Inativos: ${inativos}`)
+                        plotarGrafico(limite_linhas, usuarios, ativos, ausentes, inativos)
+
+                    });
+                } else {
+
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados da máquina p/ gráfico: ${error.message}`);
+            });
+            
+        }
+        
+    }
+    
+    function plotarGrafico(limite_linhas, usuarios, ativos, ausentes, inativos){
+        
+        if(usuarios.length == limite_linhas){
+
+            var dados = {
+                // labels: ['Bruno','Thamires','Vinicius','Vitor','Rafael','Vitoria'],
+                labels: [],
+                datasets: [
+                    {
+                        label: "Ativos",
+                        backgroundColor: "rgb(79, 243, 93)",
+                        borderColor: "rgb(79, 243, 93)",
+                        borderWidth: 1,
+                        data: []
+                        // data: [42,42,0,0,0,0]
+                    },
+                    {
+                        label: "Ausentes",
+                        backgroundColor: "rgb(233, 191, 25)",
+                        borderColor: "rgb(233, 191, 25)",
+                        borderWidth: 1,
+                        data: []
+                    },
+                    {
+                        label: "Inativos",
+                        backgroundColor: "rgb(243, 79, 79)",
+                        borderColor: "rgb(243, 79, 79)",
+                        borderWidth: 1,
+                        data: []
+                    },
+                ]
+        
+            };
+
+            // console.log(usuarios.length)
+            // console.log(limite_linhas)
+
+            
+            for(i = 0; i < usuarios.length; i++){
+                dados.labels.push(usuarios[i]);
+                dados.datasets[0].data.push(ativos[i]);
+                dados.datasets[1].data.push(ausentes[i]);
+                dados.datasets[2].data.push(inativos[i]);
+            }
+            console.log(dados.labels)
+            console.log(dados.datasets[0].data)
+            console.log(dados.datasets[1].data)
+            console.log(dados.datasets[2].data)
+            
+            const config = {
+                type: 'bar',
+                data: dados,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true
+                        }
+                    }
+                },
+            };
+        
+            var myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+            
+            myChart.destroy();
+
+            myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        }
+
+    }
+
+    function limparSessao() {
+        // aguardar();
+        sessionStorage.clear();
+        // finalizarAguardar();
+        window.location = "../login.html";
     }
 </script>

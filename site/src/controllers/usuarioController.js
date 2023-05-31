@@ -252,18 +252,39 @@ function cadastrarMaquina(req, res) {
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
-                }
-            );
+            }
+        );
     }
 }
 
-function buscarUltimosStatus(req, res) {
+var idEmpresa;
+        
+function obterLinhas(req, res) {
+            
+    console.log(`Recuperando a quantidade de funcionarios`);
 
-    var idEmpresa = req.params.idEmpresa;
+    idEmpresa = req.params.idEmpresa;
+    
+    usuarioModel.obterLinhas(idEmpresa).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a quantidade de funcionarios.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
-    console.log(`Recuperando as ultimos status`);
-
-    usuarioModel.buscarUltimosStatus(idEmpresa).then(function (resultado) {
+function buscarStatusEmTempoReal(req, res) {
+    
+    console.log(`Recuperando status em tempo real`);
+    
+    var limite_linhas = req.params.limite_linhas;
+    
+    usuarioModel.buscarStatusEmTempoReal(idEmpresa, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -276,14 +297,13 @@ function buscarUltimosStatus(req, res) {
     });
 }
 
-
-function buscarStatusEmTempoReal(req, res) {
-
-    var idEmpresa = req.params.idEmpresa;
-
+function obterDadosGrafico(req, res) {
+    
     console.log(`Recuperando status em tempo real`);
 
-    usuarioModel.buscarStatusEmTempoReal(idEmpresa).then(function (resultado) {
+    var idMaquina = req.params.idMaquina;
+    
+    usuarioModel.obterDadosGrafico(idEmpresa, idMaquina).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -303,12 +323,10 @@ module.exports = {
     exibirCodigo,
     cadastrarEmpresa,
     cadastrarMaquina,
-    kpiFuncionariosAtivos,
-    kpiFuncionariosAusentes,
-    kpiFuncionariosInativos,
     getIdUser,
     listar,
     testar,
+    obterLinhas,
     buscarStatusEmTempoReal,
-    buscarUltimosStatus
+    obterDadosGrafico
 }
