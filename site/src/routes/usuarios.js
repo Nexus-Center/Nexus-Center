@@ -44,10 +44,27 @@ router.get("/obter_linhas/:idEmpresa", function (req, res) {
 
 router.get("/tempo-real/:limite_linhas", function (req, res) {
     usuarioController.buscarStatusEmTempoReal(req, res);
+
 });
 
 router.get("/obterDadosGrafico/:idMaquina", function (req, res) {
     usuarioController.obterDadosGrafico(req, res);
 });
+
+// listar maquinas
+router.get("/getListaMaquinas/:fkEmpresa", function (req, res){
+    usuarioController.getListaMaquinas(req, res);
+});
+
+// Deletar as máquinas
+router.delete("/deletarMaquinas/:idMaquina", function(req, res){
+    usuarioController.deletarMaquinas(req, res)
+})
+
+// Puxar info máquina
+router.get("/getInfoMaquina/:fkMaquina", function(req, res){
+    usuarioController.getInfoMaquina(req, res)
+})
+
 
 module.exports = router;

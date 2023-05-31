@@ -152,28 +152,10 @@
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Cadastro Realizado!!";
 
-            // Para Limpar Maquinas;
-            // localStorage.setItem("novaMaquina", "");
-        
-            const listaMaquinas = localStorage.getItem("novaMaquina")
-
-            const maquinas = listaMaquinas.length > 0 ? JSON.parse(listaMaquinas) : []
-
-            const novaMaquina = { nome: patrimonioVar, status: "verm", so: "Linux", processador: "Intel Atom", ram: "4GB", disco: "250GB" }
-
-            maquinas.push(novaMaquina);
-
-            localStorage.setItem("novaMaquina", JSON.stringify(maquinas));
-            
-
-            setTimeout(() => {
-                window.location.href = 'maquinas.html';
-            }, 1000);
         } else {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Senhas Incorretas!!";
         }
-
 
 
         // Enviando o valor da nova input
@@ -217,7 +199,6 @@
 
         return false;
     }
-
     function sumirMensagem() {
         cardErro.style.display = "none"
     }

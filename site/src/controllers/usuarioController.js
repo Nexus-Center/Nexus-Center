@@ -316,6 +316,68 @@ function obterDadosGrafico(req, res) {
     });
 }
 
+function getListaMaquinas(req, res) {
+    const fkEmpresa = req.params.fkEmpresa;
+
+    console.log(fkEmpresa, ">>>>>>>>>>>>>")
+    console.log("acessei o getListaMaquinas!!!")
+
+    usuarioModel.getListaMaquinas(fkEmpresa)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as máquinas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
+function deletarMaquinas(req, res){
+    const idMaquina= req.params.idMaquina;
+
+    console.log(idMaquina, ">>>>>>>>>>>>>")
+    console.log("acessei o delete máquinas!!!")
+
+    usuarioModel.deletarMaquinas(idMaquina)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao deletar as máquinas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+
+}
+
+function getInfoMaquina(req, res) {
+    const fkMaquina = req.params.fkMaquina;
+
+    console.log(fkMaquina, ">>>>>>>>>>>>>")
+    console.log("acessei o getInfoMaquina!!!")
+
+    usuarioModel.getInfoMaquina(fkMaquina)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as informações da máquina.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     entrar,
@@ -328,5 +390,9 @@ module.exports = {
     testar,
     obterLinhas,
     buscarStatusEmTempoReal,
-    obterDadosGrafico
+    obterDadosGrafico,
+    buscarUltimosStatus,
+    getListaMaquinas,
+    deletarMaquinas,
+    getInfoMaquina
 }

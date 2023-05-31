@@ -63,22 +63,41 @@
 
                 <div class="status">
                     <h1> Atividade dos Funcionários Atual</h1>
+                    
                     <div class="cardDesempenho">
                         <div class="verde">
                             <h1 class="funcionariosAtivos" id="funcionariosAtivos"> 0 </h1>
                             <h2> Ativos </h2>
                         </div>
 
-                        <div class="amarelo">
-                            <h1 class="funcionariosAusentes" id="funcionariosAusentes"> 0 </h1>
-                            <h2> Ausentes </h2>
-                        </div>
-
                         <div class="vermelho">
                             <h1 class="funcionariosInativos" id="funcionariosInativos"> 0 </h1>
                             <h2> Inativos </h2>
                         </div>
+                        <div class="classBar"></div>
+                        <div class="amarelo">
+                            <h1 class="funcionariosAusentes" id="funcionariosAusentes"> 0 </h1>
+                            <h2> Ausentes </h2>
+                        </div>
                     </div>
+
+                    <div>
+                        <div class="pings">
+                            <div class="circle" id="verd"></div>
+                            <h1> Ativos - atividade detectada</h1>
+                        </div>
+                        
+                        <div class="pings">
+                            <div class="circle" id="vermP"></div>
+                            <h1> Inativos - sem atividade detectada</h1>
+                        </div>
+
+                        <div class="pings">
+                            <div class="circle" id="amarel"></div>
+                            <h1> Ausentes - login não efetuado</h1>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Gráfico de atividade dos funcionários últimas 6 horas -->

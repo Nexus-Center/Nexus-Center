@@ -184,12 +184,13 @@ nav {
     display: none;
     text-align: center;
     letter-spacing: 1px;
-    margin-left: 36px;
+    margin-left: 55px;
     font-size: 20px;
     padding: 2px;
     display: flex;
     flex-direction: column;
     font-family: 'Ubuntu', sans-serif;
+    width: 100%;
 }
 
 .menu-link {

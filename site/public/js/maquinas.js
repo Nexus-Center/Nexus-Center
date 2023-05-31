@@ -1,28 +1,38 @@
-const maquinas = JSON.parse(localStorage.getItem("novaMaquina"));
-console.log(maquinas)
+let maquinas;
+const fkEmpresaServer = sessionStorage.getItem("FKEMPRESA_USUARIO")
+
+function getMaquinas() {
+  
+  fetch(`/usuarios/getListaMaquinas/${fkEmpresaServer}`)
+  .then((resposta) => {
+    resposta.json().then((resposta) => {
+        maquinas = resposta;
+
+        console.log(maquinas);
+    });
+  });
+}
+
+getMaquinas();
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(gridMaquinas)
-    if (gridMaquinas) {
-        for (let [index, maquina] of maquinas.entries()) {
-            gridMaquinas.innerHTML += `
-        <div class="maquina" onclick="getMaquina(${index})">
+  console.log(gridMaquinas);
+  setTimeout(() => {
+
+    for (let maquina of maquinas) {
+      gridMaquinas.innerHTML += `
+        <div class="maquina" onclick="getMaquina(${maquina.idMaquina}, '${maquina.nomeDoUsuario}')">
             <img src="../assets/dash/maquina.png" alt="">
-            <h1> ${maquina.nome} </h1>
-            <div class="circle" id="${maquina.status}"></div>
-        </div>`
-        }
+            <h1> ${maquina.nomeDoUsuario} </h1>
+            <div class="circle" id="verd"></div>
+        </div>`;
     }
-})
+  }, 1600);
+});
 
 
-
-let maquina;
-function getMaquina(index) {
-    maquina = maquinas[index]
-    localStorage.setItem("maquina", JSON.stringify(maquina))
-    localStorage.setItem("index", index)
-    window.location = "infoMaquina.html"
-    console.log(maquina)
-    
+function getMaquina(id, nomeUsuario) {
+  localStorage.setItem("ID_MAQUINA", id);
+  localStorage.setItem("NOME_USUARIO", nomeUsuario);
+  window.location = "infoMaquina.html";
 }
