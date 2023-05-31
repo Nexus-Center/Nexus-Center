@@ -36,38 +36,6 @@ function exibirCodigo(codigoGerado) {
   return database.executar(instrucao);
 }
 
-function kpiFuncionariosAtivos() {
-  console.log(
-    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function kpiFuncionariosAtivos(): "
-  );
-  var instrucao = `
-        SELECT CAST(COUNT(*) AS UNSIGNED) AS qtdAtivos FROM metricamouse WHERE statusMouse = 'ativo';
-    `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
-}
-
-function kpiFuncionariosAusentes() {
-  console.log(
-    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function kpiFuncionariosAusentes(): "
-  );
-  var instrucao = `
-        SELECT CAST(COUNT(*) AS UNSIGNED) AS qtdAusentes FROM metricamouse WHERE statusMouse = 'ausente';
-    `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
-}
-
-function kpiFuncionariosInativos() {
-  console.log(
-    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function kpiFuncionariosInativos(): "
-  );
-  var instrucao = `
-        SELECT CAST(COUNT(*) AS UNSIGNED) AS qtdInativos FROM metricamouse WHERE statusMouse = 'inativo';
-    `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
-}
 
 function getIdUser(email) {
   console.log(
@@ -133,6 +101,13 @@ function cadastrarMaquina(nomeUsuario, patrimonio, senha, fkEmpresa) {
   return database.executar(instrucao);
 }
 
+
+function obterLinhas(idEmpresa) {
+    // const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select
+
 function buscarUltimosStatus(idEmpresa) {
   instrucaoSql = "";
 
@@ -145,42 +120,68 @@ function buscarUltimosStatus(idEmpresa) {
                     from medida
                     where fk_aquario = ${idMaquina}
                     order by id desc`;
-  } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-    // fazer alterações para puxar o desktop, status e usbConectado
-    instrucaoSql = `SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = ${idEmpresa};`;
-  } else {
-    console.log(
-      "\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n"
-    );
-    return;
-  }
 
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  return database.executar(instrucaoSql);
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        // fazer alterações para puxar o desktop, status e usbConectado
+        instrucaoSql = `SELECT COUNT(idMaquina) AS numeroMaquinas FROM Maquina WHERE fkEmpresa = ${idEmpresa};`
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
-function buscarStatusEmTempoReal(idEmpresa) {
-  instrucaoSql = "";
+function buscarStatusEmTempoReal(idEmpresa, limite_linhas) {
 
-  if (process.env.AMBIENTE_PROCESSO == "producao") {
-    instrucaoSql = `select top 1
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top 1
         dht11_temperatura as temperatura, 
         dht11_umidade as umidade,  
                         CONVERT(varchar, momento, 108) as momento_grafico, 
                         fk_aquario 
-                        from medida where fk_aquario = ${idMaquina} 
-                    order by id desc`;
-  } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-    instrucaoSql = `SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = ${idEmpresa};`;
-  } else {
-    console.log(
-      "\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n"
-    );
-    return;
-  }
+                        from medida where fk_aquario = ${limite_linhas} 
+                    order by id desc`
 
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  return database.executar(instrucaoSql);
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `SELECT idMetricaMouse ,nomeDoUsuario as nomeUsuario, patrimonio, statusMouse FROM MetricaMouse 
+            JOIN Maquina ON idMaquina = fkMaquina WHERE fkEmpresa = ${idEmpresa} ORDER BY idMetricaMouse DESC LIMIT ${limite_linhas};`
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function obterDadosGrafico(idEmpresa, idMaquina) {
+    // const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top 1
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,  
+                        CONVERT(varchar, momento, 108) as momento_grafico, 
+                        fk_aquario 
+                        from medida where fk_aquario = ${limite_linhas} 
+                    order by id desc`
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `SELECT idMetricaMouse ,nomeDoUsuario as nomeUsuario, statusMouse FROM MetricaMouse 
+            JOIN Maquina ON idMaquina = fkMaquina WHERE fkEmpresa = ${idEmpresa} AND idMaquina = ${idMaquina} ORDER BY idMetricaMouse DESC LIMIT 720;`
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 // Puxando informações da máquina
@@ -227,13 +228,10 @@ module.exports = {
   cadastrar,
   cadastrarEmpresa,
   cadastrarMaquina,
-  kpiFuncionariosAtivos,
-  kpiFuncionariosAusentes,
-  kpiFuncionariosInativos,
   getIdUser,
   listar,
   buscarStatusEmTempoReal,
-  buscarUltimosStatus,
+  obterDadosGrafico,
   getListaMaquinas,
   deletarMaquinas,
   getInfoMaquina

@@ -34,33 +34,28 @@ router.get("/exibirCodigo/:codigoEmpresa", function (req, res) {
     usuarioController.exibirCodigo(req, res);
 });
 
-router.get("/kpiFuncionariosAtivos", function (req, res) {
-    usuarioController.kpiFuncionariosAtivos(req, res);
-});
-
-router.get("/kpiFuncionariosAusentes", function (req, res) {
-    usuarioController.kpiFuncionariosAusentes(req, res);
-});
-
-router.get("/kpiFuncionariosInativos", function (req, res) {
-    usuarioController.kpiFuncionariosInativos(req, res);
-});
-
 router.get("/getIdUser/:email", function (req, res) {
     usuarioController.getIdUser(req, res);
 });
 
-router.get("/ultimas/:idMaquina", function (req, res) {
-    usuarioController.buscarUltimosStatus(req, res);
+router.get("/obter_linhas/:idEmpresa", function (req, res) {
+    usuarioController.obterLinhas(req, res);
 });
 
-router.get("/tempo-real/:idMaquina", function (req, res) {
+router.get("/tempo-real/:limite_linhas", function (req, res) {
     usuarioController.buscarStatusEmTempoReal(req, res);
-})
+
+});
+
+router.get("/obterDadosGrafico/:idMaquina", function (req, res) {
+    usuarioController.obterDadosGrafico(req, res);
+});
+
 // listar maquinas
 router.get("/getListaMaquinas/:fkEmpresa", function (req, res){
     usuarioController.getListaMaquinas(req, res);
 });
+
 // Deletar as máquinas
 router.delete("/deletarMaquinas/:idMaquina", function(req, res){
     usuarioController.deletarMaquinas(req, res)
@@ -70,5 +65,6 @@ router.delete("/deletarMaquinas/:idMaquina", function(req, res){
 router.get("/getInfoMaquina/:fkMaquina", function(req, res){
     usuarioController.getInfoMaquina(req, res)
 })
+
 
 module.exports = router;
