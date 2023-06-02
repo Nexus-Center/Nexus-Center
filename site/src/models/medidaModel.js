@@ -5,17 +5,16 @@ function carregarDadosPeriodo(fkEmpresa) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `SELECT
-        count(*) as quantidade from [dbo].[AlertaDashboard]
-        as q join [dbo].[Metrica] as m 
-        on q.fkParametroAlerta = m.idMetrica
-        WHERE
-        q.dataHora >= DATEADD(day, - 1, GETDATE())
-             AND m.fkEmpresa = ${fkEmpresa} group by q.statusAlerta ORDER BY FIELD(statusAlerta, 'Ideal', 'Atencao', 'Alerta');`
+        instrucaoSql = `SELECT COUNT(*) AS quantidade, statusAlerta
+        FROM alertaDashboard
+        WHERE dataHora >= DATEADD(DAY, -1, GETDATE())
+        GROUP BY statusAlerta;`
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql =
-            `select count(*) as quantidade, statusAlerta from alertaDashboard group by statusAlerta;`
+            `select count(*) as quantidade, statusAlerta from alertaDashboard WHERE
+            q.dataHora >= DATEADD(day, - 1, GETDATE())
+            group by statusAlerta;`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -30,13 +29,13 @@ function carregarDadosGraficoBarras(fkEmpresa) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `SELECT
-        count(*) as quantidade from [dbo].[AlertaDashboard]
-        as q join [dbo].[Metrica] as m 
-        on q.fkParametroAlerta = m.idMetrica
-        WHERE
-        q.dataHora >= DATEADD(day, - 1, GETDATE())
-             AND m.fkEmpresa = ${fkEmpresa} group by q.statusAlerta ORDER BY FIELD(statusAlerta, 'Ideal', 'Atencao', 'Alerta');`
+        instrucaoSql = `SELECT 
+            COUNT(*) AS quantidade,
+            statusAlerta,
+            tipoComponente
+            FROM alertaDashboard
+            JOIN componente ON fkComponente = idComponente
+            GROUP BY tipoComponente, statusAlerta;`
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql =
