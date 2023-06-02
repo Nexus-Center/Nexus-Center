@@ -103,34 +103,27 @@ function cadastrarMaquina(nomeUsuario, patrimonio, senha, fkEmpresa) {
 
 
 function obterLinhas(idEmpresa) {
-    // const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
-
-    if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select
-
-function buscarUltimosStatus(idEmpresa) {
-  instrucaoSql = "";
+  // const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
 
   if (process.env.AMBIENTE_PROCESSO == "producao") {
-    instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idMaquina}
-                    order by id desc`;
+      instrucaoSql = `select
+      dht11_temperatura as temperatura, 
+      dht11_umidade as umidade,  
+                      momento,
+                      FORMAT(momento, 'HH:mm:ss') as momento_grafico
+                  from medida
+                  where fk_aquario = ${idMaquina}
+                  order by id desc`;
+  } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+      // fazer alterações para puxar o desktop, status e usbConectado
+      instrucaoSql = `SELECT COUNT(idMaquina) AS numeroMaquinas FROM Maquina WHERE fkEmpresa = ${idEmpresa};`
+  } else {
+      console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+      return
+  }
 
-    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        // fazer alterações para puxar o desktop, status e usbConectado
-        instrucaoSql = `SELECT COUNT(idMaquina) AS numeroMaquinas FROM Maquina WHERE fkEmpresa = ${idEmpresa};`
-    } else {
-        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-        return
-    }
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
 }
 
 function buscarStatusEmTempoReal(idEmpresa, limite_linhas) {
