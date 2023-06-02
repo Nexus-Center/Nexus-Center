@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="carregarDadosPeriodo()">
+<body onload="carregarDadosPeriodo(), carregarDadosGraficoBarras()">
     <!-- --ATENÇÃO-- -->
     <!-- // Ao criar uma nova página, se for utilizar a nav lateral, maedetodos será necessário englobando todo o contéudo da pg  -->
     <!-- // Abrir ela depois do body e fechar na mesma ordem (ela que permitirá que os próximos elementos fiquem no meio da tela) -->
@@ -92,13 +92,11 @@
                 </div>
 
                 <div class="desempenhoMaquina">
-                    <h1> Relatório de Desempenho das Máquinas Semanal</h1>
+                    <h1> Relatório Diário de Desempenho dos Componentes</h1>
                     <div class="cardDesempenho">
                         <canvas id="chartBar"></canvas>
                     </div>
                 </div>
-
-
             </div>
         </div>
 </body>
@@ -106,66 +104,11 @@
 </html>
 
 <script>
-    // // Gráfico de desempenho 24 horas
-    // // Gráfico de desempenho semanal
-    // var data2 = {
-    //     labels: ["03/04", "04/04", "05/04", "06/04", "07/04", "08/04"],
-    //     datasets: [
-    //         {
-    //             label: "Ideal",
-    //             backgroundColor: "rgb(243, 79, 79)",
-    //             borderColor: "rgb(243, 79, 79)",
-    //             borderWidth: 1,
-    //             data: [10, 20, 30, 40, 50, 60]
-    //         },
-    //         {
-    //             label: "Atenção",
-    //             backgroundColor: "rgb(241, 241, 67)",
-    //             borderColor: "rgb(241, 241, 67)",
-    //             borderWidth: 1,
-    //             data: [10, 20, 30, 40, 50, 60]
-    //         },
-    //         {
-    //             label: "Alerta",
-    //             backgroundColor: "rgb(79, 243, 93)",
-    //             borderColor: "rgb(79, 243, 93)",
-    //             borderWidth: 1,
-    //             data: [20, 30, 40, 50, 60, 70]
-    //         }
-    //     ]
-    // };
-
-    // var options = {
-    //     responsive: true,
-    //     title: {
-    //         display: true,
-    //         text: "Desempenho máquinas semanal"
-    //     },
-    //     legend: {
-    //         display: true
-    //     },
-    //     scales: {
-    //         yAxes: [{
-    //             ticks: {
-    //                 beginAtZero: true
-    //             }
-    //         }]
-    //     }
-    // };
-
-    // var ctx = document.getElementById("chartBar").getContext("2d");
-    // var chartBar = new Chart(ctx, {
-    //     type: "bar",
-    //     data: data2,
-    //     options: options
-    // });
-
-
-    // // Esta função será utilizada para limpar os dados do Relatório Máquinas caso troque o usuário no Login
-    // // Substituir o "form_postagem" pelo nome da <div> que irá abranger os dados das máquinas!
-    // // function limparFormulario() {
-    // //     document.getElementById("containeer_mae").reset();
-    // // }
+    // Esta função será utilizada para limpar os dados do Relatório Máquinas caso troque o usuário no Login
+    // Substituir o "form_postagem" pelo nome da <div> que irá abranger os dados das máquinas!
+    // function limparFormulario() {
+    //     document.getElementById("containeer_mae").reset();
+    // }
 
     function limparSessao() {
         // aguardar();
@@ -173,11 +116,11 @@
         // finalizarAguardar();
         window.location = "../login.html";
     }
-    
+
 </script>
 
 <script>
-
+    // Gráfico de desempenho 24 horas (donut)
     function carregarDadosPeriodo() {
 
         var fkEmpresa = sessionStorage.getItem("FKEMPRESA_USUARIO")
@@ -251,4 +194,97 @@
         );
 
     }
+
+    // Função para puxar os dados do gráfico de barras
+    function carregarDadosGraficoBarras() {
+
+        var fkEmpresa = sessionStorage.getItem("FKEMPRESA_USUARIO")
+
+        fetch(`/medidas/carregarDadosGraficoBarras/${fkEmpresa}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGraficoBarras(resposta, fkEmpresa);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // // Gráfico de desempenho semanal (barras)
+    function plotarGraficoBarras(resposta, fkEmpresa) {
+    console.log('iniciando plotagem do gráfico de barras...');
+    let labels = [];
+    let quantidadeIdeal = [];
+    let quantidadeAtencao = [];
+    let quantidadeAlerta = [];
+
+    // Criando estrutura para plotar gráfico - labels
+    const dados2 = {
+        labels: ['CPU', 'Memória', 'Disco'],
+        datasets: [
+            {
+                label: "Ideal",
+                backgroundColor: "rgb(79, 243, 93)",
+                borderColor: "rgb(79, 243, 93)",
+                borderWidth: 1,
+                data: quantidadeIdeal
+            },
+            {
+                label: "Atenção",
+                backgroundColor: "rgb(241, 241, 67)",
+                borderColor: "rgb(241, 241, 67)",
+                borderWidth: 1,
+                data: quantidadeAtencao
+            },
+            {
+                label: "Alerta",
+                backgroundColor: "rgb(243, 79, 79)",
+                borderColor: "rgb(243, 79, 79)",
+                borderWidth: 1,
+                data: quantidadeAlerta
+            },
+        ]
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: dados2,
+        options: {
+            indexAxis: 'y',
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
+
+    const myChart = new Chart(
+        document.getElementById('chartBar'),
+        config2
+    );
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (let i = 0; i < resposta.length; i++) {
+        let registro = resposta[i];
+        if (registro.statusAlerta === "Ideal") {
+            quantidadeIdeal.push(registro.quantidade);
+        } else if (registro.statusAlerta === "Atencao") {
+            quantidadeAtencao.push(registro.quantidade);
+        } else if (registro.statusAlerta === "Alerta") {
+            quantidadeAlerta.push(registro.quantidade);
+        }
+    }
+
+    myChart.update();
+}
+
+
 </script>

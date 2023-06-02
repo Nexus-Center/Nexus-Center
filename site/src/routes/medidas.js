@@ -7,4 +7,8 @@ router.get("/carregarDadosPeriodo/:fkEmpresa", function (req, res) {
     medidaController.carregarDadosPeriodo(req, res);
 })
 
+router.get("/carregarDadosGraficoBarras/:fkEmpresa", function (req, res) {
+    medidaController.carregarDadosGraficoBarras(req, res);
+})
+
 module.exports = router;
