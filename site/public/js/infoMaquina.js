@@ -11,15 +11,13 @@ async function getInfoMaquina() {
     infoHardware.innerHTML = `<h3>Inf. Hardware:</h3>
       <h1>Sistema Operacional: ${maquina[0].sistemaOperacional}</h1>
       <h1>Processador: ${maquina[0].nomeProcessador}</h1>
-      <h1>Memória Ram: ${maquina[0].capacidadeRam}</h1>
-      <h1>Capacidade Disco: ${maquina[0].capacidadeDisco}</h1>`;
+      <h1>Memória Ram: ${maquina[0].capacidadeRam} GB</h1>
+      <h1>Capacidade Disco: ${maquina[0].capacidadeDisco} GB</h1>`;
     nomeDaMaquina.innerHTML = `<h1>${nomeUsuario}</h1>`;
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
   getInfoMaquina();
-});
 
 
 //
@@ -41,6 +39,11 @@ function deleteMaquina() {
     window.location = "maquinas.html";
   }
 }
+
+
+
+
+
 
 //   let listaMaquinas = JSON.parse(localStorage.getItem("novaMaquina"));
 //   const confirmeDelete = window.confirm(

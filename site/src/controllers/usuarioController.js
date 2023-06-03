@@ -318,7 +318,7 @@ function getListaMaquinas(req, res) {
 }
 
 function deletarMaquinas(req, res){
-    const idMaquina= req.params.idMaquina;
+    const idMaquina = req.params.idMaquina;
 
     console.log(idMaquina, ">>>>>>>>>>>>>")
     console.log("acessei o delete máquinas!!!")
@@ -358,6 +358,26 @@ function getInfoMaquina(req, res) {
     });
 }
 
+function getPorcentagemUso(req, res) {
+    const fkMaquina = req.params.fkMaquina;
+
+    console.log(fkMaquina, ">>>>>>>>>>>>>")
+    console.log("acessei o getPorcentagemUso!!!")
+
+    usuarioModel.getPorcentagemUso(fkMaquina)
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as informações de porcentagem de uso.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     entrar,
@@ -376,4 +396,5 @@ module.exports = {
     getListaMaquinas,
     deletarMaquinas,
     getInfoMaquina,
+    getPorcentagemUso
 }

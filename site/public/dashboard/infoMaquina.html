@@ -10,7 +10,7 @@
     <link rel="Logo icon" href="../assets/globo.png">
     <script src="../js/infoMaquina.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Máquina 01</title>
+    <title>Máquina</title>
 </head>
 
 <body>
@@ -22,7 +22,9 @@
 
                 <div class="container-mae">
                     <ul class="nav-list">
-                        <li class="maq"><a href="maquinas.html"><img src="../assets/dash/maquina.png" width="15vh"> <h1" id="nomeDaMaquina"></h1> </h1></a></li>
+                        <li class="maq"><a href="maquinas.html">
+                            <img src="../assets/dash/maquina.png" width="15vh">
+                             <h1 id="nomeDaMaquina"> </h1></a></li>
                     </ul>
                 </div>
             </div>
@@ -81,9 +83,7 @@
 
                         <div class="utilizacao">
                             <h1> Utilização: </h1>
-                            <b> 90% </b>
-                            <h1> Processos: </h1>
-                            <b> 448 </b>
+                            <b id="cpuUtiliza"> </b>
                         </div>
 
                     </div>
@@ -123,10 +123,8 @@
                         </div>
 
                         <div class="utilizacao">
-                            <h1> Em uso: </h1>
-                            <b> 3,2GB </b>
-                            <h1> Total: </h1>
-                            <b> 7,9GB </b>
+                            <h1> Utilização: </h1>
+                            <b id="memUtiliza"> </b>
                         </div>
 
                     </div>
@@ -170,12 +168,8 @@
                         </div>
 
                         <div class="utilizacao">
-                            <h1> Velocidade de </h1>
-                            <h1> tranferência: </h1>
-                            <b> 22 KB/s </b>
-                            <h1> Velocidade de </h1>
-                            <h1> escrita: </h1>
-                            <b> 44 KB/s </b>
+                            <h1> Utilização: </h1>
+                            <b id="hdUtiliza"> </b>
                         </div>
 
                     </div>
@@ -213,81 +207,112 @@
 </html>
 
 <script>
-    // Gráfico da CPU
 
-    var ctx = document.getElementById('cpu-chart').getContext('2d');
-    var cpuChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
-            datasets: [{
-                label: 'CPU',
-                data: [30, 40, 10, 40, 70, 92],
-                backgroundColor: 'rgba(62, 62, 167)',
-                borderColor: 'rgba(62, 62, 167)',
-                borderWidth: 1
+let maquinaPorcentagem = [];
+const fk_maquina = localStorage.getItem("ID_MAQUINA");
+let resposta;
+let maquinaUso;
+let utiliza;
+
+
+async function getPorcentagemUso() {
+  resposta = await (fetch(`/usuarios/getPorcentagemUso/${fk_maquina}`));
+  maquinaPorcentagem = await resposta.json()
+  console.log(maquinaPorcentagem);
+
+  maquinaUso = {
+    hdUso: maquinaPorcentagem.slice(-6).map(maquina => maquina.porcentagemHD),
+    memUso: maquinaPorcentagem.slice(-6).map(maquina => maquina.porcentagemMem),
+    cpuUso: maquinaPorcentagem.slice(-6).map(maquina => maquina.porcentagemProc),
+    horario: maquinaPorcentagem.slice(-6).map(maquina => maquina.dataHora)
+   }
+
+console.log(maquinaUso)
+
+utiliza = maquinaUso.cpuUso.slice(-1)
+
+setUtilizacao()
+}
+
+function setUtilizacao(){
+    cpuUtiliza.innerHTML = maquinaUso.cpuUso.slice(-1) + "%"
+    hdUtiliza.innerHTML = maquinaUso.hdUso.slice(-1) + "%"
+    memUtiliza.innerHTML = maquinaUso.memUso.slice(-1) + "%"
+}
+
+
+
+
+   
+function formatarHorario(data) {
+  const dataObjeto = new Date(data); // Converte a string em um objeto Date
+  const horario = dataObjeto.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  return horario;
+}
+
+getPorcentagemUso();
+
+setTimeout(() => {
+atualizarInfoGrafico();
+}, 1000) 
+
+setInterval(() => {
+    getPorcentagemUso();
+    atualizarInfoGrafico(); 
+}, 3000)
+ 
+
+
+async function atualizarInfoGrafico(){
+    if(maquinaUso){
+    atualizarGrafico("cpu-chart", "CPU", maquinaUso.cpuUso);
+    atualizarGrafico("mem-chart", "Memória RAM", maquinaUso.memUso);
+    atualizarGrafico("disco-chart", "Disco", maquinaUso.hdUso);
+    }
+
+}
+
+
+function atualizarGrafico(id, label, data){
+let chartInstance = Chart.getChart(id)
+
+if(!chartInstance){
+    gerarGrafico(id, label, data);
+}else{
+    chartInstance.data.datasets[0].data = data;
+    chartInstance.update();
+}
+}
+
+
+function gerarGrafico(id, label, data){
+
+var ctx = document.getElementById(id).getContext('2d');
+var newChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: maquinaUso.horario.map(hora => formatarHorario(hora)),
+        datasets: [{
+            label: label,
+            data: data,
+            backgroundColor: 'rgba(62, 62, 167)',
+            borderColor: 'rgba(62, 62, 167)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
             }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
         }
-    });
+    }
+});
 
-    // Gráfico de Memória
+}
 
-    var ctx = document.getElementById('mem-chart').getContext('2d');
-    var memChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
-            datasets: [{
-                label: 'Memória',
-                data: [30, 20, 25, 40, 35, 30],
-                backgroundColor: 'rgba(62, 62, 167)',
-                borderColor: 'rgba(62, 62, 167)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
 
-    // Gráfico do disco
 
-    var ctx = document.getElementById('disco-chart').getContext('2d');
-    var discoChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['12:00', '12:15', '12:30', '12:45', '13:00', '13:15'],
-            datasets: [{
-                label: 'Disco',
-                data: [10, 15, 5, 20, 23, 82],
-                backgroundColor: 'rgba(62, 62, 167)',
-                borderColor: 'rgba(62, 62, 167)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
 </script>

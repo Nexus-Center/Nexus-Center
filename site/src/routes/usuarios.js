@@ -71,4 +71,10 @@ router.get("/getInfoMaquina/:fkMaquina", function(req, res){
     usuarioController.getInfoMaquina(req, res)
 })
 
+// Puxar Porcentagem de uso para gráficos
+router.get("/getPorcentagemUso/:fkMaquina", function(req, res){
+    usuarioController.getPorcentagemUso(req, res)
+})
+
+
 module.exports = router;
