@@ -107,7 +107,7 @@ CREATE TABLE Alerta(
 );
 
 INSERT INTO Empresa VALUES
-	(111111, 'NexusCenter', 12345678901234, 'nexus@nexus.com', 1234567890123);
+	(222222, 'NexusCenter', 12345678901234, 'nexus@nexus.com', 1234567890123);
     
 SELECT * FROM Empresa;
     
@@ -126,14 +126,14 @@ INSERT INTO Maquina VALUES
 	(3, 'Vitoria', '23456', 1234, 111111);
     
 INSERT INTO Maquina VALUES
-	(4, 'Thamires', '23456', 1234, 111111),
-    (5, 'Vitor Xavier', '34567', 1234, 111111),
-    (6, 'Vinicius Barbosa', 45678, 1234, 111111),
-    (7, 'Fernanda Caramico', 12345, 1234, 222222);
+	(null, 'Miyu', '23456', 1234, 111111),
+    (null, 'Yudy', '34567', 1234, 111111),
+    (null, 'Hiroshi', 45678, 1234, 111111),
+    (null, 'Fernanda Caramico', 12345, 1234, 222222);
     
-SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = 111111;
+SELECT nomeDoUsuario as nomeUsuario, patrimonio,  FROM Maquina WHERE fkEmpresa = 111111 ORDER BY idMaquina DESC LIMIT 6;
 
-
+SELECT COUNT(idMaquina) AS NumeroFuncionarios FROM maquina WHERE fkEmpresa = 111111;
     
 INSERT INTO RegistroAtividade VALUES
 	(1, 1, 'Windows', 'Samsung', null, '2023-04-16 9:53:12', '4h');

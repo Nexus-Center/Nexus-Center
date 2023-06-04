@@ -147,6 +147,9 @@ insert into AlertaDashboard values (null, '2023-08-15:00:00:00',"Alerta",1);
 insert into AlertaDashboard values (null, '2023-08-15:00:00:00',"Ideal",1);
 insert into AlertaDashboard values (null, '2023-08-15:00:00:00',"Atencao",1);
 
+SELECT idMetricaMouse, nomeDoUsuario as nomeUsuario, patrimonio, Metrica.statusMouse FROM MetricaMouse AS Metrica JOIN Maquina ON Metrica.fkMaquina = idMaquina WHERE Metrica.fkEmpresa = 232131 ORDER BY idMetricaMouse DESC LIMIT 6;
+
+SELECT COUNT(idMaquina) AS numeroFuncionarios FROM maquina WHERE fkEmpresa = 232131
 
 select statusAlerta as 'Alerta', count(*) as Quantidade, m.fkEmpresa from AlertaDashboard as q join metrica as m on q.fkParametroAlerta = m.idMetrica group by statusAlerta;
 

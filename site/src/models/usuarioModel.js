@@ -36,6 +36,7 @@ function exibirCodigo(codigoGerado) {
   return database.executar(instrucao);
 }
 
+/*
 function kpiFuncionariosAtivos() {
   console.log(
     "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function kpiFuncionariosAtivos(): "
@@ -67,7 +68,7 @@ function kpiFuncionariosInativos() {
     `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
-}
+} */
 
 function getIdUser(email) {
   console.log(
@@ -133,21 +134,35 @@ function cadastrarMaquina(nomeUsuario, patrimonio, senha, fkEmpresa) {
   return database.executar(instrucao);
 }
 
-function buscarUltimosStatus(idEmpresa) {
+function obterNumeroFuncionarios(idEmpresa) {
   instrucaoSql = "";
 
   if (process.env.AMBIENTE_PROCESSO == "producao") {
-    instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idMaquina}
-                    order by id desc`;
+    instrucaoSql = `SELECT idMaquina FROM maquina WHERE fkEmpresa = ${idEmpresa}`;
   } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
     // fazer alterações para puxar o desktop, status e usbConectado
-    instrucaoSql = `SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = ${idEmpresa};`;
+    instrucaoSql = `SELECT idMaquina FROM maquina WHERE fkEmpresa = ${idEmpresa}`;
+  } else {
+    console.log(
+      "\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n"
+    );
+    return;
+  }
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+} 
+
+function buscarStatusEmTempoReal(idEmpresa, numeroFuncionarios) {
+  isnstrucaoSql = "";
+
+  if (process.env.AMBIENTE_PROCESSO == "producao") {
+    instrucaoSql = `SELECT TOP ${numeroFuncionarios} idMetricaMouse, idMaquina, nomeDoUsuario as nomeUsuario, patrimonio, Metrica.statusMouse FROM MetricaMouse AS 
+    Metrica JOIN Maquina ON Metrica.fkMaquina = idMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} ORDER BY idMetricaMouse DESC;`;
+
+  } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+    instrucaoSql = `SELECT idMetricaMouse, nomeDoUsuario as nomeUsuario, patrimonio, Metrica.statusMouse FROM MetricaMouse AS 
+    Metrica JOIN Maquina ON Metrica.fkMaquina = idMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} ORDER BY idMetricaMouse DESC LIMIT ${numeroFuncionarios};`;
   } else {
     console.log(
       "\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n"
@@ -159,24 +174,21 @@ function buscarUltimosStatus(idEmpresa) {
   return database.executar(instrucaoSql);
 }
 
-function buscarStatusEmTempoReal(idEmpresa) {
-  instrucaoSql = "";
+function obterDadosGrafico(idEmpresa, idMaquina) {
+  // const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
+
+  instrucaoSql = ''
 
   if (process.env.AMBIENTE_PROCESSO == "producao") {
-    instrucaoSql = `select top 1
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idMaquina} 
-                    order by id desc`;
+      instrucaoSql = `SELECT TOP 720 idMetricaMouse ,nomeDoUsuario as nomeUsuario, Metrica.statusMouse FROM MetricaMouse AS Metrica
+      JOIN Maquina ON idMaquina = Metrica.fkMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} AND idMaquina = ${idMaquina} ORDER BY idMetricaMouse DESC;`
+
   } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-    instrucaoSql = `SELECT nomeDoUsuario as nomeUsuario, patrimonio FROM Maquina WHERE fkEmpresa = ${idEmpresa};`;
+      instrucaoSql = `SELECT idMetricaMouse ,nomeDoUsuario as nomeUsuario, Metrica.statusMouse FROM MetricaMouse AS Metrica
+          JOIN Maquina ON idMaquina = Metrica.fkMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} AND idMaquina = ${idMaquina} ORDER BY idMetricaMouse DESC LIMIT 720;`
   } else {
-    console.log(
-      "\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n"
-    );
-    return;
+      console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+      return
   }
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -227,13 +239,14 @@ module.exports = {
   cadastrar,
   cadastrarEmpresa,
   cadastrarMaquina,
-  kpiFuncionariosAtivos,
-  kpiFuncionariosAusentes,
-  kpiFuncionariosInativos,
+  // kpiFuncionariosAtivos,
+  // kpiFuncionariosAusentes,
+  // kpiFuncionariosInativos,
   getIdUser,
   listar,
+  obterNumeroFuncionarios,
   buscarStatusEmTempoReal,
-  buscarUltimosStatus,
+  obterDadosGrafico,
   getListaMaquinas,
   deletarMaquinas,
   getInfoMaquina
