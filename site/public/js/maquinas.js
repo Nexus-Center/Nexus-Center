@@ -1,5 +1,6 @@
 let maquinas;
 const fkEmpresaServer = sessionStorage.getItem("FKEMPRESA_USUARIO")
+let cor = "cinza"
 
 function getMaquinas() {
   
@@ -24,11 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="maquina" onclick="getMaquina(${maquina.idMaquina}, '${maquina.nomeDoUsuario}')">
             <img src="../assets/dash/maquina.png" alt="">
             <h1> ${maquina.nomeDoUsuario} </h1>
-            <div class="circle" id="verd"></div>
+            <div class="circle" id="${cor}"></div>
         </div>`;
     }
   }, 1600);
 });
+
+
 
 
 function getMaquina(id, nomeUsuario) {
@@ -36,3 +39,4 @@ function getMaquina(id, nomeUsuario) {
   localStorage.setItem("NOME_USUARIO", nomeUsuario);
   window.location = "infoMaquina.html";
 }
+

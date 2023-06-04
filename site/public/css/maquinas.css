@@ -104,7 +104,7 @@ body {
 }
 
 .maq {
-    background-color: #34D411;
+    background-color: #14a81e;
 }
 
 .nav-list a {
@@ -117,7 +117,7 @@ body {
 
 .nav-list li:hover {
     cursor: pointer;
-    background-color: #34D411;
+    background-color: #14A81E;
     transition: .5s ease;
 }
 
@@ -208,11 +208,15 @@ body {
 }
 
 #verd {
-    background-color: #8ADF9E;
+    background-color: #27ff35;
 }
 
 #amarel {
     background-color: #f1f143;
+}
+
+#cinza{
+    background-color: grey;
 }
 
 @keyframes blink {

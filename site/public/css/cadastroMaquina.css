@@ -57,7 +57,7 @@ body {
 }
 
 .maq {
-    background-color: #34D411;
+    background-color: #14A81E;
 }
 
 .nav-list a {
@@ -70,7 +70,7 @@ body {
 
 .nav-list li:hover {
     cursor: pointer;
-    background-color: #34D411;
+    background-color: #14A81E;
     transition: .5s ease;
 }
 

@@ -52,11 +52,11 @@
                     <div class="corpo-grafico">
                         <div class="titulo-grafico">
                             <h1> Indicadores de uso da CPU </h1>
-                            <div class="circle" id="vermP"></div>
+                            <div class="circle" id="statusCircle"></div>
                         </div>
                         <div class="kpi">
                             <div class="caixa verd">
-                                <h1> < 70% </h1>
+                                <h1> 70% </h1>
                                 <h2> Ideal </h2>
                             </div>
 
@@ -78,7 +78,7 @@
 
                     <div class="status">
                         <div class="statusAtual">
-                            <h1> Status:<b class="alerta"> Alerta </b></h1>
+                            <h1> Status:<b class="alerta" id="statusTexto"> </b></h1>
                         </div>
 
                         <div class="utilizacao">
@@ -94,7 +94,7 @@
                     <div class="corpo-grafico">
                         <div class="titulo-grafico">
                             <h1> Indicadores de uso de Memória</h1>
-                            <div class="circle" id="verdP"></div>
+                            <div class="circle" id="statusCircleM"></div>
                         </div>
                         <div class="kpi">
                             <div class="caixa verd">
@@ -119,7 +119,7 @@
 
                     <div class="status">
                         <div class="statusAtual">
-                            <h1> Status:<b class="ideal"> Ideal</b></h1>
+                            <h1> Status:<b class="ideal" id="statusTexto2"> </b></h1>
                         </div>
 
                         <div class="utilizacao">
@@ -138,7 +138,7 @@
                     <div class="corpo-grafico">
                         <div class="titulo-grafico">
                             <h1> Indicadores de uso do Disco</h1>
-                            <div class="circle" id="amarelP"></div>
+                            <div class="circle" id="statusCircleD"></div>
                         </div>
                         <div class="kpi">
                             <div class="caixa verd">
@@ -164,7 +164,7 @@
 
                     <div class="status">
                         <div class="statusAtual">
-                            <h1> Status:<b class="atencao"> Atenção </b></h1>
+                            <h1> Status:<b class="atencao" id="statusTexto3"></b></h1>
                         </div>
 
                         <div class="utilizacao">
@@ -177,15 +177,11 @@
 
 
                 <div class="container-usb">
-                    <div class="corpo-usb">
+                    <div class="corpo-usb" id="corpoUSB">
                         <h1> USB Conectado:</h1>
 
-                        <div class="dispositivos">
+                        <div class="dispositivos" id="dispo">
                             <h2> Mouse Logitech G703 LIGHTSPEED RGB LIGHTSYNC</h2>
-                            <div class="line"></div>
-                            <h2>Headset Logitech H111</h2>
-                            <div class="line"></div>
-                            <h2>Teclado Padrão Maxprint USB Preto 608145</h2>
                             <div class="line"></div>
                         </div>
 
@@ -213,6 +209,7 @@ const fk_maquina = localStorage.getItem("ID_MAQUINA");
 let resposta;
 let maquinaUso;
 let utiliza;
+let listaStatus;
 
 
 async function getPorcentagemUso() {
@@ -227,11 +224,14 @@ async function getPorcentagemUso() {
     horario: maquinaPorcentagem.slice(-6).map(maquina => maquina.dataHora)
    }
 
+
+
+
+
 console.log(maquinaUso)
 
-utiliza = maquinaUso.cpuUso.slice(-1)
-
 setUtilizacao()
+atualizarStatus()
 }
 
 function setUtilizacao(){
@@ -240,7 +240,62 @@ function setUtilizacao(){
     memUtiliza.innerHTML = maquinaUso.memUso.slice(-1) + "%"
 }
 
+function atualizarStatus(){
+    var circleElement = document.getElementById('statusCircle');
+    var circleElement2 = document.getElementById('statusCircleM');
+    var circleElement3 = document.getElementById('statusCircleD');
+    var style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      .vermP {
+        background-color: #d41818;
+        animation: blink 1s infinite;
+      }
+    `;
 
+
+    if(maquinaUso.cpuUso.slice(-1) < 70){
+    circleElement.style.backgroundColor = '#27ff35';
+    statusTexto.innerHTML = '<span style="color: #27ff35;"> Ideal</span>';
+    }else if(maquinaUso.cpuUso.slice(-1) > 70 && maquinaUso.cpuUso.slice(-1) < 90){
+    circleElement.style.backgroundColor = '#ece800';
+    statusTexto.innerHTML = '<span style="color: #f2aa00;"> Atenção </span>';
+    }else{
+    document.head.appendChild(style);
+    circleElement.classList.add('vermP');
+    statusTexto.innerHTML = '<span style="color: #d41818;"> Alerta </span>';
+    }
+
+    if(maquinaUso.memUso.slice(-1) < 70){
+    circleElement2.style.backgroundColor = '#27ff35';
+    statusTexto2.innerHTML = '<span style="color: #27ff35;"> Ideal </span>';
+    }else if(maquinaUso.memUso.slice(-1) > 70 && maquinaUso.memUso.slice(-1) < 90){
+    circleElement2.style.backgroundColor = '#4ff35d';
+    statusTexto2.innerHTML = '<span style="color: #f2aa00;"> Atenção </span>';
+    }else{
+    document.head.appendChild(style);
+    circleElement2.classList.add('vermP');
+    statusTexto2.innerHTML = '<span style="color: #d41818;"> Alerta </span>';
+    }
+
+    if(maquinaUso.hdUso.slice(-1) < 70){
+    circleElement3.style.backgroundColor = '#27ff35';
+    statusTexto3.innerHTML = '<span style="color: #27ff35;"> Ideal </span>';
+    }else if(maquinaUso.hdUso.slice(-1) > 70 && maquinaUso.hdUso.slice(-1) < 90){
+    circleElement3.style.backgroundColor = '#4ff35d';
+    statusTexto3.innerHTML = '<span style="color: #f2aa00;"> Atenção </span>';
+    }else{
+    document.head.appendChild(style);
+    circleElement3.classList.add('vermP');
+    statusTexto3.innerHTML = '<span style="color: #d41818;"> Alerta </span>';
+    }
+
+   
+}
 
 
    

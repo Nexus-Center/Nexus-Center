@@ -2,9 +2,10 @@ const id_maquina = localStorage.getItem("ID_MAQUINA");
 const nomeUsuario = localStorage.getItem("NOME_USUARIO");
 let maquina;
 
-
 async function getInfoMaquina() {
-  maquina = await (await fetch(`/usuarios/getInfoMaquina/${id_maquina}`)).json();
+  maquina = await (
+    await fetch(`/usuarios/getInfoMaquina/${id_maquina}`)
+  ).json();
   console.log(maquina); // Certifique-se de que os dados foram obtidos corretamente
   if (maquina) {
     // Renderize os dados na página aqui
@@ -15,10 +16,18 @@ async function getInfoMaquina() {
       <h1>Capacidade Disco: ${maquina[0].capacidadeDisco} GB</h1>`;
     nomeDaMaquina.innerHTML = `<h1>${nomeUsuario}</h1>`;
   }
+
+  if (maquina[0].sistemaOperacional == "Windows") {
+    dispo.innerHTML = `   <h2> USB Root Hub (USB 3.0)
+    (Standard USB HUBs)</h2>
+    <div class="line"></div>`;
+  }else{
+    dispo.innerHTML = `   <h2> NÃO HÁ DISPOSITIVOS CONECTADOS</h2>
+    <div class="line"></div>`
+  }
 }
 
-  getInfoMaquina();
-
+getInfoMaquina();
 
 //
 function deleteMaquina() {
@@ -39,11 +48,6 @@ function deleteMaquina() {
     window.location = "maquinas.html";
   }
 }
-
-
-
-
-
 
 //   let listaMaquinas = JSON.parse(localStorage.getItem("novaMaquina"));
 //   const confirmeDelete = window.confirm(
