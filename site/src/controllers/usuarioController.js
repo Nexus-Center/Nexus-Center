@@ -77,6 +77,7 @@ function exibirCodigo(req, res) {
 
 }
 
+/*
 function kpiFuncionariosAtivos(req, res) {
 
     usuarioModel.kpiFuncionariosAtivos().then(function (resultado) {
@@ -123,7 +124,7 @@ function kpiFuncionariosInativos(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 
-}
+}*/
 
 
 function getIdUser(req, res) {
@@ -257,13 +258,35 @@ function cadastrarMaquina(req, res) {
     }
 }
 
-function buscarUltimosStatus(req, res) {
+var idEmpresa = "";
 
-    var idEmpresa = req.params.idEmpresa;
+function obterNumeroFuncionarios(req, res) {
+
+    idEmpresa = req.params.idEmpresa;
 
     console.log(`Recuperando as ultimos status`);
 
-    usuarioModel.buscarUltimosStatus(idEmpresa).then(function (resultado) {
+    usuarioModel.obterNumeroFuncionarios(idEmpresa).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os ultimos status.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+     });
+ }
+
+
+function buscarStatusEmTempoReal(req, res) {
+
+    var numeroFuncionarios = req.params.numeroFuncionarios;
+
+    console.log(`Recuperando status em tempo real`);
+
+    usuarioModel.buscarStatusEmTempoReal(idEmpresa, numeroFuncionarios).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -274,16 +297,15 @@ function buscarUltimosStatus(req, res) {
         console.log("Houve um erro ao buscar os ultimos status.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
-}
+};
 
-
-function buscarStatusEmTempoReal(req, res) {
-
-    var idEmpresa = req.params.idEmpresa;
-
+function obterDadosGrafico(req, res) {
+    
     console.log(`Recuperando status em tempo real`);
 
-    usuarioModel.buscarStatusEmTempoReal(idEmpresa).then(function (resultado) {
+    var idMaquina = req.params.idMaquina;
+    
+    usuarioModel.obterDadosGrafico(idEmpresa, idMaquina).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -385,14 +407,15 @@ module.exports = {
     exibirCodigo,
     cadastrarEmpresa,
     cadastrarMaquina,
-    kpiFuncionariosAtivos,
-    kpiFuncionariosAusentes,
-    kpiFuncionariosInativos,
+    // kpiFuncionariosAtivos,
+    // kpiFuncionariosAusentes,
+    // kpiFuncionariosInativos,
     getIdUser,
     listar,
     testar,
+    obterNumeroFuncionarios,
     buscarStatusEmTempoReal,
-    buscarUltimosStatus,
+    obterDadosGrafico,
     getListaMaquinas,
     deletarMaquinas,
     getInfoMaquina,
