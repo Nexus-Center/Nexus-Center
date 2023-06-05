@@ -1,6 +1,6 @@
 let maquinas;
 const fkEmpresaServer = sessionStorage.getItem("FKEMPRESA_USUARIO")
-let cor = "cinza"
+let cor = "verd"
 
 function getMaquinas() {
   

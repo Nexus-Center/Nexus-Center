@@ -181,7 +181,7 @@
                         <h1> USB Conectado:</h1>
 
                         <div class="dispositivos" id="dispo">
-                            <h2> Mouse Logitech G703 LIGHTSPEED RGB LIGHTSYNC</h2>
+                            <h2> </h2>
                             <div class="line"></div>
                         </div>
 
@@ -261,11 +261,14 @@ function atualizarStatus(){
     if(maquinaUso.cpuUso.slice(-1) < 70){
     circleElement.style.backgroundColor = '#27ff35';
     statusTexto.innerHTML = '<span style="color: #27ff35;"> Ideal</span>';
+    circleElement.classList.remove('vermP');
     }else if(maquinaUso.cpuUso.slice(-1) > 70 && maquinaUso.cpuUso.slice(-1) < 90){
-    circleElement.style.backgroundColor = '#ece800';
+    circleElement.style.backgroundColor = '#f2aa00';
     statusTexto.innerHTML = '<span style="color: #f2aa00;"> Atenção </span>';
+    circleElement.classList.remove('vermP');
     }else{
     document.head.appendChild(style);
+    circleElement.style.backgroundColor = '#d41818';
     circleElement.classList.add('vermP');
     statusTexto.innerHTML = '<span style="color: #d41818;"> Alerta </span>';
     }
@@ -273,9 +276,11 @@ function atualizarStatus(){
     if(maquinaUso.memUso.slice(-1) < 70){
     circleElement2.style.backgroundColor = '#27ff35';
     statusTexto2.innerHTML = '<span style="color: #27ff35;"> Ideal </span>';
+    circleElement3.classList.remove('vermP');
     }else if(maquinaUso.memUso.slice(-1) > 70 && maquinaUso.memUso.slice(-1) < 90){
-    circleElement2.style.backgroundColor = '#4ff35d';
+    circleElement2.style.backgroundColor = '#f2aa00';
     statusTexto2.innerHTML = '<span style="color: #f2aa00;"> Atenção </span>';
+    circleElement3.classList.remove('vermP');
     }else{
     document.head.appendChild(style);
     circleElement2.classList.add('vermP');
@@ -285,16 +290,18 @@ function atualizarStatus(){
     if(maquinaUso.hdUso.slice(-1) < 70){
     circleElement3.style.backgroundColor = '#27ff35';
     statusTexto3.innerHTML = '<span style="color: #27ff35;"> Ideal </span>';
+    circleElement3.classList.remove('vermP');
     }else if(maquinaUso.hdUso.slice(-1) > 70 && maquinaUso.hdUso.slice(-1) < 90){
-    circleElement3.style.backgroundColor = '#4ff35d';
+    circleElement3.style.backgroundColor = '#f2aa00';
     statusTexto3.innerHTML = '<span style="color: #f2aa00;"> Atenção </span>';
+    circleElement3.classList.remove('vermP');
     }else{
     document.head.appendChild(style);
+    circleElement.style.backgroundColor = '#d41818';
     circleElement3.classList.add('vermP');
     statusTexto3.innerHTML = '<span style="color: #d41818;"> Alerta </span>';
     }
 
-   
 }
 
 
@@ -314,7 +321,7 @@ atualizarInfoGrafico();
 setInterval(() => {
     getPorcentagemUso();
     atualizarInfoGrafico(); 
-}, 3000)
+}, 5000)
  
 
 
