@@ -93,25 +93,6 @@ function publicar(req, res) {
     }
 }
 
-function editar(req, res) {
-    var novaSenha = req.body.novaSenha;
-    var idUser = req.params.idUser;
-
-    avisoModel.editar(novaSenha, idUser)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        )
-        .catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao redefinir a senha ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-
-}
 
 function deletar(req, res) {
     var idAviso = req.params.idAviso;
@@ -137,6 +118,5 @@ module.exports = {
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
-    editar,
     deletar
 }

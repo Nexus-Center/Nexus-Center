@@ -70,15 +70,15 @@ function kpiFuncionariosInativos() {
   return database.executar(instrucao);
 } */
 
-function getIdUser(email) {
+function redefinirSenha(email, senha) {
   console.log(
-    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getIdUser(): ",
+    "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function redefinirSenha(): ",
     email
   );
   var instrucao = `
-        SELECT idUser FROM usuario WHERE email = '${email}';
+     UPDATE usuario SET senha = '${senha}' WHERE email = '${email}';
     `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
+  console.log('Executando a instrução SQL: \n' + instrucao);
   return database.executar(instrucao);
 }
 
@@ -151,7 +151,7 @@ function obterNumeroFuncionarios(idEmpresa) {
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
-} 
+}
 
 function buscarStatusEmTempoReal(idEmpresa, numeroFuncionarios) {
   isnstrucaoSql = "";
@@ -180,15 +180,15 @@ function obterDadosGrafico(idEmpresa, idMaquina) {
   instrucaoSql = ''
 
   if (process.env.AMBIENTE_PROCESSO == "producao") {
-      instrucaoSql = `SELECT TOP 720 idMetricaMouse ,nomeDoUsuario as nomeUsuario, Metrica.statusMouse FROM MetricaMouse AS Metrica
+    instrucaoSql = `SELECT TOP 720 idMetricaMouse ,nomeDoUsuario as nomeUsuario, Metrica.statusMouse FROM MetricaMouse AS Metrica
       JOIN Maquina ON idMaquina = Metrica.fkMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} AND idMaquina = ${idMaquina} ORDER BY idMetricaMouse DESC;`
 
   } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-      instrucaoSql = `SELECT idMetricaMouse ,nomeDoUsuario as nomeUsuario, Metrica.statusMouse FROM MetricaMouse AS Metrica
+    instrucaoSql = `SELECT idMetricaMouse ,nomeDoUsuario as nomeUsuario, Metrica.statusMouse FROM MetricaMouse AS Metrica
           JOIN Maquina ON idMaquina = Metrica.fkMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} AND idMaquina = ${idMaquina} ORDER BY idMetricaMouse DESC LIMIT 720;`
   } else {
-      console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-      return
+    console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+    return
   }
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -213,16 +213,16 @@ function deletarMaquinas(idMaquina) {
   );
 
   // Para apagar da azure
-   var instrucao = `EXEC deletarMaquina @p_idMaquina = ${idMaquina}`;
+  var instrucao = `EXEC deletarMaquina @p_idMaquina = ${idMaquina}`;
 
-// Para deletar do mysql:
- // var instrucao = ` call deletarMaquina(${idMaquina})`;
+  // Para deletar do mysql:
+  // var instrucao = ` call deletarMaquina(${idMaquina})`;
 
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
 }
 
-function getInfoMaquina(fkMaquina){
+function getInfoMaquina(fkMaquina) {
   console.log(
     "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function infoMaquinas():"
   );
@@ -233,7 +233,7 @@ function getInfoMaquina(fkMaquina){
 }
 
 // Gráficos
-function getPorcentagemUso(fkMaquina){
+function getPorcentagemUso(fkMaquina) {
   console.log(
     "ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function porcentagemUso():"
   );
@@ -253,7 +253,7 @@ module.exports = {
   // kpiFuncionariosAtivos,
   // kpiFuncionariosAusentes,
   // kpiFuncionariosInativos,
-  getIdUser,
+  redefinirSenha,
   listar,
   obterNumeroFuncionarios,
   buscarStatusEmTempoReal,

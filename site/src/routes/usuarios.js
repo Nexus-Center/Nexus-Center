@@ -47,9 +47,9 @@ router.get("/kpiFuncionariosInativos", function (req, res) {
     usuarioController.kpiFuncionariosInativos(req, res);
 }); */
 
-router.get("/getIdUser/:email", function (req, res) {
-    usuarioController.getIdUser(req, res);
-});
+router.put("/redefinirSenha", function (req, res) {
+    usuarioController.redefinirSenha(req, res);
+})
 
 router.get("/numero-funcionarios/:idEmpresa", function (req, res) {
     usuarioController.obterNumeroFuncionarios(req, res);

@@ -30,12 +30,14 @@ function carregarDadosGraficoBarras(fkEmpresa) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `SELECT 
-            COUNT(*) AS quantidade,
-            statusAlerta,
-            tipoComponente
-            FROM alertaDashboard
-            JOIN componente ON fkComponente = idComponente
-            GROUP BY tipoComponente, statusAlerta;`
+        COUNT(*) AS quantidade,
+        statusAlerta,
+        tipoComponente
+        FROM AlertaDashboard
+        JOIN Componente ON fkComponente = idComponente
+        JOIN ConfiguracaoComponente as c ON c.fkComponente = idComponente
+        where fkEmpresa = ${fkEmpresa}
+        GROUP BY tipoComponente, statusAlerta;`
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql =
@@ -43,8 +45,10 @@ function carregarDadosGraficoBarras(fkEmpresa) {
             COUNT(*) AS quantidade,
             statusAlerta,
             tipoComponente
-            FROM alertaDashboard
-            JOIN componente ON fkComponente = idComponente
+            FROM AlertaDashboard
+            JOIN Componente ON fkComponente = idComponente
+            JOIN ConfiguracaoComponente as c ON c.fkComponente = idComponente
+            where fkEmpresa = ${fkEmpresa}
             GROUP BY tipoComponente, statusAlerta;`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

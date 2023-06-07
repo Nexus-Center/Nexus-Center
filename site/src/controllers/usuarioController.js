@@ -127,21 +127,23 @@ function kpiFuncionariosInativos(req, res) {
 }*/
 
 
-function getIdUser(req, res) {
-    var email = req.body.email
+function redefinirSenha(req, res) {
+  var email = req.body.email;
+    var senha = req.body.senha;
 
-    usuarioModel.getIdUser(email).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-
+    usuarioModel.redefinirSenha(email, senha)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
 function cadastrar(req, res) {
@@ -410,7 +412,7 @@ module.exports = {
     // kpiFuncionariosAtivos,
     // kpiFuncionariosAusentes,
     // kpiFuncionariosInativos,
-    getIdUser,
+    redefinirSenha,
     listar,
     testar,
     obterNumeroFuncionarios,

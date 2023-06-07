@@ -88,8 +88,8 @@
         <div class="container-centralizar">
             <div class="texto-esqueceu-senha">
                 <h1>Esqueceu sua senha?</h1>
+
                 <div class="descricao-esqueceu-senha">
-                    <h2>Não se preocupe, nossa equipe de suporte <br> entrará em contato com você!</h2>
                     <div class="formulario">
                     </div>
 
@@ -120,12 +120,40 @@
 
                         </div>
 
+                        <span class="tipo_campo">Senha</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastro/cadeado_icon.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="senha_input" type="text" placeholder="Ex: 123">
+
+                        </div>
+
+                        <span class="tipo_campo">Confirmar senha</span>
+                        <div class="container-icon">
+                            <div class="icon">
+                                <i><img src="./assets/cadastro/cadeado_icon.png" width="20px" height="20px"></i>
+
+                                <div class="seta"></div>
+                            </div>
+                            <input id="confirmarSenha_input" type="text" placeholder="Ex: 123">
+
+                        </div>
+
 
                     </div>
 
+                    <div class="alerta_erro">
+                        <div class="card_erro" id="cardErro"> <span id="mensagem_erro"></span> </div>
+                    </div>
+
+                    <div id="div_erros_login"></div>
+
                     <div class="botoes">
                         <a href="./login.html"><button class="button-cadastro">Voltar ao login</button></a>
-                        <a href="./redefinirSenha.html"><button onclick="getIdUser()" class="button-login">Redefinir senha</button></a>
+                        <button onclick="redefinirSenha()" class="button-login">Redefinir senha</button>
 
                     </div>
 
@@ -149,23 +177,30 @@
 
     });
 
-    
-    function getIdUser() {
-        var emailVar = email_input.value
+    function redefinirSenha() {
+        fetch("/usuarios/redefinirSenha", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email_input.value,
+                senha: senha_input.value,
+            })
+        }).then(function (resposta) {
 
-        fetch(`/usuarios/getIdUser/${emailVar}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log("A resposta é :" + resposta[0]);
-                    sessionStorage.EMAIL_USUARIO = resposta[0].email
-
-                });
+            if (resposta.ok) {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Senha alterada com sucesso!";
+                window.location = "login.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
             } else {
-                console.error('Nenhum usuário encontrado ou erro na API');
+                throw ("Houve um erro ao tentar realizar a mudança da senha! Código da resposta: " + resposta.status);
             }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados: ${error.message}`);
-            });
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
     }
+
 </script>
