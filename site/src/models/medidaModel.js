@@ -36,7 +36,6 @@ function carregarDadosGraficoBarras(fkEmpresa) {
         FROM AlertaDashboard
         JOIN Componente ON fkComponente = idComponente
         JOIN ConfiguracaoComponente as c ON c.fkComponente = idComponente
-        where fkEmpresa = ${fkEmpresa}
         GROUP BY tipoComponente, statusAlerta;`
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
@@ -48,7 +47,6 @@ function carregarDadosGraficoBarras(fkEmpresa) {
             FROM AlertaDashboard
             JOIN Componente ON fkComponente = idComponente
             JOIN ConfiguracaoComponente as c ON c.fkComponente = idComponente
-            where fkEmpresa = ${fkEmpresa}
             GROUP BY tipoComponente, statusAlerta;`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
