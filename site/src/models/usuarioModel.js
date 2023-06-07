@@ -166,6 +166,7 @@ function obterDados(empresa) {
   return database.executar(instrucao);
 }
 
+/*
 function obterDadosGrafico(idEmpresa, idMaquina) {
   // const idEmpresa = sessionStorage.getItem('FKEMPRESA_USUARIO')
 
@@ -186,6 +187,7 @@ function obterDadosGrafico(idEmpresa, idMaquina) {
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
+*/
 
 // Puxando informações da máquina
 function getListaMaquinas(fkEmpresa) {
@@ -249,7 +251,7 @@ module.exports = {
   listar,
   obterNumeroFuncionarios,
   obterDados,
-  obterDadosGrafico,
+  // obterDadosGrafico,
   getListaMaquinas,
   deletarMaquinas,
   getInfoMaquina,
