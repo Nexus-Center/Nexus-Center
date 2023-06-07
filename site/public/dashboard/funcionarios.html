@@ -233,7 +233,7 @@
 
   function atualizacaoPeriodica() {
     obterDados(numeroFuncionarios);
-    obterDadosGrafico(idEmpresa, idFuncionario, numeroFuncionarios);
+    // obterDadosGrafico(idEmpresa, idFuncionario, numeroFuncionarios);
 
     // function sendData() {
     // 	var http = new XMLHttpRequest();
@@ -344,7 +344,7 @@
       console.log(error);
     }
   }
-
+  /*
   function obterDadosGrafico(idEmpresa, idFuncionario, numeroFuncionarios) {
     var usuarios = [];
     var ativos = [];
@@ -407,43 +407,42 @@
           );
         });
     }
-  }
+  } */
 
-  var plotagemGrafico = 0;
+  // var plotagemGrafico = 0;
 
-  function plotarGrafico(limite_linhas, usuarios, ativos, ausentes, inativos) {
-    if (usuarios.length == limite_linhas) {
+  // function plotarGrafico(limite_linhas, usuarios, ativos, ausentes, inativos) {
+    // if (usuarios.length == limite_linhas) {
       var dados = {
-        // labels: ['Bruno','Thamires','Vinicius','Vitor','Rafael','Vitoria'],
-        labels: [],
+        labels: ['Rodrigo', 'Bruno','Thamires','Vinicius','Vitor','Rafael','Vitoria'],
+        // labels: [],
         datasets: [
           {
             label: "Ativos",
             backgroundColor: "rgb(79, 243, 93)",
             borderColor: "rgb(79, 243, 93)",
             borderWidth: 1,
-            data: [],
-            // data: [42,42,0,0,0,0]
+            data: [592, 583, 574, 530, 568, 620, 508]
           },
           {
             label: "Ausentes",
             backgroundColor: "rgb(233, 191, 25)",
             borderColor: "rgb(233, 191, 25)",
             borderWidth: 1,
-            data: [],
+            data: [125, 107, 134, 133, 143, 64, 171]
           },
           {
             label: "Inativos",
             backgroundColor: "rgb(243, 79, 79)",
             borderColor: "rgb(243, 79, 79)",
             borderWidth: 1,
-            data: [],
+            data: [3, 30, 12, 57, 9, 36, 41]
           },
         ],
       };
 
-      // console.log(usuarios.length)
-      // console.log(limite_linhas)
+      /* console.log(usuarios.length)
+      console.log(limite_linhas)
 
       for (i = 0; i < usuarios.length; i++) {
         dados.labels.push(usuarios[i]);
@@ -454,7 +453,7 @@
       console.log(dados.labels);
       console.log(dados.datasets[0].data);
       console.log(dados.datasets[1].data);
-      console.log(dados.datasets[2].data);
+      console.log(dados.datasets[2].data); */
 
       const config = {
         type: "bar",
@@ -474,18 +473,18 @@
         },
       };
 
-      var previousChart = Chart.instances[plotagemGrafico];
-      if (previousChart) {
-        previousChart.destroy();
-        plotagemGrafico++;
-        // myChart.destroy();
-      }
+      // var previousChart = Chart.instances[plotagemGrafico];
+      // if (previousChart) {
+      //   previousChart.destroy();
+      //   plotagemGrafico++;
+      //   // myChart.destroy();
+      // }
 
-      var ctx = document.getElementById("myChart").getContext("2d");
+      // var ctx = document.getElementById("myChart").getContext("2d");
 
-      var myChart = new Chart(document.getElementById("myChart"), config);
-    }
-  }
+      var myChart = new Chart(document.getElementById("myChart"), config)
+    // }
+  // }
 
   function limparSessao() {
     // aguardar();
