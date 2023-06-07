@@ -299,6 +299,7 @@ function buscarStatusEmTempoReal(req, res) {
     });
 };
 
+/*
 function obterDadosGrafico(req, res) {
     
     console.log(`Recuperando status em tempo real`);
@@ -317,6 +318,7 @@ function obterDadosGrafico(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+*/
 
 function getListaMaquinas(req, res) {
     const fkEmpresa = req.params.fkEmpresa;
@@ -395,7 +397,7 @@ module.exports = {
     testar,
     obterNumeroFuncionarios,
     buscarStatusEmTempoReal,
-    obterDadosGrafico,
+    // obterDadosGrafico,
     getListaMaquinas,
     deletarMaquinas,
     getInfoMaquina,

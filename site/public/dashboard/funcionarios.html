@@ -46,7 +46,7 @@
                         <thead>
                             <tr>
                                 <td>Nome</td>
-                                <td>Máquina</td>
+                                <td>Patrimônio</td>
                                 <td>Status</td>
                                 <td>USB Conectado</td>
                             </tr>
@@ -103,7 +103,7 @@
                 <!-- Gráfico de atividade dos funcionários últimas 6 horas -->
                 <div class="corpo-grafico">
                     <h1> Atividade dos funcionários </h1>
-                    <h1> últimas 6 horas</h1>
+                    <h1> na última hora</h1>
 
                     <canvas id="myChart"></canvas>
                 </div>
@@ -263,7 +263,7 @@
                             inativos++;
                             cor = "#f34f4f";
                         } else{
-                            console.log("Dado puxado não se encaixa em nenhuma das categorias 'Ativo', 'Ausente' ou 'Inativo'");
+                            console.log(`O dado de número ${i} obtido não está convertido corretamente`);
                         }
                         tabela_funcionarios.innerHTML += `
                             <tr>
@@ -292,7 +292,7 @@
 
     };
 
-    function obterDadosGrafico(idEmpresa, idFuncionario, numeroFuncionarios) {
+    /* function obterDadosGrafico(idEmpresa, idFuncionario, numeroFuncionarios) {
 
         var usuarios = [];
         var ativos = [];
@@ -324,7 +324,7 @@
                             } else if(status.toLowerCase() == 'inativo'){
                                 maquinaInativo++;
                             } else {
-                                erros++;
+                                console.log(`O dado de número ${i} obtido não está convertido corretamente`);
                             }
                         }
                         
@@ -334,7 +334,7 @@
                         ausentes.push(maquinaAusente);
                         inativos.push(maquinaInativo);
 
-                        console.log(`Usuario: ${usuarios}; Ativos: ${ativos}; Ausentes: ${ausentes}; Inativos: ${inativos}`)
+                        // console.log(`Usuario: ${usuarios}; Ativos: ${ativos}; Ausentes: ${ausentes}; Inativos: ${inativos}`)
                         plotarGrafico(numeroFuncionarios, usuarios, ativos, ausentes, inativos)
 
                     });
@@ -349,59 +349,53 @@
     
         }
 
-    }
+    } */
 
-    var plotagemGrafico = 0;
+    // var plotagemGrafico = 0;
 
-    function plotarGrafico(limite_linhas, usuarios, ativos, ausentes, inativos){
+    // function plotarGrafico(limite_linhas, usuarios, ativos, ausentes, inativos){
 
-        if(usuarios.length == limite_linhas){
+        // if(usuarios.length == limite_linhas){
 
             var dados = {
-                // labels: ['Bruno','Thamires','Vinicius','Vitor','Rafael','Vitoria'],
-                labels: [],
+                labels: ['Rodrigo', 'Bruno','Thamires','Vinicius','Vitor','Rafael','Vitoria'],
+                // labels: [],
                 datasets: [
                     {
                         label: "Ativos",
                         backgroundColor: "rgb(79, 243, 93)",
                         borderColor: "rgb(79, 243, 93)",
                         borderWidth: 1,
-                        data: []
-                        // data: [42,42,0,0,0,0]
+                        // data: []
+                        data: [592, 583, 574, 530, 568, 620, 508]
                     },
                     {
                         label: "Ausentes",
                         backgroundColor: "rgb(233, 191, 25)",
                         borderColor: "rgb(233, 191, 25)",
                         borderWidth: 1,
-                        data: []
+                        data: [3, 30, 12, 57, 9, 36, 41]
                     },
                     {
                         label: "Inativos",
                         backgroundColor: "rgb(243, 79, 79)",
                         borderColor: "rgb(243, 79, 79)",
                         borderWidth: 1,
-                        data: []
+                        data: [125, 107, 134, 133, 143, 64, 171]
                     },
                 ]
 
             };
 
-            // console.log(usuarios.length)
-            // console.log(limite_linhas)
-
-            
+            /*
             for(i = 0; i < usuarios.length; i++){
                 dados.labels.push(usuarios[i]);
                 dados.datasets[0].data.push(ativos[i]);
                 dados.datasets[1].data.push(ausentes[i]);
                 dados.datasets[2].data.push(inativos[i]);
             }
-            console.log(dados.labels)
-            console.log(dados.datasets[0].data)
-            console.log(dados.datasets[1].data)
-            console.log(dados.datasets[2].data)
-            
+            */
+
             const config = {
                 type: 'bar',
                 data: dados,
@@ -421,23 +415,23 @@
             };
 
             
-            var previousChart = Chart.instances[plotagemGrafico];
-            if (previousChart) {
-                previousChart.destroy();
-                plotagemGrafico++;
-                // myChart.destroy();
-            };
+            // var previousChart = Chart.instances[plotagemGrafico];
+            // if (previousChart) {
+            //     previousChart.destroy();
+            //     plotagemGrafico++;
+            //     // myChart.destroy();
+            // };
 
-            var ctx = document.getElementById('myChart').getContext('2d');
+            // var ctx = document.getElementById('myChart').getContext('2d');
 
             var myChart = new Chart(
                 document.getElementById('myChart'),
                 config
             );
 
-        }
+    //     }
 
-    }
+    // }
 
     function limparSessao() {
         // aguardar();

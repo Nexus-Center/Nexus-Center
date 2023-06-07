@@ -59,9 +59,10 @@ router.get("/obter-dados/:numeroFuncionarios", function (req, res) {
     usuarioController.buscarStatusEmTempoReal(req, res);
 });
 
+/*
 router.get("/obterDadosGrafico/:idMaquina", function (req, res) {
     usuarioController.obterDadosGrafico(req, res);
-});
+}); */
 
 // listar maquinas
 router.get("/getListaMaquinas/:fkEmpresa", function (req, res){
