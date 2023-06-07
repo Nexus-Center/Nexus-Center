@@ -153,25 +153,17 @@ function obterNumeroFuncionarios(idEmpresa) {
   return database.executar(instrucaoSql);
 }
 
-function buscarStatusEmTempoReal(idEmpresa, numeroFuncionarios) {
-  isnstrucaoSql = "";
-
-  if (process.env.AMBIENTE_PROCESSO == "producao") {
-    instrucaoSql = `SELECT TOP ${numeroFuncionarios} idMetricaMouse, idMaquina, nomeDoUsuario as nomeUsuario, patrimonio, Metrica.statusMouse FROM MetricaMouse AS 
-    Metrica JOIN Maquina ON Metrica.fkMaquina = idMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} ORDER BY idMetricaMouse DESC;`;
-
-  } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-    instrucaoSql = `SELECT idMetricaMouse, nomeDoUsuario as nomeUsuario, patrimonio, Metrica.statusMouse FROM MetricaMouse AS 
-    Metrica JOIN Maquina ON Metrica.fkMaquina = idMaquina WHERE Metrica.fkEmpresa = ${idEmpresa} ORDER BY idMetricaMouse DESC LIMIT ${numeroFuncionarios};`;
-  } else {
-    console.log(
-      "\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n"
-    );
-    return;
-  }
-
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  return database.executar(instrucaoSql);
+function obterDados(empresa) {
+  var instrucao = `SELECT idMaquina, nomeDoUsuario, patrimonio, statusMouse
+  FROM (
+    SELECT idMaquina, nomeDoUsuario, patrimonio, statusMouse,
+           ROW_NUMBER() OVER (PARTITION BY idMaquina ORDER BY dataHora DESC) as rn
+    FROM [dbo].[Maquina]
+    INNER JOIN [dbo].[MetricaMouse] as metrica ON idMaquina = fkMaquina
+    WHERE maquina.fkEmpresa = ${empresa}
+  ) AS subquery
+  WHERE rn = 1`;
+  return database.executar(instrucao);
 }
 
 function obterDadosGrafico(idEmpresa, idMaquina) {
@@ -256,7 +248,7 @@ module.exports = {
   redefinirSenha,
   listar,
   obterNumeroFuncionarios,
-  buscarStatusEmTempoReal,
+  obterDados,
   obterDadosGrafico,
   getListaMaquinas,
   deletarMaquinas,

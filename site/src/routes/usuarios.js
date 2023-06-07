@@ -55,8 +55,8 @@ router.get("/numero-funcionarios/:idEmpresa", function (req, res) {
     usuarioController.obterNumeroFuncionarios(req, res);
 });
 
-router.get("/obter-dados/:numeroFuncionarios", function (req, res) {
-    usuarioController.buscarStatusEmTempoReal(req, res);
+router.get("/obterDados/:fkEmpresa", function (req, res) {
+    usuarioController.obterDados(req, res);
 });
 
 router.get("/obterDadosGrafico/:idMaquina", function (req, res) {

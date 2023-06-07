@@ -280,15 +280,13 @@ function obterNumeroFuncionarios(req, res) {
         res.status(500).json(erro.sqlMessage);
      });
  }
+ function obterDados(req, res) {
 
-
-function buscarStatusEmTempoReal(req, res) {
-
-    var numeroFuncionarios = req.params.numeroFuncionarios;
+    var empresa = req.params.fkEmpresa;
 
     console.log(`Recuperando status em tempo real`);
 
-    usuarioModel.buscarStatusEmTempoReal(idEmpresa, numeroFuncionarios).then(function (resultado) {
+    usuarioModel.obterDados(empresa).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -416,7 +414,7 @@ module.exports = {
     listar,
     testar,
     obterNumeroFuncionarios,
-    buscarStatusEmTempoReal,
+    obterDados,
     obterDadosGrafico,
     getListaMaquinas,
     deletarMaquinas,
