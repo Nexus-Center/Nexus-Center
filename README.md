@@ -1,6 +1,6 @@
 # Nexus Center
 
-Nexus Center é um projeto que está sendo desenvolvido durante o 2º semestre do curso de Análise e Desenvolvimento de Sistemas da faculdade São Paulo Tech School. 
+Nexus Center é um projeto que foi desenvolvido durante o 2º semestre do curso de Análise e Desenvolvimento de Sistemas da faculdade São Paulo Tech School. 
 
 # Tecnologias utilizadas
 
